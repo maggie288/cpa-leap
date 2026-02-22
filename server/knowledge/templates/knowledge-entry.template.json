@@ -1,0 +1,18 @@
+{
+  "id": "tax-vat-003",
+  "subject": "tax",
+  "chapter": "增值税",
+  "syllabusCode": "TAX-VAT-003",
+  "examYear": "2026",
+  "topic": "一般计税与简易计税选择",
+  "keywords": ["一般计税", "简易计税", "征收率", "适用情形"],
+  "concept": "不同业务在一般计税和简易计税下税负和申报口径不同，应按税法规定选择。",
+  "rules": ["一般计税通常按适用税率计算销项税额并抵扣进项税额。", "简易计税通常按征收率计算，应按规定不得抵扣进项税额。"],
+  "pitfalls": ["把简易计税误做进项抵扣", "未按业务类型选择正确计税方法"],
+  "miniCase": "小规模纳税人出租不动产需判断适用征收率并正确申报。",
+  "status": "review",
+  "version": 1,
+  "qualityScore": 0,
+  "reviewedBy": "",
+  "reviewedAt": ""
+}

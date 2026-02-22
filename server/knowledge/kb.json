@@ -1,0 +1,485 @@
+[
+  {
+    "id": "acc-revenue-5step",
+    "subject": "accounting",
+    "chapter": "收入",
+    "syllabusCode": "ACC-REV-001",
+    "examYear": "2026",
+    "topic": "收入确认五步法",
+    "keywords": [
+      "收入确认",
+      "履约义务",
+      "交易价格",
+      "时点法",
+      "期间法"
+    ],
+    "concept": "收入确认遵循识别合同、识别单项履约义务、确定交易价格、分摊交易价格、履约时确认收入五步。",
+    "rules": [
+      "如果控制权在某一时点转移，采用时点法确认。",
+      "如果履约义务在一段时间内履行，采用期间法确认。"
+    ],
+    "pitfalls": [
+      "只看开票不看履约义务",
+      "把收款时点错误当作收入确认时点"
+    ],
+    "miniCase": "软件服务合同包含实施与维护，应判断是否构成单项履约义务并按进度确认。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 92,
+    "reviewedBy": "system-seed",
+    "reviewedAt": "2026-02-22T00:00:00.000Z",
+    "createdAt": "2026-02-22T13:06:17.129Z",
+    "updatedAt": "2026-02-22T13:06:17.129Z"
+  },
+  {
+    "id": "acc-asset-impairment",
+    "subject": "accounting",
+    "chapter": "资产减值",
+    "syllabusCode": "ACC-IMP-002",
+    "examYear": "2026",
+    "topic": "资产减值",
+    "keywords": [
+      "资产减值",
+      "可收回金额",
+      "公允价值",
+      "处置费用",
+      "未来现金流量现值"
+    ],
+    "concept": "当资产账面价值高于可收回金额时，计提减值损失。",
+    "rules": [
+      "可收回金额取公允价值减处置费用净额与预计未来现金流量现值的较高者。",
+      "资产减值损失一般不得转回（特定资产除外）。"
+    ],
+    "pitfalls": [
+      "可收回金额比较方向弄反",
+      "忽略减值迹象就不进行测试"
+    ],
+    "miniCase": "生产线收益下滑，应进行减值测试并比较账面价值与可收回金额。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 91,
+    "reviewedBy": "system-seed",
+    "reviewedAt": "2026-02-22T00:00:00.000Z",
+    "createdAt": "2026-02-22T13:06:17.129Z",
+    "updatedAt": "2026-02-22T13:06:17.129Z"
+  },
+  {
+    "id": "audit-materiality",
+    "subject": "audit",
+    "chapter": "审计计划",
+    "syllabusCode": "AUD-PLN-001",
+    "examYear": "2026",
+    "topic": "重要性水平",
+    "keywords": [
+      "重要性",
+      "执行重要性",
+      "错报",
+      "审计计划"
+    ],
+    "concept": "重要性用于确定错报是否可能影响财务报表使用者决策。",
+    "rules": [
+      "计划重要性用于总体判断。",
+      "执行重要性低于计划重要性，用于降低未更正错报和未发现错报累计超标的风险。"
+    ],
+    "pitfalls": [
+      "把执行重要性设高于计划重要性",
+      "忽略定性重要性因素"
+    ],
+    "miniCase": "利润波动较大时，不能机械套用单一比例确定重要性。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 89,
+    "reviewedBy": "system-seed",
+    "reviewedAt": "2026-02-22T00:00:00.000Z",
+    "createdAt": "2026-02-22T13:06:17.129Z",
+    "updatedAt": "2026-02-22T13:06:17.129Z"
+  },
+  {
+    "id": "audit-evidence",
+    "subject": "audit",
+    "chapter": "审计证据",
+    "syllabusCode": "AUD-EVD-002",
+    "examYear": "2026",
+    "topic": "审计证据充分适当",
+    "keywords": [
+      "审计证据",
+      "充分性",
+      "适当性",
+      "函证",
+      "可靠性"
+    ],
+    "concept": "充分性是数量维度，适当性是质量维度，两者共同决定证据有效性。",
+    "rules": [
+      "外部来源证据通常比内部证据更可靠。",
+      "直接获取证据通常比间接证据更可靠。"
+    ],
+    "pitfalls": [
+      "只看数量不看质量",
+      "未核验回函异常项"
+    ],
+    "miniCase": "应收账款函证回函率低时，需要追加替代程序。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 90,
+    "reviewedBy": "system-seed",
+    "reviewedAt": "2026-02-22T00:00:00.000Z",
+    "createdAt": "2026-02-22T13:06:17.129Z",
+    "updatedAt": "2026-02-22T13:06:17.129Z"
+  },
+  {
+    "id": "fin-npv-irr",
+    "subject": "finance",
+    "chapter": "投资管理",
+    "syllabusCode": "FIN-INV-001",
+    "examYear": "2026",
+    "topic": "投资决策NPV与IRR",
+    "keywords": [
+      "净现值",
+      "内含报酬率",
+      "折现率",
+      "资本成本",
+      "互斥项目"
+    ],
+    "concept": "NPV是以资本成本折现后的净增值，IRR是使NPV为零的折现率。",
+    "rules": [
+      "常规项目下，NPV>0可接受。",
+      "互斥项目优先看NPV而非单独IRR排序。"
+    ],
+    "pitfalls": [
+      "把融资现金流混入项目现金流",
+      "错误以IRR单独决策互斥项目"
+    ],
+    "miniCase": "两个规模差异显著项目冲突时，应以NPV判断股东价值贡献。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 90,
+    "reviewedBy": "system-seed",
+    "reviewedAt": "2026-02-22T00:00:00.000Z",
+    "createdAt": "2026-02-22T13:06:17.129Z",
+    "updatedAt": "2026-02-22T13:06:17.129Z"
+  },
+  {
+    "id": "fin-budget-link",
+    "subject": "finance",
+    "chapter": "全面预算",
+    "syllabusCode": "FIN-BUD-002",
+    "examYear": "2026",
+    "topic": "全面预算联动",
+    "keywords": [
+      "全面预算",
+      "销售预算",
+      "生产预算",
+      "现金预算"
+    ],
+    "concept": "全面预算由经营预算、专门决策预算和财务预算构成并相互勾稽。",
+    "rules": [
+      "销售预算通常是编制起点。",
+      "现金预算衔接经营活动与融资安排。"
+    ],
+    "pitfalls": [
+      "预算顺序颠倒",
+      "忽略期初期末存货政策对生产预算影响"
+    ],
+    "miniCase": "销售增长下，需同步评估生产能力与现金缺口。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 88,
+    "reviewedBy": "system-seed",
+    "reviewedAt": "2026-02-22T00:00:00.000Z",
+    "createdAt": "2026-02-22T13:06:17.129Z",
+    "updatedAt": "2026-02-22T13:06:17.129Z"
+  },
+  {
+    "id": "tax-vat-input-credit",
+    "subject": "tax",
+    "chapter": "增值税",
+    "syllabusCode": "TAX-VAT-001",
+    "examYear": "2026",
+    "topic": "增值税进项税额抵扣",
+    "keywords": [
+      "增值税",
+      "进项税额",
+      "抵扣",
+      "进项转出",
+      "专用发票"
+    ],
+    "concept": "符合规定取得凭证并用于应税项目的进项税额可抵扣。",
+    "rules": [
+      "用于免税、集体福利、个人消费等项目的进项税额不得抵扣。",
+      "用途改变时应做进项税额转出。"
+    ],
+    "pitfalls": [
+      "凭证合规性审查不足",
+      "用途变化未及时转出"
+    ],
+    "miniCase": "原用于应税销售的材料改用于职工福利，应进行进项转出。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 94,
+    "reviewedBy": "system-seed",
+    "reviewedAt": "2026-02-22T00:00:00.000Z",
+    "createdAt": "2026-02-22T13:06:17.129Z",
+    "updatedAt": "2026-02-22T13:06:17.129Z"
+  },
+  {
+    "id": "tax-cit-adjustment",
+    "subject": "tax",
+    "chapter": "企业所得税",
+    "syllabusCode": "TAX-CIT-002",
+    "examYear": "2026",
+    "topic": "企业所得税纳税调整",
+    "keywords": [
+      "企业所得税",
+      "纳税调整",
+      "税会差异",
+      "税前扣除"
+    ],
+    "concept": "以会计利润为基础，按税法规定进行加减调整得出应纳税所得额。",
+    "rules": [
+      "不符合税法扣除条件的支出应调增。",
+      "符合优惠政策项目可按规定调减。"
+    ],
+    "pitfalls": [
+      "把会计确认直接等同税法处理",
+      "遗漏永久性差异"
+    ],
+    "miniCase": "业务招待费需按税法限额扣除并做纳税调整。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 93,
+    "reviewedBy": "system-seed",
+    "reviewedAt": "2026-02-22T00:00:00.000Z",
+    "createdAt": "2026-02-22T13:06:17.129Z",
+    "updatedAt": "2026-02-22T13:06:17.129Z"
+  },
+  {
+    "id": "law-contract-effect",
+    "subject": "law",
+    "chapter": "合同法律制度",
+    "syllabusCode": "LAW-CON-001",
+    "examYear": "2026",
+    "topic": "合同效力",
+    "keywords": [
+      "合同效力",
+      "无效合同",
+      "可撤销合同",
+      "效力待定"
+    ],
+    "concept": "合同成立不当然等于生效，需结合主体资格、意思表示和法律强制性规定判断。",
+    "rules": [
+      "违反法律行政法规强制性规定可能导致无效。",
+      "重大误解、显失公平等情形可撤销。"
+    ],
+    "pitfalls": [
+      "混淆合同成立与合同生效",
+      "忽略撤销权除斥期间"
+    ],
+    "miniCase": "受欺诈签订合同，可在法定期限内主张撤销。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 89,
+    "reviewedBy": "system-seed",
+    "reviewedAt": "2026-02-22T00:00:00.000Z",
+    "createdAt": "2026-02-22T13:06:17.129Z",
+    "updatedAt": "2026-02-22T13:06:17.129Z"
+  },
+  {
+    "id": "law-company-governance",
+    "subject": "law",
+    "chapter": "公司法律制度",
+    "syllabusCode": "LAW-COR-002",
+    "examYear": "2026",
+    "topic": "公司治理结构",
+    "keywords": [
+      "公司治理",
+      "股东会",
+      "董事会",
+      "监事会",
+      "决议"
+    ],
+    "concept": "公司治理强调权责分配与制衡机制，重大事项应按法定程序决策。",
+    "rules": [
+      "公司章程是治理运行的重要依据。",
+      "特定事项需达到法定表决比例。"
+    ],
+    "pitfalls": [
+      "程序瑕疵导致决议效力风险",
+      "权限边界不清引发责任争议"
+    ],
+    "miniCase": "增资事项需履行股东会决议及工商变更流程。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 88,
+    "reviewedBy": "system-seed",
+    "reviewedAt": "2026-02-22T00:00:00.000Z",
+    "createdAt": "2026-02-22T13:06:17.129Z",
+    "updatedAt": "2026-02-22T13:06:17.129Z"
+  },
+  {
+    "id": "str-five-forces",
+    "subject": "strategy",
+    "chapter": "战略分析",
+    "syllabusCode": "STR-ANA-001",
+    "examYear": "2026",
+    "topic": "五力模型",
+    "keywords": [
+      "五力模型",
+      "行业竞争",
+      "替代品",
+      "进入壁垒",
+      "供应商议价"
+    ],
+    "concept": "行业吸引力由现有竞争者、潜在进入者、替代品、供应商与买方力量共同决定。",
+    "rules": [
+      "分析五力时应结合行业生命周期。",
+      "战略选择应匹配五力结构变化趋势。"
+    ],
+    "pitfalls": [
+      "只看竞争者数量不看竞争强度",
+      "忽略替代品对利润的长期侵蚀"
+    ],
+    "miniCase": "平台型行业需同时评估供需两侧议价能力。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 87,
+    "reviewedBy": "system-seed",
+    "reviewedAt": "2026-02-22T00:00:00.000Z",
+    "createdAt": "2026-02-22T13:06:17.129Z",
+    "updatedAt": "2026-02-22T13:06:17.129Z"
+  },
+  {
+    "id": "str-bsc",
+    "subject": "strategy",
+    "chapter": "战略控制",
+    "syllabusCode": "STR-CTL-002",
+    "examYear": "2026",
+    "topic": "平衡计分卡",
+    "keywords": [
+      "平衡计分卡",
+      "财务维度",
+      "客户维度",
+      "流程维度",
+      "学习成长维度"
+    ],
+    "concept": "平衡计分卡把战略目标分解到四个维度形成执行闭环。",
+    "rules": [
+      "指标必须与战略因果链一致。",
+      "评价要兼顾结果指标与过程指标。"
+    ],
+    "pitfalls": [
+      "指标堆砌缺乏因果关系",
+      "只考核结果不跟踪过程"
+    ],
+    "miniCase": "战略转型期应增加流程与学习成长类先行指标。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 86,
+    "reviewedBy": "system-seed",
+    "reviewedAt": "2026-02-22T00:00:00.000Z",
+    "createdAt": "2026-02-22T13:06:17.129Z",
+    "updatedAt": "2026-02-22T13:06:17.129Z"
+  },
+  {
+    "id": "tax-low-001",
+    "subject": "tax",
+    "chapter": "低质量测试章节",
+    "syllabusCode": "TAX-AUTO-227501",
+    "examYear": "2026",
+    "topic": "低质量测试",
+    "keywords": [
+      "低质量测试",
+      "低质量测试章节",
+      "一条",
+      "处理低质量测试时应先识别适用前提与业务事实",
+      "再匹配规则结论",
+      "低质量测试的判断需结合题干条件"
+    ],
+    "concept": "低质量测试是CPA考试高频知识点，需结合业务场景判断适用条件、边界和会计/税法处理口径。",
+    "rules": [
+      "一条",
+      "处理低质量测试时应先识别适用前提与业务事实，再匹配规则结论。",
+      "低质量测试的判断需结合题干条件，避免仅凭单一关键词作答。"
+    ],
+    "pitfalls": [
+      "忽略低质量测试的适用条件",
+      "只记结论不分析题干事实"
+    ],
+    "miniCase": "案例：企业发生与低质量测试相关业务时，应先识别交易实质，再根据规则完成会计或税务处理。",
+    "status": "deprecated",
+    "version": 5,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "qa-cleanup",
+    "reviewedAt": "2026-02-22T13:17:38.744Z",
+    "createdAt": "2026-02-22T13:13:05.155Z",
+    "updatedAt": "2026-02-22T13:17:38.744Z"
+  },
+  {
+    "id": "accounting-auto-1771766730546-468ece",
+    "subject": "accounting",
+    "chapter": "履约义务",
+    "syllabusCode": "ACCOUNTING-AUTO-468ece",
+    "examYear": "2026",
+    "topic": "收入确认五步法实战-AI生成知识条目",
+    "keywords": [
+      "收入确认五步法实战",
+      "履约义务",
+      "交易价格",
+      "确认时点"
+    ],
+    "concept": "收入确认五步法实战是CPA核心考点，需先识别履约义务与交易价格的适用边界，再结合业务事实判断最终处理。",
+    "rules": [
+      "处理收入确认五步法实战时，先验证前提条件，再应用规则结论。",
+      "出现多个看似正确选项时，以题干事实与考纲关键词优先匹配。",
+      "针对高频薄弱点（确认时点）优先进行反例辨析。"
+    ],
+    "pitfalls": [
+      "忽略履约义务的适用条件导致误判",
+      "把结论当模板直接套用，未核对题干事实",
+      "审题只看关键词，未识别限制条件"
+    ],
+    "miniCase": "案例：企业发生与收入确认五步法实战相关业务，需识别交易实质、匹配考点规则，并给出会计/税务处理结论。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "ai-reviewer:autopilot-v1",
+    "reviewedAt": "2026-02-22T13:25:30.547Z",
+    "createdAt": "2026-02-22T13:25:30.546Z",
+    "updatedAt": "2026-02-22T13:25:30.547Z"
+  },
+  {
+    "id": "tax-auto-1771767420451-e21f68",
+    "subject": "tax",
+    "chapter": "进项税额",
+    "syllabusCode": "TAX-AUTO-e21f68",
+    "examYear": "2026",
+    "topic": "增值税进项税额抵扣-AI生成知识条目",
+    "keywords": [
+      "增值税进项税额抵扣",
+      "进项税额",
+      "抵扣条件",
+      "进项转出"
+    ],
+    "concept": "增值税进项税额抵扣是CPA核心考点，需先识别进项税额与抵扣条件的适用边界，再结合业务事实判断最终处理。",
+    "rules": [
+      "处理增值税进项税额抵扣时，先验证前提条件，再应用规则结论。",
+      "出现多个看似正确选项时，以题干事实与考纲关键词优先匹配。",
+      "针对高频薄弱点（进项转出）优先进行反例辨析。"
+    ],
+    "pitfalls": [
+      "忽略进项税额的适用条件导致误判",
+      "把结论当模板直接套用，未核对题干事实",
+      "审题只看关键词，未识别限制条件"
+    ],
+    "miniCase": "案例：企业发生与增值税进项税额抵扣相关业务，需识别交易实质、匹配考点规则，并给出会计/税务处理结论。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "ai-reviewer:autopilot-v1",
+    "reviewedAt": "2026-02-22T13:37:00.452Z",
+    "createdAt": "2026-02-22T13:37:00.451Z",
+    "updatedAt": "2026-02-22T13:37:00.452Z"
+  }
+]
