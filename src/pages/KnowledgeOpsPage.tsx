@@ -97,6 +97,7 @@ export function KnowledgeOpsPage() {
   const [materials, setMaterials] = useState<MaterialAsset[]>([])
   const [materialStats, setMaterialStats] = useState<{ total: number; byStatus: Record<string, number> } | null>(null)
   const [uploadFile, setUploadFile] = useState<File | null>(null)
+  const [uploading, setUploading] = useState(false)
   const [uploadSubject, setUploadSubject] = useState('accounting')
   const [uploadChapter, setUploadChapter] = useState('')
   const [uploadYear, setUploadYear] = useState(String(new Date().getFullYear()))
@@ -370,6 +371,7 @@ export function KnowledgeOpsPage() {
       setMessage('请先选择PDF文件')
       return
     }
+    setUploading(true)
     try {
       const res = await materialsApi.upload({
         file: uploadFile,
@@ -383,6 +385,8 @@ export function KnowledgeOpsPage() {
       await load()
     } catch (error) {
       setMessage(error instanceof Error ? error.message : '上传失败')
+    } finally {
+      setUploading(false)
     }
   }
 
@@ -509,6 +513,7 @@ export function KnowledgeOpsPage() {
       <section className="card">
         <h1>教研审核台</h1>
         <p>用于知识条目筛选、自动修复建议、审核状态流转。</p>
+        {message && <p className="tip">{message}</p>}
         {stats && (
           <p>
             总条目 {stats.total} · 状态分布 {JSON.stringify(stats.byStatus)} · 质量分层 {JSON.stringify(stats.qualityBuckets)}
@@ -986,6 +991,7 @@ export function KnowledgeOpsPage() {
             总资料 {materialStats.total} · 状态分布 {JSON.stringify(materialStats.byStatus)}
           </p>
         )}
+        {uploading && <p className="tip">正在上传资料，请稍候…</p>}
         <div className="ops-filters">
           <label>
             科目
@@ -1133,7 +1139,6 @@ export function KnowledgeOpsPage() {
               </div>
             </div>
           )}
-          {message && <p className="tip">{message}</p>}
         </article>
       </section>
     </div>

@@ -1,24 +1,56 @@
 import { validateAndRepairQuestions } from './quality.js'
 import { retrieveKnowledge } from './retrieval.js'
 
-const buildQuestionFromDoc = (doc, index) => {
-  const correct = doc.rules[0] || doc.concept
-  const wrongA = doc.pitfalls[0] || '忽略关键条件判断'
-  const wrongB = doc.pitfalls[1] || '仅按经验处理不看规则'
-  const wrongC = '与知识点无关的处理方式'
+const pick = (arr, fallback = '') => {
+  const safe = Array.isArray(arr) ? arr.filter(Boolean) : []
+  return safe.length ? safe[0] : fallback
+}
 
+const isAiAutoTopic = (topic) => String(topic || '').includes('AI生成知识条目')
+
+const buildQuestionFromDoc = (doc, index) => {
+  const correct = pick(doc.rules, doc.concept)
+  const wrongA = pick(doc.pitfalls, '忽略关键条件判断')
+  const wrongB = (doc.pitfalls || []).find((item) => item && item !== wrongA) || '仅按经验处理不看规则'
+  const wrongC = '与知识点无关的处理方式'
+  const stemPrefix = index % 2 === 0 ? '案例判断' : '条件辨析'
+  const miniCase = String(doc.miniCase || '').trim()
+  const stem = miniCase
+    ? `【${doc.topic}｜${stemPrefix}】${miniCase} 下列处理最恰当的是：`
+    : `【${doc.topic}｜${stemPrefix}】下列说法正确的是：`
+  const sourceHint = doc.policyMeta?.sourceUrl ? `（依据：${doc.policyMeta.publisher || '官方来源'}）` : ''
   return {
     id: `kb-${doc.id}-${index + 1}`,
-    stem: `【${doc.topic}】下列说法正确的是：`,
+    stem,
     options: [wrongA, wrongB, correct, wrongC],
     answerIndex: 2,
-    explanation: `依据知识库规则：${correct}`,
+    explanation: `依据知识库规则：${correct}${sourceHint}`,
     difficulty: Math.min(5, 2 + index),
   }
 }
 
+const dedupeQuestions = (questions) => {
+  const seen = new Set()
+  const out = []
+  for (const q of questions) {
+    const key = `${q.stem}|${q.options.join('|')}`
+    if (seen.has(key)) continue
+    seen.add(key)
+    out.push(q)
+  }
+  return out
+}
+
+const selectDocsForGeneration = (docs, topK = 4) => {
+  const highTrust = docs.filter((doc) => doc.policyMeta?.sourceUrl || Number(doc.sourceTier || 2) <= 2)
+  const nonAuto = highTrust.filter((doc) => !isAiAutoTopic(doc.topic))
+  const fallbackNonAuto = docs.filter((doc) => !isAiAutoTopic(doc.topic))
+  const pool = nonAuto.length ? nonAuto : fallbackNonAuto.length ? fallbackNonAuto : docs
+  return pool.slice(0, topK)
+}
+
 export const generateFromKnowledge = ({ subject, chapterId, knowledgePointId, lessonTitle, objective, examPoints, weakPoints }) => {
-  const docs = retrieveKnowledge({
+  const retrievedDocs = retrieveKnowledge({
     subject,
     chapterId,
     knowledgePointId,
@@ -26,8 +58,9 @@ export const generateFromKnowledge = ({ subject, chapterId, knowledgePointId, le
     objective,
     examPoints,
     weakPoints,
-    topK: 4,
+    topK: 6,
   })
+  const docs = selectDocsForGeneration(retrievedDocs, 4)
 
   const hasDocs = docs.length > 0
 
@@ -56,7 +89,7 @@ export const generateFromKnowledge = ({ subject, chapterId, knowledgePointId, le
       : []),
   ]
 
-  const generatedQuestions = validateAndRepairQuestions(docs.map(buildQuestionFromDoc))
+  const generatedQuestions = validateAndRepairQuestions(dedupeQuestions(docs.map(buildQuestionFromDoc)))
 
   const revisionTips = [
     ...docs.slice(0, 2).map((doc) => `复习${doc.topic}时，重点避免：${doc.pitfalls[0] || '概念混淆'}`),

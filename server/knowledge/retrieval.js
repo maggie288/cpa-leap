@@ -35,6 +35,9 @@ const scoreDoc = (doc, terms, weakTerms, chapterId, knowledgePointId, chapterSig
   for (const keyword of chapterSignals.chapterKeywords || []) {
     if (chapterText.includes(clean(keyword)) || haystack.includes(clean(keyword))) score += 4
   }
+  if (String(doc.topic || '').includes('AI生成知识条目')) score -= 6
+  if (doc.policyMeta?.sourceUrl) score += 4
+  if (Number(doc.sourceTier || 2) === 1) score += 3
   return score
 }
 
