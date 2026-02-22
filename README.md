@@ -18,6 +18,10 @@ CPA Leap 是一个卡通风格、移动端优先的 CPA 学习 Web 应用。
 - 低质量条目自动修复建议与一键应用
 - AI自动教研模式（自动生成、自动审核、自动发布）
 - 模型A/B实验分流与效果归因统计
+- 免费定时任务：自动抓取全球税收政策与财务准则更新并入知识库
+- 政策来源可在后台管理（增删改 URL/格式/科目），并自动抽取发布日期/生效日/适用范围
+- 政策来源健康度监控（成功率、连续失败、最近错误）用于巡检失效站点
+- RBAC 角色权限（student/teacher/admin）与管理员角色管理接口
 
 ## 本地运行
 
@@ -39,11 +43,27 @@ npm run dev
 
 ```bash
 PORT=8787
-JWT_SECRET=replace_with_strong_secret
+JWT_SECRETS=replace_with_strong_secret_v2,replace_with_old_secret_v1
+DEFAULT_TENANT_ID=default
+LOGIN_RATE_LIMIT_WINDOW_MINUTES=15
+LOGIN_RATE_LIMIT_ACCOUNT_IP_MAX=8
+LOGIN_RATE_LIMIT_IP_MAX=30
+LOGIN_RATE_LIMIT_LOCK_MINUTES=15
+SECURITY_ALERT_WEBHOOK=
 SUPABASE_URL=https://xxxx.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 SUPABASE_STATE_TABLE=app_state
 SUPABASE_STATE_ROW_ID=main
+OPENAI_API_KEY=optional_for_real_embeddings
+OPENAI_EMBED_MODEL=text-embedding-3-small
+SUPABASE_VECTOR_TABLE=material_chunks
+SUPABASE_VECTOR_MATCH_RPC=match_material_chunks
+OCR_SPACE_API_KEY=optional_for_scanned_pdf_ocr
+OCR_SPACE_LANGUAGE=chs
+POLICY_SCOUT_ENABLED=true
+POLICY_SCOUT_INTERVAL_MINUTES=360
+POLICY_SCOUT_MAX_ITEMS_PER_SOURCE=8
+POLICY_SCOUT_ALERT_WEBHOOK=
 VITE_API_BASE=http://localhost:8787/api
 VITE_LLM_API_BASE=https://your-llm-gateway.example.com
 VITE_LLM_API_KEY=your_api_key
@@ -64,6 +84,13 @@ npm run kb:import -- --file path/to/knowledge.json --actor your_name
 - `POST /api/llm/generate-cpa-lesson`：触发自动教研流水线并返回课程
 - `GET /api/automation/stats`：查看自动审核通过率等指标
 - `GET/POST /api/automation/settings`：管理自动化参数
+- `POST /api/policy-scout/run`：手动触发政策抓取并入库
+- `GET/POST /api/policy-scout/settings`：管理政策雷达定时任务
+- `GET /api/policy-scout/stats`：查看抓取与入库统计
+- 支持连续失败自动告警（Webhook）
+- `GET /api/users`、`POST /api/users/:id/role`：管理员角色管理
+- `GET /api/audit/logs`：管理员查看关键操作审计日志
+- `GET /api/security/alerts`：管理员查看敏感操作告警
 
 ## 文档
 
@@ -73,3 +100,8 @@ npm run kb:import -- --file path/to/knowledge.json --actor your_name
 - 课程知识库设计：`docs/COURSE_KNOWLEDGE_BASE_DESIGN.md`
 - 知识库运营指南：`docs/KNOWLEDGE_OPS_GUIDE.md`
 - 生产部署指南：`docs/PRODUCTION_DEPLOYMENT.md`
+- 资料上传后台设计：`docs/MATERIAL_INGEST_ADMIN_DESIGN.md`
+- Supabase 向量检索 SQL：`docs/SUPABASE_VECTOR_SETUP.sql`
+- **V2 核心功能设计**（四层引擎 + 自动进化 + 知识更新闭环）：`docs/CORE_FUNCTION_DESIGN_V2.md`
+- **V2 课程体系**（六科章节-知识点-课时-题型蓝图）：`docs/CPA_COURSE_ARCHITECTURE_V2.md`
+- **V2 MVP 实施路线**（分阶段任务与验收指标）：`docs/MVP_IMPLEMENTATION_ROADMAP_V2.md`

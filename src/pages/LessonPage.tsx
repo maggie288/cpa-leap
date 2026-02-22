@@ -12,7 +12,9 @@ export function LessonPage() {
   const [script, setScript] = useState<string[]>([])
   const [questions, setQuestions] = useState<CpaQuestion[]>([])
   const [tips, setTips] = useState<string[]>([])
-  const [sourceRefs, setSourceRefs] = useState<Array<{ id: string; topic: string }>>([])
+  const [sourceRefs, setSourceRefs] = useState<Array<{ id: string; topic: string; sourceUrl?: string; publisher?: string; effectiveAt?: string }>>(
+    [],
+  )
   const [qualityWarnings, setQualityWarnings] = useState<string[]>([])
   const [automationText, setAutomationText] = useState('')
   const [automationRunId, setAutomationRunId] = useState('')
@@ -116,6 +118,14 @@ export function LessonPage() {
               {sourceRefs.map((ref) => (
                 <li key={ref.id}>
                   {ref.topic}（{ref.id}）
+                  {ref.publisher ? ` · ${ref.publisher}` : ''}
+                  {ref.effectiveAt ? ` · 生效：${ref.effectiveAt}` : ''}
+                  {ref.sourceUrl ? (
+                    <>
+                      {' '}
+                      · <a href={ref.sourceUrl} target="_blank" rel="noreferrer">原文</a>
+                    </>
+                  ) : null}
                 </li>
               ))}
             </ul>

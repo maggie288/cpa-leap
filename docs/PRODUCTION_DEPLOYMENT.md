@@ -43,6 +43,11 @@ values ('main', '{}'::jsonb)
 on conflict (id) do nothing;
 ```
 
+### 4) 开启向量检索（推荐）
+
+在 SQL Editor 执行：`docs/SUPABASE_VECTOR_SETUP.sql` 中的脚本内容。  
+这会创建 `material_chunks` 表与 `match_material_chunks` 检索函数。
+
 ## 四、方式A：Docker部署（推荐）
 
 ### 1) 构建镜像
@@ -59,12 +64,24 @@ docker run -d \
   -p 8787:8787 \
   -e NODE_ENV=production \
   -e PORT=8787 \
-  -e JWT_SECRET=replace_with_strong_secret \
+  -e JWT_SECRETS=replace_with_strong_secret_v2,replace_with_old_secret_v1 \
+  -e DEFAULT_TENANT_ID=default \
+  -e LOGIN_RATE_LIMIT_WINDOW_MINUTES=15 \
+  -e LOGIN_RATE_LIMIT_ACCOUNT_IP_MAX=8 \
+  -e LOGIN_RATE_LIMIT_IP_MAX=30 \
+  -e LOGIN_RATE_LIMIT_LOCK_MINUTES=15 \
+  -e SECURITY_ALERT_WEBHOOK= \
   -e CORS_ORIGIN=https://your-domain.com \
   -e SUPABASE_URL=https://xxxx.supabase.co \
   -e SUPABASE_SERVICE_ROLE_KEY=your_service_role_key \
   -e SUPABASE_STATE_TABLE=app_state \
   -e SUPABASE_STATE_ROW_ID=main \
+  -e OPENAI_API_KEY=optional_for_real_embeddings \
+  -e OPENAI_EMBED_MODEL=text-embedding-3-small \
+  -e OCR_SPACE_API_KEY=optional_for_scanned_pdf_ocr \
+  -e OCR_SPACE_LANGUAGE=chs \
+  -e SUPABASE_VECTOR_TABLE=material_chunks \
+  -e SUPABASE_VECTOR_MATCH_RPC=match_material_chunks \
   cpa-leap:prod
 ```
 
@@ -81,9 +98,21 @@ npm ci
 npm run build
 NODE_ENV=production \
 PORT=8787 \
-JWT_SECRET=replace_with_strong_secret \
+JWT_SECRETS=replace_with_strong_secret_v2,replace_with_old_secret_v1 \
+DEFAULT_TENANT_ID=default \
+LOGIN_RATE_LIMIT_WINDOW_MINUTES=15 \
+LOGIN_RATE_LIMIT_ACCOUNT_IP_MAX=8 \
+LOGIN_RATE_LIMIT_IP_MAX=30 \
+LOGIN_RATE_LIMIT_LOCK_MINUTES=15 \
+SECURITY_ALERT_WEBHOOK= \
 SUPABASE_URL=https://xxxx.supabase.co \
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key \
+OPENAI_API_KEY=optional_for_real_embeddings \
+OPENAI_EMBED_MODEL=text-embedding-3-small \
+OCR_SPACE_API_KEY=optional_for_scanned_pdf_ocr \
+OCR_SPACE_LANGUAGE=chs \
+SUPABASE_VECTOR_TABLE=material_chunks \
+SUPABASE_VECTOR_MATCH_RPC=match_material_chunks \
 npm start
 ```
 
@@ -91,7 +120,7 @@ npm start
 
 ## 六、上线前必做
 
-1. 设置强随机 `JWT_SECRET`
+1. 配置并轮换 `JWT_SECRETS`（首位为当前密钥，后续为旧密钥）
 2. 配置 `CORS_ORIGIN` 为真实域名
 3. 配置 Supabase 连接变量（`SUPABASE_URL` / `SUPABASE_SERVICE_ROLE_KEY`）
 4. 接入 HTTPS（Nginx/Cloudflare/平台证书）

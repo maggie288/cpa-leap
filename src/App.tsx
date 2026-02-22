@@ -11,13 +11,14 @@ import { SubscriptionPage } from './pages/SubscriptionPage'
 
 function ShellLayout() {
   const { currentUser } = useAppStore()
+  const canAccessKnowledge = currentUser?.role === 'teacher' || currentUser?.role === 'admin'
 
   return (
     <>
       {currentUser && (
         <nav className="main-nav">
           <Link to="/">学习</Link>
-          <Link to="/knowledge">教研</Link>
+          {canAccessKnowledge && <Link to="/knowledge">教研</Link>}
           <Link to="/subscription">订阅</Link>
           <Link to="/profile">我的</Link>
         </nav>
@@ -43,7 +44,7 @@ function ShellLayout() {
         <Route
           path="/knowledge"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute roles={['teacher', 'admin']}>
               <KnowledgeOpsPage />
             </ProtectedRoute>
           }

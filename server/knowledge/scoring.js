@@ -1,6 +1,11 @@
 const clamp = (num, min, max) => Math.min(max, Math.max(min, num))
 
 const hasEnough = (arr, min) => Array.isArray(arr) && arr.filter(Boolean).length >= min
+const parseTime = (value) => {
+  if (!value) return null
+  const t = new Date(String(value)).getTime()
+  return Number.isFinite(t) ? t : null
+}
 
 export const evaluateKnowledgeQuality = (entry) => {
   let score = 40
@@ -43,9 +48,21 @@ export const evaluateKnowledgeQuality = (entry) => {
   if (entry.examYear) score += 2
   else issues.push('examYear缺失')
 
+  const sourceTier = Number(entry.sourceTier || 2)
+  if ([1, 2, 3].includes(sourceTier)) score += sourceTier === 1 ? 4 : sourceTier === 2 ? 2 : 0
+  else issues.push('sourceTier非法')
+
+  const now = Date.now()
+  const effectiveAt = parseTime(entry.effectiveAt || entry.policyMeta?.effectiveAt)
+  const expiresAt = parseTime(entry.expiresAt)
+  const notYetEffective = effectiveAt && effectiveAt > now
+  const expired = expiresAt && expiresAt <= now
+  if (notYetEffective) issues.push('条目尚未生效')
+  if (expired) issues.push('条目已过期')
+
   return {
     score: clamp(score, 0, 100),
     issues,
-    passForGeneration: score >= 85,
+    passForGeneration: score >= 85 && !notYetEffective && !expired,
   }
 }

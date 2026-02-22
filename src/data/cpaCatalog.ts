@@ -1,4 +1,4 @@
-import type { CourseUnit } from '../types'
+import type { Chapter, CourseUnit, KnowledgePoint } from '../types'
 
 const makeQuestions = (topic: string, examPoints: string[]) => [
   {
@@ -22,6 +22,8 @@ const makeQuestions = (topic: string, examPoints: string[]) => [
 const lesson = (
   id: string,
   subject: CourseUnit['subject'],
+  chapterId: string,
+  knowledgePointId: string,
   title: string,
   objective: string,
   examPoints: string[],
@@ -29,6 +31,8 @@ const lesson = (
 ) => ({
   id,
   subject,
+  chapterId,
+  knowledgePointId,
   title,
   objective,
   examPoints,
@@ -103,6 +107,8 @@ export const CPA_UNITS: CourseUnit[] = (Object.keys(UNIT_BLUEPRINT) as CourseUni
       lesson(
         `${codeMap[subject]}-l${unitIdx + 1}-${lessonIdx + 1}`,
         subject,
+        `${subject}-ch-${unitIdx + 1}`,
+        `${subject}-kp-${unitIdx + 1}-${lessonIdx + 1}`,
         item.title,
         item.objective,
         item.examPoints,
@@ -110,6 +116,32 @@ export const CPA_UNITS: CourseUnit[] = (Object.keys(UNIT_BLUEPRINT) as CourseUni
       ),
     ),
   })),
+)
+
+export const CPA_CHAPTERS: Chapter[] = (Object.keys(UNIT_BLUEPRINT) as CourseUnit['subject'][]).flatMap((subject) =>
+  UNIT_BLUEPRINT[subject].map((unit, unitIdx) => ({
+    id: `${subject}-ch-${unitIdx + 1}`,
+    subject,
+    title: unit.title,
+    syllabusCode: `${subject.toUpperCase()}-CH-${String(unitIdx + 1).padStart(2, '0')}`,
+    order: unitIdx + 1,
+    estimatedHours: 3,
+  })),
+)
+
+export const CPA_KNOWLEDGE_POINTS: KnowledgePoint[] = (Object.keys(UNIT_BLUEPRINT) as CourseUnit['subject'][]).flatMap((subject) =>
+  UNIT_BLUEPRINT[subject].flatMap((unit, unitIdx) =>
+    unit.lessons.map((item, lessonIdx) => ({
+      id: `${subject}-kp-${unitIdx + 1}-${lessonIdx + 1}`,
+      subject,
+      chapterId: `${subject}-ch-${unitIdx + 1}`,
+      title: item.title,
+      syllabusCode: `${subject.toUpperCase()}-KP-${String(unitIdx + 1).padStart(2, '0')}-${String(lessonIdx + 1).padStart(2, '0')}`,
+      difficulty: (2 + ((unitIdx + lessonIdx) % 3)) as 1 | 2 | 3 | 4 | 5,
+      examFrequency: lessonIdx === 0 ? 'high' : lessonIdx === 1 ? 'medium' : 'low',
+      prerequisites: lessonIdx > 0 ? [`${subject}-kp-${unitIdx + 1}-${lessonIdx}`] : [],
+    })),
+  ),
 )
 
 export const SUBJECT_NAME: Record<CourseUnit['subject'], string> = {

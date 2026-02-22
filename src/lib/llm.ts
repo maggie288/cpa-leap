@@ -17,6 +17,8 @@ export const generateLessonPackage = async (
       },
       body: JSON.stringify({
         subject: lesson.subject,
+        chapterId: lesson.chapterId,
+        knowledgePointId: lesson.knowledgePointId,
         lessonId: lesson.id,
         lessonTitle: lesson.title,
         objective: lesson.objective,
@@ -41,6 +43,8 @@ export const generateLessonPackage = async (
       },
       body: JSON.stringify({
         subject: lesson.subject,
+        chapterId: lesson.chapterId,
+        knowledgePointId: lesson.knowledgePointId,
         lessonId: lesson.id,
         lessonTitle: lesson.title,
         objective: lesson.objective,

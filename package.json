@@ -9,6 +9,9 @@
     "dev:server": "node server/index.js",
     "start": "node server/index.js",
     "kb:import": "node server/scripts/importKnowledge.js",
+    "kb:seed:phase2": "node server/scripts/seedPhase2Knowledge.js",
+    "eval:prompt:replay": "node server/scripts/replayPromptEval.js",
+    "eval:prompt:auto-promote": "node server/scripts/autoPromotePrompt.js",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -21,6 +24,8 @@
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
     "lowdb": "^7.0.1",
+    "multer": "^2.0.2",
+    "pdf-parse": "^2.4.5",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.13.0"

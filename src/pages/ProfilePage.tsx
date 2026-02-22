@@ -10,6 +10,7 @@ export function ProfilePage() {
       <section className="card">
         <h1>{currentUser.name} 的学习档案</h1>
         <p>邮箱：{currentUser.email}</p>
+        <p>角色：{currentUser.role}</p>
         <p>注册时间：{dayjs(currentUser.createdAt).format('YYYY-MM-DD')}</p>
         <p>累计XP：{progress.xp}</p>
         <p>最近学习：{progress.lastStudyAt ? dayjs(progress.lastStudyAt).format('YYYY-MM-DD HH:mm') : '暂无'}</p>

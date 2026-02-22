@@ -1,4 +1,4 @@
-import type { KnowledgeEntry, SubscriptionPlan, UserProfile, UserProgress } from '../types'
+import type { KnowledgeEntry, MaterialAsset, SubscriptionPlan, UserProfile, UserProgress } from '../types'
 
 const API_BASE = import.meta.env.VITE_API_BASE || (import.meta.env.DEV ? 'http://localhost:8787/api' : '/api')
 const TOKEN_KEY = 'cpa_leap_token'
@@ -8,10 +8,11 @@ export const clearToken = () => localStorage.removeItem(TOKEN_KEY)
 
 const request = async <T>(path: string, init?: RequestInit): Promise<T> => {
   const token = readToken()
+  const isFormData = typeof FormData !== 'undefined' && init?.body instanceof FormData
   const response = await fetch(`${API_BASE}${path}`, {
     ...init,
     headers: {
-      'Content-Type': 'application/json',
+      ...(isFormData ? {} : { 'Content-Type': 'application/json' }),
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...(init?.headers || {}),
     },
@@ -75,6 +76,22 @@ export const knowledgeApi = {
       qualityBuckets: Record<string, number>
     }>('/knowledge/stats')
   },
+  async coverage() {
+    return request<{
+      totalEntries: number
+      bySubject: Record<
+        string,
+        {
+          totalEntries: number
+          approvedEntries: number
+          uniqueChapters: number
+          uniqueSyllabusChapters: number
+          syllabusCoverageRate: number
+        }
+      >
+      subjectSyllabusTarget: Record<string, number>
+    }>('/knowledge/coverage')
+  },
   async list(params: { subject?: string; status?: string; q?: string; minQualityScore?: number }) {
     const search = new URLSearchParams()
     if (params.subject) search.set('subject', params.subject)
@@ -86,6 +103,43 @@ export const knowledgeApi = {
   },
   async getById(id: string) {
     return request<{ entry: KnowledgeEntry }>(`/knowledge/${id}`)
+  },
+  async conflicts(limit = 100) {
+    return request<{ total: number; entries: KnowledgeEntry[] }>(`/knowledge/conflicts?limit=${Math.max(1, limit)}`)
+  },
+  async revisionDrafts(input?: { status?: 'pending' | 'applied' | 'rejected'; limit?: number }) {
+    const search = new URLSearchParams()
+    if (input?.status) search.set('status', input.status)
+    if (Number.isFinite(input?.limit)) search.set('limit', String(input?.limit))
+    const query = search.toString()
+    return request<{
+      total: number
+      drafts: Array<{
+        id: string
+        sourceEntryId: string
+        sourceTopic: string
+        targetEntryId: string
+        targetTopic: string
+        subject: string
+        reasons: string[]
+        confidence: number
+        status: 'pending' | 'applied' | 'rejected'
+        summary: string
+        createdAt: string
+      }>
+    }>(`/knowledge/revision-drafts${query ? `?${query}` : ''}`)
+  },
+  async applyRevisionDraft(id: string) {
+    return request<{ ok: boolean; draft: { id: string; status: string }; entry: KnowledgeEntry }>(`/knowledge/revision-drafts/${id}/apply`, {
+      method: 'POST',
+      body: JSON.stringify({}),
+    })
+  },
+  async rejectRevisionDraft(id: string) {
+    return request<{ ok: boolean; draft: { id: string; status: string } }>(`/knowledge/revision-drafts/${id}/reject`, {
+      method: 'POST',
+      body: JSON.stringify({}),
+    })
   },
   async suggestFix(id: string) {
     return request<{
@@ -138,6 +192,15 @@ export const automationApi = {
           autoApproveRate: number
         }
       >
+      byPrompt: Record<
+        string,
+        {
+          runs: number
+          avgQualityScore: number
+          avgLearnerScore: number
+          feedbackCount: number
+        }
+      >
     }>('/automation/stats')
   },
   async getSettings() {
@@ -150,6 +213,13 @@ export const automationApi = {
         experimentEnabled: boolean
         modelCandidates: string[]
         trafficSplit: Record<string, number>
+        promptVersion: string
+        promptExperimentEnabled: boolean
+        promptCandidates: string[]
+        promptTrafficSplit: Record<string, number>
+        promptAutoPromoteEnabled: boolean
+        promptMinFeedbackCount: number
+        promptMinScoreLift: number
       }
     }>('/automation/settings')
   },
@@ -163,10 +233,249 @@ export const automationApi = {
         experimentEnabled: boolean
         modelCandidates: string[]
         trafficSplit: Record<string, number>
+        promptVersion: string
+        promptExperimentEnabled: boolean
+        promptCandidates: string[]
+        promptTrafficSplit: Record<string, number>
+        promptAutoPromoteEnabled: boolean
+        promptMinFeedbackCount: number
+        promptMinScoreLift: number
       }
     }>('/automation/settings', {
       method: 'POST',
       body: JSON.stringify(input),
+    })
+  },
+  async replayPromptEval(input: { promptVersion: string; limit?: number }) {
+    return request<{
+      promptVersion: string
+      sampleCount: number
+      avgScore: number
+      passRate: number
+      template: { version: string; style: string; instruction: string }
+    }>('/automation/prompts/replay-eval', {
+      method: 'POST',
+      body: JSON.stringify(input),
+    })
+  },
+  async autoPromotePrompt() {
+    return request<{
+      ok: boolean
+      promotedTo: string
+      previousPromptVersion: string
+      lift: number
+    }>('/automation/prompts/auto-promote', {
+      method: 'POST',
+      body: JSON.stringify({}),
+    })
+  },
+}
+
+export const materialsApi = {
+  async list(params?: { subject?: string; status?: string }) {
+    const search = new URLSearchParams()
+    if (params?.subject) search.set('subject', params.subject)
+    if (params?.status) search.set('status', params.status)
+    const query = search.toString()
+    return request<{ total: number; materials: MaterialAsset[] }>(`/materials${query ? `?${query}` : ''}`)
+  },
+  async stats() {
+    return request<{
+      total: number
+      bySubject: Record<string, number>
+      byStatus: Record<string, number>
+    }>('/materials/stats')
+  },
+  async upload(input: {
+    file: File
+    subject: string
+    chapter: string
+    year: string
+    sourceType: 'textbook' | 'syllabus' | 'exam' | 'notes'
+  }) {
+    const form = new FormData()
+    form.append('file', input.file)
+    form.append('subject', input.subject)
+    form.append('chapter', input.chapter)
+    form.append('year', input.year)
+    form.append('sourceType', input.sourceType)
+    return request<{ material: MaterialAsset; message: string }>('/materials/upload', {
+      method: 'POST',
+      body: form,
+    })
+  },
+  async process(id: string) {
+    return request<{ material: MaterialAsset; message: string }>(`/materials/${id}/process`, {
+      method: 'POST',
+      body: JSON.stringify({}),
+    })
+  },
+}
+
+export const policyScoutApi = {
+  async stats() {
+    return request<{
+      totalRuns: number
+      totalItems: number
+      latestRun: {
+        runId: string
+        startedAt: string
+        finishedAt: string
+        fetchedCount: number
+        newItemCount: number
+        importedCount: number
+        errors: string[]
+      } | null
+      bySource: Record<string, number>
+      bySubject: Record<string, number>
+      alerts: Array<{
+        id: string
+        at: string
+        sourceId: string
+        sourceName: string
+        runId: string
+        severity: 'medium' | 'high'
+        status: 'sent' | 'failed'
+        message: string
+        detail: string
+        sentAt: string
+      }>
+      sourceHealth: Array<{
+        sourceId: string
+        sourceName: string
+        url: string
+        successCount: number
+        failureCount: number
+        consecutiveFailures: number
+        lastStatus: string
+        lastSuccessAt: string
+        lastFailureAt: string
+        lastError: string
+        avgFetchedPerRun: number
+        successRate: number
+      }>
+    }>('/policy-scout/stats')
+  },
+  async getSettings() {
+    return request<{
+      settings: {
+        enabled: boolean
+        intervalMinutes: number
+        maxItemsPerSource: number
+        autoImportToKnowledge: boolean
+        alertEnabled: boolean
+        alertFailureThreshold: number
+        alertCooldownMinutes: number
+        alertWebhookUrl: string
+        sources: Array<{
+          id: string
+          name: string
+          publisher: string
+          url: string
+          format: 'rss' | 'html'
+          subject: string
+          topicHint: string
+          region: string
+          sourceTier: 1 | 2 | 3
+        }>
+      }
+    }>('/policy-scout/settings')
+  },
+  async updateSettings(input: {
+    enabled: boolean
+    intervalMinutes: number
+    maxItemsPerSource: number
+    autoImportToKnowledge: boolean
+    alertEnabled: boolean
+    alertFailureThreshold: number
+    alertCooldownMinutes: number
+    alertWebhookUrl: string
+    sources: Array<{
+      id: string
+      name: string
+      publisher: string
+      url: string
+      format: 'rss' | 'html'
+      subject: string
+      topicHint: string
+      region: string
+      sourceTier: 1 | 2 | 3
+    }>
+  }) {
+    return request<{
+      settings: {
+        enabled: boolean
+        intervalMinutes: number
+        maxItemsPerSource: number
+        autoImportToKnowledge: boolean
+        alertEnabled: boolean
+        alertFailureThreshold: number
+        alertCooldownMinutes: number
+        alertWebhookUrl: string
+        sources: Array<{
+          id: string
+          name: string
+          publisher: string
+          url: string
+          format: 'rss' | 'html'
+          subject: string
+          topicHint: string
+          region: string
+          sourceTier: 1 | 2 | 3
+        }>
+      }
+    }>('/policy-scout/settings', {
+      method: 'POST',
+      body: JSON.stringify(input),
+    })
+  },
+  async runOnce() {
+    return request<{
+      run: {
+        runId: string
+        fetchedCount: number
+        newItemCount: number
+        importedCount: number
+        errors: string[]
+      }
+    }>('/policy-scout/run', {
+      method: 'POST',
+      body: JSON.stringify({}),
+    })
+  },
+}
+
+export const userAdminApi = {
+  async listUsers() {
+    return request<{
+      total: number
+      users: Array<{
+        id: string
+        name: string
+        email: string
+        role: 'student' | 'teacher' | 'admin'
+        targetExamDate: string
+        plan: 'free' | 'pro' | 'ultra'
+        streakDays: number
+        createdAt: string
+      }>
+    }>('/users')
+  },
+  async updateRole(userId: string, role: 'student' | 'teacher' | 'admin') {
+    return request<{
+      user: {
+        id: string
+        name: string
+        email: string
+        role: 'student' | 'teacher' | 'admin'
+        targetExamDate: string
+        plan: 'free' | 'pro' | 'ultra'
+        streakDays: number
+        createdAt: string
+      }
+    }>(`/users/${userId}/role`, {
+      method: 'POST',
+      body: JSON.stringify({ role }),
     })
   },
 }

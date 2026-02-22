@@ -481,5 +481,7133 @@
     "reviewedAt": "2026-02-22T13:37:00.452Z",
     "createdAt": "2026-02-22T13:37:00.451Z",
     "updatedAt": "2026-02-22T13:37:00.452Z"
+  },
+  {
+    "id": "accounting-acc-bas-001",
+    "subject": "accounting",
+    "chapter": "会计基础与概念框架",
+    "syllabusCode": "ACC-BAS-001",
+    "examYear": "2026",
+    "topic": "会计要素确认边界",
+    "keywords": [
+      "会计要素确认边界",
+      "会计基础与概念框架",
+      "ACC-BAS",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "会计要素确认边界是会计基础与概念框架中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理会计要素确认边界时，先核对适用前提与口径，再进行结论判断。",
+      "会计要素确认边界答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略会计要素确认边界的前提条件",
+      "将会计要素确认边界与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在会计基础与概念框架相关业务中涉及“会计要素确认边界”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-bas-002",
+    "subject": "accounting",
+    "chapter": "会计基础与概念框架",
+    "syllabusCode": "ACC-BAS-002",
+    "examYear": "2026",
+    "topic": "会计信息质量可比性",
+    "keywords": [
+      "会计信息质量可比性",
+      "会计基础与概念框架",
+      "ACC-BAS",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "会计信息质量可比性是会计基础与概念框架中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理会计信息质量可比性时，先核对适用前提与口径，再进行结论判断。",
+      "会计信息质量可比性答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略会计信息质量可比性的前提条件",
+      "将会计信息质量可比性与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在会计基础与概念框架相关业务中涉及“会计信息质量可比性”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-bas-003",
+    "subject": "accounting",
+    "chapter": "会计基础与概念框架",
+    "syllabusCode": "ACC-BAS-003",
+    "examYear": "2026",
+    "topic": "会计政策变更判断",
+    "keywords": [
+      "会计政策变更判断",
+      "会计基础与概念框架",
+      "ACC-BAS",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "会计政策变更判断是会计基础与概念框架中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理会计政策变更判断时，先核对适用前提与口径，再进行结论判断。",
+      "会计政策变更判断答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略会计政策变更判断的前提条件",
+      "将会计政策变更判断与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在会计基础与概念框架相关业务中涉及“会计政策变更判断”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-bas-004",
+    "subject": "accounting",
+    "chapter": "会计基础与概念框架",
+    "syllabusCode": "ACC-BAS-004",
+    "examYear": "2026",
+    "topic": "会计估计变更处理",
+    "keywords": [
+      "会计估计变更处理",
+      "会计基础与概念框架",
+      "ACC-BAS",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "会计估计变更处理是会计基础与概念框架中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理会计估计变更处理时，先核对适用前提与口径，再进行结论判断。",
+      "会计估计变更处理答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略会计估计变更处理的前提条件",
+      "将会计估计变更处理与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在会计基础与概念框架相关业务中涉及“会计估计变更处理”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-bas-005",
+    "subject": "accounting",
+    "chapter": "会计基础与概念框架",
+    "syllabusCode": "ACC-BAS-005",
+    "examYear": "2026",
+    "topic": "前期差错更正",
+    "keywords": [
+      "前期差错更正",
+      "会计基础与概念框架",
+      "ACC-BAS",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "前期差错更正是会计基础与概念框架中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理前期差错更正时，先核对适用前提与口径，再进行结论判断。",
+      "前期差错更正答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略前期差错更正的前提条件",
+      "将前期差错更正与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在会计基础与概念框架相关业务中涉及“前期差错更正”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-rev-006",
+    "subject": "accounting",
+    "chapter": "金融资产与收入",
+    "syllabusCode": "ACC-REV-006",
+    "examYear": "2026",
+    "topic": "履约义务识别",
+    "keywords": [
+      "履约义务识别",
+      "金融资产与收入",
+      "ACC-REV",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "履约义务识别是金融资产与收入中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理履约义务识别时，先核对适用前提与口径，再进行结论判断。",
+      "履约义务识别答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略履约义务识别的前提条件",
+      "将履约义务识别与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在金融资产与收入相关业务中涉及“履约义务识别”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-rev-007",
+    "subject": "accounting",
+    "chapter": "金融资产与收入",
+    "syllabusCode": "ACC-REV-007",
+    "examYear": "2026",
+    "topic": "交易价格分摊",
+    "keywords": [
+      "交易价格分摊",
+      "金融资产与收入",
+      "ACC-REV",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "交易价格分摊是金融资产与收入中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理交易价格分摊时，先核对适用前提与口径，再进行结论判断。",
+      "交易价格分摊答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略交易价格分摊的前提条件",
+      "将交易价格分摊与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在金融资产与收入相关业务中涉及“交易价格分摊”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-rev-008",
+    "subject": "accounting",
+    "chapter": "金融资产与收入",
+    "syllabusCode": "ACC-REV-008",
+    "examYear": "2026",
+    "topic": "期间法与时点法",
+    "keywords": [
+      "期间法与时点法",
+      "金融资产与收入",
+      "ACC-REV",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "期间法与时点法是金融资产与收入中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理期间法与时点法时，先核对适用前提与口径，再进行结论判断。",
+      "期间法与时点法答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略期间法与时点法的前提条件",
+      "将期间法与时点法与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在金融资产与收入相关业务中涉及“期间法与时点法”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-rev-009",
+    "subject": "accounting",
+    "chapter": "金融资产与收入",
+    "syllabusCode": "ACC-REV-009",
+    "examYear": "2026",
+    "topic": "合同成本资本化",
+    "keywords": [
+      "合同成本资本化",
+      "金融资产与收入",
+      "ACC-REV",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "合同成本资本化是金融资产与收入中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理合同成本资本化时，先核对适用前提与口径，再进行结论判断。",
+      "合同成本资本化答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略合同成本资本化的前提条件",
+      "将合同成本资本化与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在金融资产与收入相关业务中涉及“合同成本资本化”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-rev-010",
+    "subject": "accounting",
+    "chapter": "金融资产与收入",
+    "syllabusCode": "ACC-REV-010",
+    "examYear": "2026",
+    "topic": "可变对价估计",
+    "keywords": [
+      "可变对价估计",
+      "金融资产与收入",
+      "ACC-REV",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "可变对价估计是金融资产与收入中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理可变对价估计时，先核对适用前提与口径，再进行结论判断。",
+      "可变对价估计答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略可变对价估计的前提条件",
+      "将可变对价估计与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在金融资产与收入相关业务中涉及“可变对价估计”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-imp-011",
+    "subject": "accounting",
+    "chapter": "长期资产与减值",
+    "syllabusCode": "ACC-IMP-011",
+    "examYear": "2026",
+    "topic": "固定资产后续支出",
+    "keywords": [
+      "固定资产后续支出",
+      "长期资产与减值",
+      "ACC-IMP",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "固定资产后续支出是长期资产与减值中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理固定资产后续支出时，先核对适用前提与口径，再进行结论判断。",
+      "固定资产后续支出答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略固定资产后续支出的前提条件",
+      "将固定资产后续支出与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在长期资产与减值相关业务中涉及“固定资产后续支出”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-imp-012",
+    "subject": "accounting",
+    "chapter": "长期资产与减值",
+    "syllabusCode": "ACC-IMP-012",
+    "examYear": "2026",
+    "topic": "无形资产研发阶段",
+    "keywords": [
+      "无形资产研发阶段",
+      "长期资产与减值",
+      "ACC-IMP",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "无形资产研发阶段是长期资产与减值中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理无形资产研发阶段时，先核对适用前提与口径，再进行结论判断。",
+      "无形资产研发阶段答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略无形资产研发阶段的前提条件",
+      "将无形资产研发阶段与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在长期资产与减值相关业务中涉及“无形资产研发阶段”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-imp-013",
+    "subject": "accounting",
+    "chapter": "长期资产与减值",
+    "syllabusCode": "ACC-IMP-013",
+    "examYear": "2026",
+    "topic": "资产组减值测试",
+    "keywords": [
+      "资产组减值测试",
+      "长期资产与减值",
+      "ACC-IMP",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "资产组减值测试是长期资产与减值中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理资产组减值测试时，先核对适用前提与口径，再进行结论判断。",
+      "资产组减值测试答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略资产组减值测试的前提条件",
+      "将资产组减值测试与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在长期资产与减值相关业务中涉及“资产组减值测试”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-imp-014",
+    "subject": "accounting",
+    "chapter": "长期资产与减值",
+    "syllabusCode": "ACC-IMP-014",
+    "examYear": "2026",
+    "topic": "可收回金额判定",
+    "keywords": [
+      "可收回金额判定",
+      "长期资产与减值",
+      "ACC-IMP",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "可收回金额判定是长期资产与减值中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理可收回金额判定时，先核对适用前提与口径，再进行结论判断。",
+      "可收回金额判定答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略可收回金额判定的前提条件",
+      "将可收回金额判定与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在长期资产与减值相关业务中涉及“可收回金额判定”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-imp-015",
+    "subject": "accounting",
+    "chapter": "长期资产与减值",
+    "syllabusCode": "ACC-IMP-015",
+    "examYear": "2026",
+    "topic": "减值损失确认",
+    "keywords": [
+      "减值损失确认",
+      "长期资产与减值",
+      "ACC-IMP",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "减值损失确认是长期资产与减值中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理减值损失确认时，先核对适用前提与口径，再进行结论判断。",
+      "减值损失确认答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略减值损失确认的前提条件",
+      "将减值损失确认与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在长期资产与减值相关业务中涉及“减值损失确认”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-lia-016",
+    "subject": "accounting",
+    "chapter": "负债与所有者权益",
+    "syllabusCode": "ACC-LIA-016",
+    "examYear": "2026",
+    "topic": "预计负债确认",
+    "keywords": [
+      "预计负债确认",
+      "负债与所有者权益",
+      "ACC-LIA",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "预计负债确认是负债与所有者权益中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理预计负债确认时，先核对适用前提与口径，再进行结论判断。",
+      "预计负债确认答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略预计负债确认的前提条件",
+      "将预计负债确认与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在负债与所有者权益相关业务中涉及“预计负债确认”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-lia-017",
+    "subject": "accounting",
+    "chapter": "负债与所有者权益",
+    "syllabusCode": "ACC-LIA-017",
+    "examYear": "2026",
+    "topic": "借款费用资本化",
+    "keywords": [
+      "借款费用资本化",
+      "负债与所有者权益",
+      "ACC-LIA",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "借款费用资本化是负债与所有者权益中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理借款费用资本化时，先核对适用前提与口径，再进行结论判断。",
+      "借款费用资本化答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略借款费用资本化的前提条件",
+      "将借款费用资本化与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在负债与所有者权益相关业务中涉及“借款费用资本化”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-lia-018",
+    "subject": "accounting",
+    "chapter": "负债与所有者权益",
+    "syllabusCode": "ACC-LIA-018",
+    "examYear": "2026",
+    "topic": "可转换债券拆分",
+    "keywords": [
+      "可转换债券拆分",
+      "负债与所有者权益",
+      "ACC-LIA",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "可转换债券拆分是负债与所有者权益中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理可转换债券拆分时，先核对适用前提与口径，再进行结论判断。",
+      "可转换债券拆分答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略可转换债券拆分的前提条件",
+      "将可转换债券拆分与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在负债与所有者权益相关业务中涉及“可转换债券拆分”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-lia-019",
+    "subject": "accounting",
+    "chapter": "负债与所有者权益",
+    "syllabusCode": "ACC-LIA-019",
+    "examYear": "2026",
+    "topic": "权益工具分类",
+    "keywords": [
+      "权益工具分类",
+      "负债与所有者权益",
+      "ACC-LIA",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "权益工具分类是负债与所有者权益中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理权益工具分类时，先核对适用前提与口径，再进行结论判断。",
+      "权益工具分类答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略权益工具分类的前提条件",
+      "将权益工具分类与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在负债与所有者权益相关业务中涉及“权益工具分类”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-lia-020",
+    "subject": "accounting",
+    "chapter": "负债与所有者权益",
+    "syllabusCode": "ACC-LIA-020",
+    "examYear": "2026",
+    "topic": "利润分配限制",
+    "keywords": [
+      "利润分配限制",
+      "负债与所有者权益",
+      "ACC-LIA",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "利润分配限制是负债与所有者权益中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理利润分配限制时，先核对适用前提与口径，再进行结论判断。",
+      "利润分配限制答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略利润分配限制的前提条件",
+      "将利润分配限制与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在负债与所有者权益相关业务中涉及“利润分配限制”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-cfs-021",
+    "subject": "accounting",
+    "chapter": "财务报告与合并",
+    "syllabusCode": "ACC-CFS-021",
+    "examYear": "2026",
+    "topic": "合并范围判断",
+    "keywords": [
+      "合并范围判断",
+      "财务报告与合并",
+      "ACC-CFS",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "合并范围判断是财务报告与合并中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理合并范围判断时，先核对适用前提与口径，再进行结论判断。",
+      "合并范围判断答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略合并范围判断的前提条件",
+      "将合并范围判断与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在财务报告与合并相关业务中涉及“合并范围判断”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-cfs-022",
+    "subject": "accounting",
+    "chapter": "财务报告与合并",
+    "syllabusCode": "ACC-CFS-022",
+    "examYear": "2026",
+    "topic": "内部交易抵销",
+    "keywords": [
+      "内部交易抵销",
+      "财务报告与合并",
+      "ACC-CFS",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "内部交易抵销是财务报告与合并中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理内部交易抵销时，先核对适用前提与口径，再进行结论判断。",
+      "内部交易抵销答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略内部交易抵销的前提条件",
+      "将内部交易抵销与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在财务报告与合并相关业务中涉及“内部交易抵销”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-cfs-023",
+    "subject": "accounting",
+    "chapter": "财务报告与合并",
+    "syllabusCode": "ACC-CFS-023",
+    "examYear": "2026",
+    "topic": "现金流量分类",
+    "keywords": [
+      "现金流量分类",
+      "财务报告与合并",
+      "ACC-CFS",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "现金流量分类是财务报告与合并中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理现金流量分类时，先核对适用前提与口径，再进行结论判断。",
+      "现金流量分类答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略现金流量分类的前提条件",
+      "将现金流量分类与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在财务报告与合并相关业务中涉及“现金流量分类”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-cfs-024",
+    "subject": "accounting",
+    "chapter": "财务报告与合并",
+    "syllabusCode": "ACC-CFS-024",
+    "examYear": "2026",
+    "topic": "合并报表调整",
+    "keywords": [
+      "合并报表调整",
+      "财务报告与合并",
+      "ACC-CFS",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "合并报表调整是财务报告与合并中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理合并报表调整时，先核对适用前提与口径，再进行结论判断。",
+      "合并报表调整答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略合并报表调整的前提条件",
+      "将合并报表调整与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在财务报告与合并相关业务中涉及“合并报表调整”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-cfs-025",
+    "subject": "accounting",
+    "chapter": "财务报告与合并",
+    "syllabusCode": "ACC-CFS-025",
+    "examYear": "2026",
+    "topic": "附注披露重点",
+    "keywords": [
+      "附注披露重点",
+      "财务报告与合并",
+      "ACC-CFS",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "附注披露重点是财务报告与合并中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理附注披露重点时，先核对适用前提与口径，再进行结论判断。",
+      "附注披露重点答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略附注披露重点的前提条件",
+      "将附注披露重点与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在财务报告与合并相关业务中涉及“附注披露重点”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-tax-026",
+    "subject": "accounting",
+    "chapter": "所得税与特殊业务",
+    "syllabusCode": "ACC-TAX-026",
+    "examYear": "2026",
+    "topic": "递延所得税资产",
+    "keywords": [
+      "递延所得税资产",
+      "所得税与特殊业务",
+      "ACC-TAX",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "递延所得税资产是所得税与特殊业务中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理递延所得税资产时，先核对适用前提与口径，再进行结论判断。",
+      "递延所得税资产答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略递延所得税资产的前提条件",
+      "将递延所得税资产与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在所得税与特殊业务相关业务中涉及“递延所得税资产”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-tax-027",
+    "subject": "accounting",
+    "chapter": "所得税与特殊业务",
+    "syllabusCode": "ACC-TAX-027",
+    "examYear": "2026",
+    "topic": "递延所得税负债",
+    "keywords": [
+      "递延所得税负债",
+      "所得税与特殊业务",
+      "ACC-TAX",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "递延所得税负债是所得税与特殊业务中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理递延所得税负债时，先核对适用前提与口径，再进行结论判断。",
+      "递延所得税负债答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略递延所得税负债的前提条件",
+      "将递延所得税负债与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在所得税与特殊业务相关业务中涉及“递延所得税负债”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-tax-028",
+    "subject": "accounting",
+    "chapter": "所得税与特殊业务",
+    "syllabusCode": "ACC-TAX-028",
+    "examYear": "2026",
+    "topic": "政府补助核算",
+    "keywords": [
+      "政府补助核算",
+      "所得税与特殊业务",
+      "ACC-TAX",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "政府补助核算是所得税与特殊业务中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理政府补助核算时，先核对适用前提与口径，再进行结论判断。",
+      "政府补助核算答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略政府补助核算的前提条件",
+      "将政府补助核算与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在所得税与特殊业务相关业务中涉及“政府补助核算”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-tax-029",
+    "subject": "accounting",
+    "chapter": "所得税与特殊业务",
+    "syllabusCode": "ACC-TAX-029",
+    "examYear": "2026",
+    "topic": "债务重组收益",
+    "keywords": [
+      "债务重组收益",
+      "所得税与特殊业务",
+      "ACC-TAX",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "债务重组收益是所得税与特殊业务中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理债务重组收益时，先核对适用前提与口径，再进行结论判断。",
+      "债务重组收益答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略债务重组收益的前提条件",
+      "将债务重组收益与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在所得税与特殊业务相关业务中涉及“债务重组收益”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-tax-030",
+    "subject": "accounting",
+    "chapter": "所得税与特殊业务",
+    "syllabusCode": "ACC-TAX-030",
+    "examYear": "2026",
+    "topic": "租赁会计处理",
+    "keywords": [
+      "租赁会计处理",
+      "所得税与特殊业务",
+      "ACC-TAX",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "租赁会计处理是所得税与特殊业务中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理租赁会计处理时，先核对适用前提与口径，再进行结论判断。",
+      "租赁会计处理答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略租赁会计处理的前提条件",
+      "将租赁会计处理与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在所得税与特殊业务相关业务中涉及“租赁会计处理”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-vat-001",
+    "subject": "tax",
+    "chapter": "增值税体系",
+    "syllabusCode": "TAX-VAT-001",
+    "examYear": "2026",
+    "topic": "增值税计税方法",
+    "keywords": [
+      "增值税计税方法",
+      "增值税体系",
+      "TAX-VAT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "增值税计税方法是增值税体系中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理增值税计税方法时，先核对适用前提与口径，再进行结论判断。",
+      "增值税计税方法答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略增值税计税方法的前提条件",
+      "将增值税计税方法与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在增值税体系相关业务中涉及“增值税计税方法”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-vat-002",
+    "subject": "tax",
+    "chapter": "增值税体系",
+    "syllabusCode": "TAX-VAT-002",
+    "examYear": "2026",
+    "topic": "进项税额抵扣条件",
+    "keywords": [
+      "进项税额抵扣条件",
+      "增值税体系",
+      "TAX-VAT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "进项税额抵扣条件是增值税体系中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理进项税额抵扣条件时，先核对适用前提与口径，再进行结论判断。",
+      "进项税额抵扣条件答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略进项税额抵扣条件的前提条件",
+      "将进项税额抵扣条件与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在增值税体系相关业务中涉及“进项税额抵扣条件”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-vat-003",
+    "subject": "tax",
+    "chapter": "增值税体系",
+    "syllabusCode": "TAX-VAT-003",
+    "examYear": "2026",
+    "topic": "进项税额转出情形",
+    "keywords": [
+      "进项税额转出情形",
+      "增值税体系",
+      "TAX-VAT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "进项税额转出情形是增值税体系中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理进项税额转出情形时，先核对适用前提与口径，再进行结论判断。",
+      "进项税额转出情形答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略进项税额转出情形的前提条件",
+      "将进项税额转出情形与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在增值税体系相关业务中涉及“进项税额转出情形”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-vat-004",
+    "subject": "tax",
+    "chapter": "增值税体系",
+    "syllabusCode": "TAX-VAT-004",
+    "examYear": "2026",
+    "topic": "销售额口径判定",
+    "keywords": [
+      "销售额口径判定",
+      "增值税体系",
+      "TAX-VAT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "销售额口径判定是增值税体系中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理销售额口径判定时，先核对适用前提与口径，再进行结论判断。",
+      "销售额口径判定答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略销售额口径判定的前提条件",
+      "将销售额口径判定与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在增值税体系相关业务中涉及“销售额口径判定”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-vat-005",
+    "subject": "tax",
+    "chapter": "增值税体系",
+    "syllabusCode": "TAX-VAT-005",
+    "examYear": "2026",
+    "topic": "简易计税适用",
+    "keywords": [
+      "简易计税适用",
+      "增值税体系",
+      "TAX-VAT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "简易计税适用是增值税体系中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理简易计税适用时，先核对适用前提与口径，再进行结论判断。",
+      "简易计税适用答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略简易计税适用的前提条件",
+      "将简易计税适用与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在增值税体系相关业务中涉及“简易计税适用”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-ct-006",
+    "subject": "tax",
+    "chapter": "消费税与附加税",
+    "syllabusCode": "TAX-CT-006",
+    "examYear": "2026",
+    "topic": "消费税计税依据",
+    "keywords": [
+      "消费税计税依据",
+      "消费税与附加税",
+      "TAX-CT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "消费税计税依据是消费税与附加税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理消费税计税依据时，先核对适用前提与口径，再进行结论判断。",
+      "消费税计税依据答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略消费税计税依据的前提条件",
+      "将消费税计税依据与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在消费税与附加税相关业务中涉及“消费税计税依据”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-ct-007",
+    "subject": "tax",
+    "chapter": "消费税与附加税",
+    "syllabusCode": "TAX-CT-007",
+    "examYear": "2026",
+    "topic": "从价从量复合计税",
+    "keywords": [
+      "从价从量复合计税",
+      "消费税与附加税",
+      "TAX-CT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "从价从量复合计税是消费税与附加税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理从价从量复合计税时，先核对适用前提与口径，再进行结论判断。",
+      "从价从量复合计税答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略从价从量复合计税的前提条件",
+      "将从价从量复合计税与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在消费税与附加税相关业务中涉及“从价从量复合计税”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-ct-008",
+    "subject": "tax",
+    "chapter": "消费税与附加税",
+    "syllabusCode": "TAX-CT-008",
+    "examYear": "2026",
+    "topic": "委托加工应税处理",
+    "keywords": [
+      "委托加工应税处理",
+      "消费税与附加税",
+      "TAX-CT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "委托加工应税处理是消费税与附加税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理委托加工应税处理时，先核对适用前提与口径，再进行结论判断。",
+      "委托加工应税处理答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略委托加工应税处理的前提条件",
+      "将委托加工应税处理与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在消费税与附加税相关业务中涉及“委托加工应税处理”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-ct-009",
+    "subject": "tax",
+    "chapter": "消费税与附加税",
+    "syllabusCode": "TAX-CT-009",
+    "examYear": "2026",
+    "topic": "附加税费计提",
+    "keywords": [
+      "附加税费计提",
+      "消费税与附加税",
+      "TAX-CT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "附加税费计提是消费税与附加税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理附加税费计提时，先核对适用前提与口径，再进行结论判断。",
+      "附加税费计提答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略附加税费计提的前提条件",
+      "将附加税费计提与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在消费税与附加税相关业务中涉及“附加税费计提”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-ct-010",
+    "subject": "tax",
+    "chapter": "消费税与附加税",
+    "syllabusCode": "TAX-CT-010",
+    "examYear": "2026",
+    "topic": "资源税征收范围",
+    "keywords": [
+      "资源税征收范围",
+      "消费税与附加税",
+      "TAX-CT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "资源税征收范围是消费税与附加税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理资源税征收范围时，先核对适用前提与口径，再进行结论判断。",
+      "资源税征收范围答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略资源税征收范围的前提条件",
+      "将资源税征收范围与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在消费税与附加税相关业务中涉及“资源税征收范围”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-cit-011",
+    "subject": "tax",
+    "chapter": "企业所得税",
+    "syllabusCode": "TAX-CIT-011",
+    "examYear": "2026",
+    "topic": "纳税调整调增项目",
+    "keywords": [
+      "纳税调整调增项目",
+      "企业所得税",
+      "TAX-CIT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "纳税调整调增项目是企业所得税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理纳税调整调增项目时，先核对适用前提与口径，再进行结论判断。",
+      "纳税调整调增项目答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略纳税调整调增项目的前提条件",
+      "将纳税调整调增项目与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在企业所得税相关业务中涉及“纳税调整调增项目”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-cit-012",
+    "subject": "tax",
+    "chapter": "企业所得税",
+    "syllabusCode": "TAX-CIT-012",
+    "examYear": "2026",
+    "topic": "纳税调整调减项目",
+    "keywords": [
+      "纳税调整调减项目",
+      "企业所得税",
+      "TAX-CIT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "纳税调整调减项目是企业所得税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理纳税调整调减项目时，先核对适用前提与口径，再进行结论判断。",
+      "纳税调整调减项目答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略纳税调整调减项目的前提条件",
+      "将纳税调整调减项目与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在企业所得税相关业务中涉及“纳税调整调减项目”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-cit-013",
+    "subject": "tax",
+    "chapter": "企业所得税",
+    "syllabusCode": "TAX-CIT-013",
+    "examYear": "2026",
+    "topic": "税前扣除限额",
+    "keywords": [
+      "税前扣除限额",
+      "企业所得税",
+      "TAX-CIT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "税前扣除限额是企业所得税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理税前扣除限额时，先核对适用前提与口径，再进行结论判断。",
+      "税前扣除限额答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略税前扣除限额的前提条件",
+      "将税前扣除限额与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在企业所得税相关业务中涉及“税前扣除限额”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-cit-014",
+    "subject": "tax",
+    "chapter": "企业所得税",
+    "syllabusCode": "TAX-CIT-014",
+    "examYear": "2026",
+    "topic": "资产折旧摊销扣除",
+    "keywords": [
+      "资产折旧摊销扣除",
+      "企业所得税",
+      "TAX-CIT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "资产折旧摊销扣除是企业所得税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理资产折旧摊销扣除时，先核对适用前提与口径，再进行结论判断。",
+      "资产折旧摊销扣除答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略资产折旧摊销扣除的前提条件",
+      "将资产折旧摊销扣除与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在企业所得税相关业务中涉及“资产折旧摊销扣除”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-cit-015",
+    "subject": "tax",
+    "chapter": "企业所得税",
+    "syllabusCode": "TAX-CIT-015",
+    "examYear": "2026",
+    "topic": "税收优惠适用条件",
+    "keywords": [
+      "税收优惠适用条件",
+      "企业所得税",
+      "TAX-CIT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "税收优惠适用条件是企业所得税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理税收优惠适用条件时，先核对适用前提与口径，再进行结论判断。",
+      "税收优惠适用条件答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略税收优惠适用条件的前提条件",
+      "将税收优惠适用条件与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在企业所得税相关业务中涉及“税收优惠适用条件”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-iit-016",
+    "subject": "tax",
+    "chapter": "个人所得税与印花税",
+    "syllabusCode": "TAX-IIT-016",
+    "examYear": "2026",
+    "topic": "综合所得汇算清缴",
+    "keywords": [
+      "综合所得汇算清缴",
+      "个人所得税与印花税",
+      "TAX-IIT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "综合所得汇算清缴是个人所得税与印花税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理综合所得汇算清缴时，先核对适用前提与口径，再进行结论判断。",
+      "综合所得汇算清缴答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略综合所得汇算清缴的前提条件",
+      "将综合所得汇算清缴与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在个人所得税与印花税相关业务中涉及“综合所得汇算清缴”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-iit-017",
+    "subject": "tax",
+    "chapter": "个人所得税与印花税",
+    "syllabusCode": "TAX-IIT-017",
+    "examYear": "2026",
+    "topic": "经营所得计税",
+    "keywords": [
+      "经营所得计税",
+      "个人所得税与印花税",
+      "TAX-IIT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "经营所得计税是个人所得税与印花税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理经营所得计税时，先核对适用前提与口径，再进行结论判断。",
+      "经营所得计税答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略经营所得计税的前提条件",
+      "将经营所得计税与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在个人所得税与印花税相关业务中涉及“经营所得计税”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-iit-018",
+    "subject": "tax",
+    "chapter": "个人所得税与印花税",
+    "syllabusCode": "TAX-IIT-018",
+    "examYear": "2026",
+    "topic": "分类所得税率适用",
+    "keywords": [
+      "分类所得税率适用",
+      "个人所得税与印花税",
+      "TAX-IIT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "分类所得税率适用是个人所得税与印花税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理分类所得税率适用时，先核对适用前提与口径，再进行结论判断。",
+      "分类所得税率适用答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略分类所得税率适用的前提条件",
+      "将分类所得税率适用与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在个人所得税与印花税相关业务中涉及“分类所得税率适用”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-iit-019",
+    "subject": "tax",
+    "chapter": "个人所得税与印花税",
+    "syllabusCode": "TAX-IIT-019",
+    "examYear": "2026",
+    "topic": "印花税应税凭证",
+    "keywords": [
+      "印花税应税凭证",
+      "个人所得税与印花税",
+      "TAX-IIT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "印花税应税凭证是个人所得税与印花税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理印花税应税凭证时，先核对适用前提与口径，再进行结论判断。",
+      "印花税应税凭证答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略印花税应税凭证的前提条件",
+      "将印花税应税凭证与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在个人所得税与印花税相关业务中涉及“印花税应税凭证”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-iit-020",
+    "subject": "tax",
+    "chapter": "个人所得税与印花税",
+    "syllabusCode": "TAX-IIT-020",
+    "examYear": "2026",
+    "topic": "印花税减免情形",
+    "keywords": [
+      "印花税减免情形",
+      "个人所得税与印花税",
+      "TAX-IIT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "印花税减免情形是个人所得税与印花税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理印花税减免情形时，先核对适用前提与口径，再进行结论判断。",
+      "印花税减免情形答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略印花税减免情形的前提条件",
+      "将印花税减免情形与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在个人所得税与印花税相关业务中涉及“印花税减免情形”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-adm-021",
+    "subject": "tax",
+    "chapter": "税收征管",
+    "syllabusCode": "TAX-ADM-021",
+    "examYear": "2026",
+    "topic": "税务登记流程",
+    "keywords": [
+      "税务登记流程",
+      "税收征管",
+      "TAX-ADM",
+      "tax",
+      "CPA"
+    ],
+    "concept": "税务登记流程是税收征管中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理税务登记流程时，先核对适用前提与口径，再进行结论判断。",
+      "税务登记流程答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略税务登记流程的前提条件",
+      "将税务登记流程与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在税收征管相关业务中涉及“税务登记流程”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-adm-022",
+    "subject": "tax",
+    "chapter": "税收征管",
+    "syllabusCode": "TAX-ADM-022",
+    "examYear": "2026",
+    "topic": "发票管理要求",
+    "keywords": [
+      "发票管理要求",
+      "税收征管",
+      "TAX-ADM",
+      "tax",
+      "CPA"
+    ],
+    "concept": "发票管理要求是税收征管中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理发票管理要求时，先核对适用前提与口径，再进行结论判断。",
+      "发票管理要求答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略发票管理要求的前提条件",
+      "将发票管理要求与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在税收征管相关业务中涉及“发票管理要求”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-adm-023",
+    "subject": "tax",
+    "chapter": "税收征管",
+    "syllabusCode": "TAX-ADM-023",
+    "examYear": "2026",
+    "topic": "税务检查程序",
+    "keywords": [
+      "税务检查程序",
+      "税收征管",
+      "TAX-ADM",
+      "tax",
+      "CPA"
+    ],
+    "concept": "税务检查程序是税收征管中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理税务检查程序时，先核对适用前提与口径，再进行结论判断。",
+      "税务检查程序答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略税务检查程序的前提条件",
+      "将税务检查程序与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在税收征管相关业务中涉及“税务检查程序”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-adm-024",
+    "subject": "tax",
+    "chapter": "税收征管",
+    "syllabusCode": "TAX-ADM-024",
+    "examYear": "2026",
+    "topic": "税务行政复议",
+    "keywords": [
+      "税务行政复议",
+      "税收征管",
+      "TAX-ADM",
+      "tax",
+      "CPA"
+    ],
+    "concept": "税务行政复议是税收征管中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理税务行政复议时，先核对适用前提与口径，再进行结论判断。",
+      "税务行政复议答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略税务行政复议的前提条件",
+      "将税务行政复议与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在税收征管相关业务中涉及“税务行政复议”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-adm-025",
+    "subject": "tax",
+    "chapter": "税收征管",
+    "syllabusCode": "TAX-ADM-025",
+    "examYear": "2026",
+    "topic": "税收强制执行",
+    "keywords": [
+      "税收强制执行",
+      "税收征管",
+      "TAX-ADM",
+      "tax",
+      "CPA"
+    ],
+    "concept": "税收强制执行是税收征管中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理税收强制执行时，先核对适用前提与口径，再进行结论判断。",
+      "税收强制执行答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略税收强制执行的前提条件",
+      "将税收强制执行与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在税收征管相关业务中涉及“税收强制执行”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-int-026",
+    "subject": "tax",
+    "chapter": "国际税收与反避税",
+    "syllabusCode": "TAX-INT-026",
+    "examYear": "2026",
+    "topic": "特别纳税调整",
+    "keywords": [
+      "特别纳税调整",
+      "国际税收与反避税",
+      "TAX-INT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "特别纳税调整是国际税收与反避税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理特别纳税调整时，先核对适用前提与口径，再进行结论判断。",
+      "特别纳税调整答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略特别纳税调整的前提条件",
+      "将特别纳税调整与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在国际税收与反避税相关业务中涉及“特别纳税调整”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-int-027",
+    "subject": "tax",
+    "chapter": "国际税收与反避税",
+    "syllabusCode": "TAX-INT-027",
+    "examYear": "2026",
+    "topic": "受控外国企业规则",
+    "keywords": [
+      "受控外国企业规则",
+      "国际税收与反避税",
+      "TAX-INT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "受控外国企业规则是国际税收与反避税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理受控外国企业规则时，先核对适用前提与口径，再进行结论判断。",
+      "受控外国企业规则答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略受控外国企业规则的前提条件",
+      "将受控外国企业规则与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在国际税收与反避税相关业务中涉及“受控外国企业规则”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-int-028",
+    "subject": "tax",
+    "chapter": "国际税收与反避税",
+    "syllabusCode": "TAX-INT-028",
+    "examYear": "2026",
+    "topic": "转让定价基础",
+    "keywords": [
+      "转让定价基础",
+      "国际税收与反避税",
+      "TAX-INT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "转让定价基础是国际税收与反避税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理转让定价基础时，先核对适用前提与口径，再进行结论判断。",
+      "转让定价基础答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略转让定价基础的前提条件",
+      "将转让定价基础与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在国际税收与反避税相关业务中涉及“转让定价基础”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-int-029",
+    "subject": "tax",
+    "chapter": "国际税收与反避税",
+    "syllabusCode": "TAX-INT-029",
+    "examYear": "2026",
+    "topic": "协定待遇申请",
+    "keywords": [
+      "协定待遇申请",
+      "国际税收与反避税",
+      "TAX-INT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "协定待遇申请是国际税收与反避税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理协定待遇申请时，先核对适用前提与口径，再进行结论判断。",
+      "协定待遇申请答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略协定待遇申请的前提条件",
+      "将协定待遇申请与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在国际税收与反避税相关业务中涉及“协定待遇申请”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-int-030",
+    "subject": "tax",
+    "chapter": "国际税收与反避税",
+    "syllabusCode": "TAX-INT-030",
+    "examYear": "2026",
+    "topic": "反避税一般规则",
+    "keywords": [
+      "反避税一般规则",
+      "国际税收与反避税",
+      "TAX-INT",
+      "tax",
+      "CPA"
+    ],
+    "concept": "反避税一般规则是国际税收与反避税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理反避税一般规则时，先核对适用前提与口径，再进行结论判断。",
+      "反避税一般规则答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略反避税一般规则的前提条件",
+      "将反避税一般规则与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在国际税收与反避税相关业务中涉及“反避税一般规则”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 3,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:12:19.883Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-p2a-001",
+    "subject": "accounting",
+    "chapter": "会计基础与概念框架",
+    "syllabusCode": "ACC-P2A-001",
+    "examYear": "2026",
+    "topic": "会计主体界定",
+    "keywords": [
+      "会计主体界定",
+      "会计基础与概念框架",
+      "ACC-P2A",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "会计主体界定是会计基础与概念框架中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理会计主体界定时，先核对适用前提与口径，再进行结论判断。",
+      "会计主体界定答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略会计主体界定的前提条件",
+      "将会计主体界定与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在会计基础与概念框架相关业务中涉及“会计主体界定”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-p2a-002",
+    "subject": "accounting",
+    "chapter": "会计基础与概念框架",
+    "syllabusCode": "ACC-P2A-002",
+    "examYear": "2026",
+    "topic": "持续经营判断",
+    "keywords": [
+      "持续经营判断",
+      "会计基础与概念框架",
+      "ACC-P2A",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "持续经营判断是会计基础与概念框架中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理持续经营判断时，先核对适用前提与口径，再进行结论判断。",
+      "持续经营判断答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略持续经营判断的前提条件",
+      "将持续经营判断与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在会计基础与概念框架相关业务中涉及“持续经营判断”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-p2a-003",
+    "subject": "accounting",
+    "chapter": "会计基础与概念框架",
+    "syllabusCode": "ACC-P2A-003",
+    "examYear": "2026",
+    "topic": "权责发生制边界",
+    "keywords": [
+      "权责发生制边界",
+      "会计基础与概念框架",
+      "ACC-P2A",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "权责发生制边界是会计基础与概念框架中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理权责发生制边界时，先核对适用前提与口径，再进行结论判断。",
+      "权责发生制边界答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略权责发生制边界的前提条件",
+      "将权责发生制边界与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在会计基础与概念框架相关业务中涉及“权责发生制边界”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-p2a-004",
+    "subject": "accounting",
+    "chapter": "会计基础与概念框架",
+    "syllabusCode": "ACC-P2A-004",
+    "examYear": "2026",
+    "topic": "实质重于形式应用",
+    "keywords": [
+      "实质重于形式应用",
+      "会计基础与概念框架",
+      "ACC-P2A",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "实质重于形式应用是会计基础与概念框架中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理实质重于形式应用时，先核对适用前提与口径，再进行结论判断。",
+      "实质重于形式应用答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略实质重于形式应用的前提条件",
+      "将实质重于形式应用与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在会计基础与概念框架相关业务中涉及“实质重于形式应用”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-p2a-005",
+    "subject": "accounting",
+    "chapter": "会计基础与概念框架",
+    "syllabusCode": "ACC-P2A-005",
+    "examYear": "2026",
+    "topic": "谨慎性应用",
+    "keywords": [
+      "谨慎性应用",
+      "会计基础与概念框架",
+      "ACC-P2A",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "谨慎性应用是会计基础与概念框架中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理谨慎性应用时，先核对适用前提与口径，再进行结论判断。",
+      "谨慎性应用答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略谨慎性应用的前提条件",
+      "将谨慎性应用与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在会计基础与概念框架相关业务中涉及“谨慎性应用”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-p2a-006",
+    "subject": "accounting",
+    "chapter": "会计基础与概念框架",
+    "syllabusCode": "ACC-P2A-006",
+    "examYear": "2026",
+    "topic": "重要性判断",
+    "keywords": [
+      "重要性判断",
+      "会计基础与概念框架",
+      "ACC-P2A",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "重要性判断是会计基础与概念框架中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理重要性判断时，先核对适用前提与口径，再进行结论判断。",
+      "重要性判断答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略重要性判断的前提条件",
+      "将重要性判断与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在会计基础与概念框架相关业务中涉及“重要性判断”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-p2a-007",
+    "subject": "accounting",
+    "chapter": "会计基础与概念框架",
+    "syllabusCode": "ACC-P2A-007",
+    "examYear": "2026",
+    "topic": "会计信息可理解性",
+    "keywords": [
+      "会计信息可理解性",
+      "会计基础与概念框架",
+      "ACC-P2A",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "会计信息可理解性是会计基础与概念框架中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理会计信息可理解性时，先核对适用前提与口径，再进行结论判断。",
+      "会计信息可理解性答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略会计信息可理解性的前提条件",
+      "将会计信息可理解性与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在会计基础与概念框架相关业务中涉及“会计信息可理解性”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-p2a-008",
+    "subject": "accounting",
+    "chapter": "会计基础与概念框架",
+    "syllabusCode": "ACC-P2A-008",
+    "examYear": "2026",
+    "topic": "会计确认与计量关系",
+    "keywords": [
+      "会计确认与计量关系",
+      "会计基础与概念框架",
+      "ACC-P2A",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "会计确认与计量关系是会计基础与概念框架中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理会计确认与计量关系时，先核对适用前提与口径，再进行结论判断。",
+      "会计确认与计量关系答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略会计确认与计量关系的前提条件",
+      "将会计确认与计量关系与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在会计基础与概念框架相关业务中涉及“会计确认与计量关系”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-p2a-009",
+    "subject": "accounting",
+    "chapter": "会计基础与概念框架",
+    "syllabusCode": "ACC-P2A-009",
+    "examYear": "2026",
+    "topic": "财务报表目标",
+    "keywords": [
+      "财务报表目标",
+      "会计基础与概念框架",
+      "ACC-P2A",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "财务报表目标是会计基础与概念框架中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理财务报表目标时，先核对适用前提与口径，再进行结论判断。",
+      "财务报表目标答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略财务报表目标的前提条件",
+      "将财务报表目标与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在会计基础与概念框架相关业务中涉及“财务报表目标”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-p2b-010",
+    "subject": "accounting",
+    "chapter": "财务报告与合并",
+    "syllabusCode": "ACC-P2B-010",
+    "examYear": "2026",
+    "topic": "母子公司控制判定",
+    "keywords": [
+      "母子公司控制判定",
+      "财务报告与合并",
+      "ACC-P2B",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "母子公司控制判定是财务报告与合并中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理母子公司控制判定时，先核对适用前提与口径，再进行结论判断。",
+      "母子公司控制判定答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略母子公司控制判定的前提条件",
+      "将母子公司控制判定与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在财务报告与合并相关业务中涉及“母子公司控制判定”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-p2b-011",
+    "subject": "accounting",
+    "chapter": "财务报告与合并",
+    "syllabusCode": "ACC-P2B-011",
+    "examYear": "2026",
+    "topic": "少数股东权益列示",
+    "keywords": [
+      "少数股东权益列示",
+      "财务报告与合并",
+      "ACC-P2B",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "少数股东权益列示是财务报告与合并中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理少数股东权益列示时，先核对适用前提与口径，再进行结论判断。",
+      "少数股东权益列示答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略少数股东权益列示的前提条件",
+      "将少数股东权益列示与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在财务报告与合并相关业务中涉及“少数股东权益列示”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-p2b-012",
+    "subject": "accounting",
+    "chapter": "财务报告与合并",
+    "syllabusCode": "ACC-P2B-012",
+    "examYear": "2026",
+    "topic": "内部未实现损益抵销",
+    "keywords": [
+      "内部未实现损益抵销",
+      "财务报告与合并",
+      "ACC-P2B",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "内部未实现损益抵销是财务报告与合并中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理内部未实现损益抵销时，先核对适用前提与口径，再进行结论判断。",
+      "内部未实现损益抵销答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略内部未实现损益抵销的前提条件",
+      "将内部未实现损益抵销与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在财务报告与合并相关业务中涉及“内部未实现损益抵销”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-p2b-013",
+    "subject": "accounting",
+    "chapter": "财务报告与合并",
+    "syllabusCode": "ACC-P2B-013",
+    "examYear": "2026",
+    "topic": "合并现金流处理",
+    "keywords": [
+      "合并现金流处理",
+      "财务报告与合并",
+      "ACC-P2B",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "合并现金流处理是财务报告与合并中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理合并现金流处理时，先核对适用前提与口径，再进行结论判断。",
+      "合并现金流处理答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略合并现金流处理的前提条件",
+      "将合并现金流处理与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在财务报告与合并相关业务中涉及“合并现金流处理”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-p2b-014",
+    "subject": "accounting",
+    "chapter": "财务报告与合并",
+    "syllabusCode": "ACC-P2B-014",
+    "examYear": "2026",
+    "topic": "同一控制下合并",
+    "keywords": [
+      "同一控制下合并",
+      "财务报告与合并",
+      "ACC-P2B",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "同一控制下合并是财务报告与合并中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理同一控制下合并时，先核对适用前提与口径，再进行结论判断。",
+      "同一控制下合并答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略同一控制下合并的前提条件",
+      "将同一控制下合并与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在财务报告与合并相关业务中涉及“同一控制下合并”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-p2b-015",
+    "subject": "accounting",
+    "chapter": "财务报告与合并",
+    "syllabusCode": "ACC-P2B-015",
+    "examYear": "2026",
+    "topic": "非同一控制下合并",
+    "keywords": [
+      "非同一控制下合并",
+      "财务报告与合并",
+      "ACC-P2B",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "非同一控制下合并是财务报告与合并中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理非同一控制下合并时，先核对适用前提与口径，再进行结论判断。",
+      "非同一控制下合并答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略非同一控制下合并的前提条件",
+      "将非同一控制下合并与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在财务报告与合并相关业务中涉及“非同一控制下合并”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-p2b-016",
+    "subject": "accounting",
+    "chapter": "财务报告与合并",
+    "syllabusCode": "ACC-P2B-016",
+    "examYear": "2026",
+    "topic": "合并范围变化处理",
+    "keywords": [
+      "合并范围变化处理",
+      "财务报告与合并",
+      "ACC-P2B",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "合并范围变化处理是财务报告与合并中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理合并范围变化处理时，先核对适用前提与口径，再进行结论判断。",
+      "合并范围变化处理答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略合并范围变化处理的前提条件",
+      "将合并范围变化处理与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在财务报告与合并相关业务中涉及“合并范围变化处理”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-p2b-017",
+    "subject": "accounting",
+    "chapter": "财务报告与合并",
+    "syllabusCode": "ACC-P2B-017",
+    "examYear": "2026",
+    "topic": "报表附注一致性",
+    "keywords": [
+      "报表附注一致性",
+      "财务报告与合并",
+      "ACC-P2B",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "报表附注一致性是财务报告与合并中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理报表附注一致性时，先核对适用前提与口径，再进行结论判断。",
+      "报表附注一致性答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略报表附注一致性的前提条件",
+      "将报表附注一致性与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在财务报告与合并相关业务中涉及“报表附注一致性”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "accounting-acc-p2b-018",
+    "subject": "accounting",
+    "chapter": "财务报告与合并",
+    "syllabusCode": "ACC-P2B-018",
+    "examYear": "2026",
+    "topic": "合并报表常见错因",
+    "keywords": [
+      "合并报表常见错因",
+      "财务报告与合并",
+      "ACC-P2B",
+      "accounting",
+      "CPA"
+    ],
+    "concept": "合并报表常见错因是财务报告与合并中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理合并报表常见错因时，先核对适用前提与口径，再进行结论判断。",
+      "合并报表常见错因答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略合并报表常见错因的前提条件",
+      "将合并报表常见错因与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在财务报告与合并相关业务中涉及“合并报表常见错因”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-p2a-001",
+    "subject": "tax",
+    "chapter": "企业所得税",
+    "syllabusCode": "TAX-P2A-001",
+    "examYear": "2026",
+    "topic": "收入总额确认",
+    "keywords": [
+      "收入总额确认",
+      "企业所得税",
+      "TAX-P2A",
+      "tax",
+      "CPA"
+    ],
+    "concept": "收入总额确认是企业所得税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理收入总额确认时，先核对适用前提与口径，再进行结论判断。",
+      "收入总额确认答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略收入总额确认的前提条件",
+      "将收入总额确认与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在企业所得税相关业务中涉及“收入总额确认”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-p2a-002",
+    "subject": "tax",
+    "chapter": "企业所得税",
+    "syllabusCode": "TAX-P2A-002",
+    "examYear": "2026",
+    "topic": "成本费用归集",
+    "keywords": [
+      "成本费用归集",
+      "企业所得税",
+      "TAX-P2A",
+      "tax",
+      "CPA"
+    ],
+    "concept": "成本费用归集是企业所得税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理成本费用归集时，先核对适用前提与口径，再进行结论判断。",
+      "成本费用归集答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略成本费用归集的前提条件",
+      "将成本费用归集与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在企业所得税相关业务中涉及“成本费用归集”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-p2a-003",
+    "subject": "tax",
+    "chapter": "企业所得税",
+    "syllabusCode": "TAX-P2A-003",
+    "examYear": "2026",
+    "topic": "亏损弥补规则",
+    "keywords": [
+      "亏损弥补规则",
+      "企业所得税",
+      "TAX-P2A",
+      "tax",
+      "CPA"
+    ],
+    "concept": "亏损弥补规则是企业所得税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理亏损弥补规则时，先核对适用前提与口径，再进行结论判断。",
+      "亏损弥补规则答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略亏损弥补规则的前提条件",
+      "将亏损弥补规则与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在企业所得税相关业务中涉及“亏损弥补规则”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-p2a-004",
+    "subject": "tax",
+    "chapter": "企业所得税",
+    "syllabusCode": "TAX-P2A-004",
+    "examYear": "2026",
+    "topic": "资产损失税前扣除",
+    "keywords": [
+      "资产损失税前扣除",
+      "企业所得税",
+      "TAX-P2A",
+      "tax",
+      "CPA"
+    ],
+    "concept": "资产损失税前扣除是企业所得税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理资产损失税前扣除时，先核对适用前提与口径，再进行结论判断。",
+      "资产损失税前扣除答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略资产损失税前扣除的前提条件",
+      "将资产损失税前扣除与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在企业所得税相关业务中涉及“资产损失税前扣除”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-p2a-005",
+    "subject": "tax",
+    "chapter": "企业所得税",
+    "syllabusCode": "TAX-P2A-005",
+    "examYear": "2026",
+    "topic": "研发费用加计扣除",
+    "keywords": [
+      "研发费用加计扣除",
+      "企业所得税",
+      "TAX-P2A",
+      "tax",
+      "CPA"
+    ],
+    "concept": "研发费用加计扣除是企业所得税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理研发费用加计扣除时，先核对适用前提与口径，再进行结论判断。",
+      "研发费用加计扣除答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略研发费用加计扣除的前提条件",
+      "将研发费用加计扣除与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在企业所得税相关业务中涉及“研发费用加计扣除”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-p2a-006",
+    "subject": "tax",
+    "chapter": "企业所得税",
+    "syllabusCode": "TAX-P2A-006",
+    "examYear": "2026",
+    "topic": "高新技术企业优惠",
+    "keywords": [
+      "高新技术企业优惠",
+      "企业所得税",
+      "TAX-P2A",
+      "tax",
+      "CPA"
+    ],
+    "concept": "高新技术企业优惠是企业所得税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理高新技术企业优惠时，先核对适用前提与口径，再进行结论判断。",
+      "高新技术企业优惠答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略高新技术企业优惠的前提条件",
+      "将高新技术企业优惠与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在企业所得税相关业务中涉及“高新技术企业优惠”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-p2a-007",
+    "subject": "tax",
+    "chapter": "企业所得税",
+    "syllabusCode": "TAX-P2A-007",
+    "examYear": "2026",
+    "topic": "境外所得抵免",
+    "keywords": [
+      "境外所得抵免",
+      "企业所得税",
+      "TAX-P2A",
+      "tax",
+      "CPA"
+    ],
+    "concept": "境外所得抵免是企业所得税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理境外所得抵免时，先核对适用前提与口径，再进行结论判断。",
+      "境外所得抵免答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略境外所得抵免的前提条件",
+      "将境外所得抵免与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在企业所得税相关业务中涉及“境外所得抵免”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-p2a-008",
+    "subject": "tax",
+    "chapter": "企业所得税",
+    "syllabusCode": "TAX-P2A-008",
+    "examYear": "2026",
+    "topic": "特别重组税务处理",
+    "keywords": [
+      "特别重组税务处理",
+      "企业所得税",
+      "TAX-P2A",
+      "tax",
+      "CPA"
+    ],
+    "concept": "特别重组税务处理是企业所得税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理特别重组税务处理时，先核对适用前提与口径，再进行结论判断。",
+      "特别重组税务处理答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略特别重组税务处理的前提条件",
+      "将特别重组税务处理与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在企业所得税相关业务中涉及“特别重组税务处理”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-p2a-009",
+    "subject": "tax",
+    "chapter": "企业所得税",
+    "syllabusCode": "TAX-P2A-009",
+    "examYear": "2026",
+    "topic": "汇算清缴风险点",
+    "keywords": [
+      "汇算清缴风险点",
+      "企业所得税",
+      "TAX-P2A",
+      "tax",
+      "CPA"
+    ],
+    "concept": "汇算清缴风险点是企业所得税中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理汇算清缴风险点时，先核对适用前提与口径，再进行结论判断。",
+      "汇算清缴风险点答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略汇算清缴风险点的前提条件",
+      "将汇算清缴风险点与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在企业所得税相关业务中涉及“汇算清缴风险点”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-p2b-010",
+    "subject": "tax",
+    "chapter": "税收征管",
+    "syllabusCode": "TAX-P2B-010",
+    "examYear": "2026",
+    "topic": "纳税信用等级",
+    "keywords": [
+      "纳税信用等级",
+      "税收征管",
+      "TAX-P2B",
+      "tax",
+      "CPA"
+    ],
+    "concept": "纳税信用等级是税收征管中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理纳税信用等级时，先核对适用前提与口径，再进行结论判断。",
+      "纳税信用等级答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略纳税信用等级的前提条件",
+      "将纳税信用等级与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在税收征管相关业务中涉及“纳税信用等级”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-p2b-011",
+    "subject": "tax",
+    "chapter": "税收征管",
+    "syllabusCode": "TAX-P2B-011",
+    "examYear": "2026",
+    "topic": "发票风险预警",
+    "keywords": [
+      "发票风险预警",
+      "税收征管",
+      "TAX-P2B",
+      "tax",
+      "CPA"
+    ],
+    "concept": "发票风险预警是税收征管中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理发票风险预警时，先核对适用前提与口径，再进行结论判断。",
+      "发票风险预警答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略发票风险预警的前提条件",
+      "将发票风险预警与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在税收征管相关业务中涉及“发票风险预警”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-p2b-012",
+    "subject": "tax",
+    "chapter": "税收征管",
+    "syllabusCode": "TAX-P2B-012",
+    "examYear": "2026",
+    "topic": "税务稽查应对",
+    "keywords": [
+      "税务稽查应对",
+      "税收征管",
+      "TAX-P2B",
+      "tax",
+      "CPA"
+    ],
+    "concept": "税务稽查应对是税收征管中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理税务稽查应对时，先核对适用前提与口径，再进行结论判断。",
+      "税务稽查应对答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略税务稽查应对的前提条件",
+      "将税务稽查应对与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在税收征管相关业务中涉及“税务稽查应对”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-p2b-013",
+    "subject": "tax",
+    "chapter": "税收征管",
+    "syllabusCode": "TAX-P2B-013",
+    "examYear": "2026",
+    "topic": "电子发票管理",
+    "keywords": [
+      "电子发票管理",
+      "税收征管",
+      "TAX-P2B",
+      "tax",
+      "CPA"
+    ],
+    "concept": "电子发票管理是税收征管中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理电子发票管理时，先核对适用前提与口径，再进行结论判断。",
+      "电子发票管理答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略电子发票管理的前提条件",
+      "将电子发票管理与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在税收征管相关业务中涉及“电子发票管理”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-p2b-014",
+    "subject": "tax",
+    "chapter": "税收征管",
+    "syllabusCode": "TAX-P2B-014",
+    "examYear": "2026",
+    "topic": "税务违法责任",
+    "keywords": [
+      "税务违法责任",
+      "税收征管",
+      "TAX-P2B",
+      "tax",
+      "CPA"
+    ],
+    "concept": "税务违法责任是税收征管中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理税务违法责任时，先核对适用前提与口径，再进行结论判断。",
+      "税务违法责任答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略税务违法责任的前提条件",
+      "将税务违法责任与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在税收征管相关业务中涉及“税务违法责任”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-p2b-015",
+    "subject": "tax",
+    "chapter": "税收征管",
+    "syllabusCode": "TAX-P2B-015",
+    "examYear": "2026",
+    "topic": "欠税管理",
+    "keywords": [
+      "欠税管理",
+      "税收征管",
+      "TAX-P2B",
+      "tax",
+      "CPA"
+    ],
+    "concept": "欠税管理是税收征管中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理欠税管理时，先核对适用前提与口径，再进行结论判断。",
+      "欠税管理答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略欠税管理的前提条件",
+      "将欠税管理与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在税收征管相关业务中涉及“欠税管理”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-p2b-016",
+    "subject": "tax",
+    "chapter": "税收征管",
+    "syllabusCode": "TAX-P2B-016",
+    "examYear": "2026",
+    "topic": "税收保全措施",
+    "keywords": [
+      "税收保全措施",
+      "税收征管",
+      "TAX-P2B",
+      "tax",
+      "CPA"
+    ],
+    "concept": "税收保全措施是税收征管中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理税收保全措施时，先核对适用前提与口径，再进行结论判断。",
+      "税收保全措施答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略税收保全措施的前提条件",
+      "将税收保全措施与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在税收征管相关业务中涉及“税收保全措施”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-p2b-017",
+    "subject": "tax",
+    "chapter": "税收征管",
+    "syllabusCode": "TAX-P2B-017",
+    "examYear": "2026",
+    "topic": "税务行政诉讼",
+    "keywords": [
+      "税务行政诉讼",
+      "税收征管",
+      "TAX-P2B",
+      "tax",
+      "CPA"
+    ],
+    "concept": "税务行政诉讼是税收征管中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理税务行政诉讼时，先核对适用前提与口径，再进行结论判断。",
+      "税务行政诉讼答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略税务行政诉讼的前提条件",
+      "将税务行政诉讼与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在税收征管相关业务中涉及“税务行政诉讼”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "tax-tax-p2b-018",
+    "subject": "tax",
+    "chapter": "税收征管",
+    "syllabusCode": "TAX-P2B-018",
+    "examYear": "2026",
+    "topic": "征管数字化趋势",
+    "keywords": [
+      "征管数字化趋势",
+      "税收征管",
+      "TAX-P2B",
+      "tax",
+      "CPA"
+    ],
+    "concept": "征管数字化趋势是税收征管中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理征管数字化趋势时，先核对适用前提与口径，再进行结论判断。",
+      "征管数字化趋势答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略征管数字化趋势的前提条件",
+      "将征管数字化趋势与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在税收征管相关业务中涉及“征管数字化趋势”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 2,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:13:14.681Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "audit-aud-pln-001",
+    "subject": "audit",
+    "chapter": "审计计划与风险评估",
+    "syllabusCode": "AUD-PLN-001",
+    "examYear": "2026",
+    "topic": "审计目标映射",
+    "keywords": [
+      "审计目标映射",
+      "审计计划与风险评估",
+      "AUD-PLN",
+      "audit",
+      "CPA"
+    ],
+    "concept": "审计目标映射是审计计划与风险评估中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理审计目标映射时，先核对适用前提与口径，再进行结论判断。",
+      "审计目标映射答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略审计目标映射的前提条件",
+      "将审计目标映射与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在审计计划与风险评估相关业务中涉及“审计目标映射”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:15:35.220Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "audit-aud-pln-002",
+    "subject": "audit",
+    "chapter": "审计计划与风险评估",
+    "syllabusCode": "AUD-PLN-002",
+    "examYear": "2026",
+    "topic": "重大错报风险识别",
+    "keywords": [
+      "重大错报风险识别",
+      "审计计划与风险评估",
+      "AUD-PLN",
+      "audit",
+      "CPA"
+    ],
+    "concept": "重大错报风险识别是审计计划与风险评估中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理重大错报风险识别时，先核对适用前提与口径，再进行结论判断。",
+      "重大错报风险识别答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略重大错报风险识别的前提条件",
+      "将重大错报风险识别与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在审计计划与风险评估相关业务中涉及“重大错报风险识别”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:15:35.220Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "audit-aud-pln-003",
+    "subject": "audit",
+    "chapter": "审计计划与风险评估",
+    "syllabusCode": "AUD-PLN-003",
+    "examYear": "2026",
+    "topic": "计划重要性设定",
+    "keywords": [
+      "计划重要性设定",
+      "审计计划与风险评估",
+      "AUD-PLN",
+      "audit",
+      "CPA"
+    ],
+    "concept": "计划重要性设定是审计计划与风险评估中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理计划重要性设定时，先核对适用前提与口径，再进行结论判断。",
+      "计划重要性设定答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略计划重要性设定的前提条件",
+      "将计划重要性设定与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在审计计划与风险评估相关业务中涉及“计划重要性设定”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:15:35.220Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "audit-aud-pln-004",
+    "subject": "audit",
+    "chapter": "审计计划与风险评估",
+    "syllabusCode": "AUD-PLN-004",
+    "examYear": "2026",
+    "topic": "执行重要性应用",
+    "keywords": [
+      "执行重要性应用",
+      "审计计划与风险评估",
+      "AUD-PLN",
+      "audit",
+      "CPA"
+    ],
+    "concept": "执行重要性应用是审计计划与风险评估中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理执行重要性应用时，先核对适用前提与口径，再进行结论判断。",
+      "执行重要性应用答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略执行重要性应用的前提条件",
+      "将执行重要性应用与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在审计计划与风险评估相关业务中涉及“执行重要性应用”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:15:35.220Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "audit-aud-pln-005",
+    "subject": "audit",
+    "chapter": "审计计划与风险评估",
+    "syllabusCode": "AUD-PLN-005",
+    "examYear": "2026",
+    "topic": "风险应对总体策略",
+    "keywords": [
+      "风险应对总体策略",
+      "审计计划与风险评估",
+      "AUD-PLN",
+      "audit",
+      "CPA"
+    ],
+    "concept": "风险应对总体策略是审计计划与风险评估中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理风险应对总体策略时，先核对适用前提与口径，再进行结论判断。",
+      "风险应对总体策略答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略风险应对总体策略的前提条件",
+      "将风险应对总体策略与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在审计计划与风险评估相关业务中涉及“风险应对总体策略”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:15:35.220Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "audit-aud-ctl-006",
+    "subject": "audit",
+    "chapter": "内部控制与测试",
+    "syllabusCode": "AUD-CTL-006",
+    "examYear": "2026",
+    "topic": "控制设计有效性",
+    "keywords": [
+      "控制设计有效性",
+      "内部控制与测试",
+      "AUD-CTL",
+      "audit",
+      "CPA"
+    ],
+    "concept": "控制设计有效性是内部控制与测试中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理控制设计有效性时，先核对适用前提与口径，再进行结论判断。",
+      "控制设计有效性答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略控制设计有效性的前提条件",
+      "将控制设计有效性与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在内部控制与测试相关业务中涉及“控制设计有效性”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:15:35.220Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "audit-aud-ctl-007",
+    "subject": "audit",
+    "chapter": "内部控制与测试",
+    "syllabusCode": "AUD-CTL-007",
+    "examYear": "2026",
+    "topic": "控制执行有效性",
+    "keywords": [
+      "控制执行有效性",
+      "内部控制与测试",
+      "AUD-CTL",
+      "audit",
+      "CPA"
+    ],
+    "concept": "控制执行有效性是内部控制与测试中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理控制执行有效性时，先核对适用前提与口径，再进行结论判断。",
+      "控制执行有效性答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略控制执行有效性的前提条件",
+      "将控制执行有效性与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在内部控制与测试相关业务中涉及“控制执行有效性”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:15:35.220Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "audit-aud-ctl-008",
+    "subject": "audit",
+    "chapter": "内部控制与测试",
+    "syllabusCode": "AUD-CTL-008",
+    "examYear": "2026",
+    "topic": "穿行测试步骤",
+    "keywords": [
+      "穿行测试步骤",
+      "内部控制与测试",
+      "AUD-CTL",
+      "audit",
+      "CPA"
+    ],
+    "concept": "穿行测试步骤是内部控制与测试中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理穿行测试步骤时，先核对适用前提与口径，再进行结论判断。",
+      "穿行测试步骤答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略穿行测试步骤的前提条件",
+      "将穿行测试步骤与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在内部控制与测试相关业务中涉及“穿行测试步骤”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:15:35.220Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "audit-aud-ctl-009",
+    "subject": "audit",
+    "chapter": "内部控制与测试",
+    "syllabusCode": "AUD-CTL-009",
+    "examYear": "2026",
+    "topic": "控制测试抽样",
+    "keywords": [
+      "控制测试抽样",
+      "内部控制与测试",
+      "AUD-CTL",
+      "audit",
+      "CPA"
+    ],
+    "concept": "控制测试抽样是内部控制与测试中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理控制测试抽样时，先核对适用前提与口径，再进行结论判断。",
+      "控制测试抽样答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略控制测试抽样的前提条件",
+      "将控制测试抽样与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在内部控制与测试相关业务中涉及“控制测试抽样”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.220Z",
+    "createdAt": "2026-02-22T16:15:35.220Z",
+    "updatedAt": "2026-02-22T16:15:35.220Z"
+  },
+  {
+    "id": "audit-aud-ctl-010",
+    "subject": "audit",
+    "chapter": "内部控制与测试",
+    "syllabusCode": "AUD-CTL-010",
+    "examYear": "2026",
+    "topic": "实质性程序衔接",
+    "keywords": [
+      "实质性程序衔接",
+      "内部控制与测试",
+      "AUD-CTL",
+      "audit",
+      "CPA"
+    ],
+    "concept": "实质性程序衔接是内部控制与测试中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理实质性程序衔接时，先核对适用前提与口径，再进行结论判断。",
+      "实质性程序衔接答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略实质性程序衔接的前提条件",
+      "将实质性程序衔接与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在内部控制与测试相关业务中涉及“实质性程序衔接”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-evd-011",
+    "subject": "audit",
+    "chapter": "审计证据",
+    "syllabusCode": "AUD-EVD-011",
+    "examYear": "2026",
+    "topic": "充分性与适当性",
+    "keywords": [
+      "充分性与适当性",
+      "审计证据",
+      "AUD-EVD",
+      "audit",
+      "CPA"
+    ],
+    "concept": "充分性与适当性是审计证据中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理充分性与适当性时，先核对适用前提与口径，再进行结论判断。",
+      "充分性与适当性答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略充分性与适当性的前提条件",
+      "将充分性与适当性与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在审计证据相关业务中涉及“充分性与适当性”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-evd-012",
+    "subject": "audit",
+    "chapter": "审计证据",
+    "syllabusCode": "AUD-EVD-012",
+    "examYear": "2026",
+    "topic": "函证回函异常处理",
+    "keywords": [
+      "函证回函异常处理",
+      "审计证据",
+      "AUD-EVD",
+      "audit",
+      "CPA"
+    ],
+    "concept": "函证回函异常处理是审计证据中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理函证回函异常处理时，先核对适用前提与口径，再进行结论判断。",
+      "函证回函异常处理答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略函证回函异常处理的前提条件",
+      "将函证回函异常处理与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在审计证据相关业务中涉及“函证回函异常处理”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-evd-013",
+    "subject": "audit",
+    "chapter": "审计证据",
+    "syllabusCode": "AUD-EVD-013",
+    "examYear": "2026",
+    "topic": "存货监盘关键点",
+    "keywords": [
+      "存货监盘关键点",
+      "审计证据",
+      "AUD-EVD",
+      "audit",
+      "CPA"
+    ],
+    "concept": "存货监盘关键点是审计证据中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理存货监盘关键点时，先核对适用前提与口径，再进行结论判断。",
+      "存货监盘关键点答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略存货监盘关键点的前提条件",
+      "将存货监盘关键点与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在审计证据相关业务中涉及“存货监盘关键点”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-evd-014",
+    "subject": "audit",
+    "chapter": "审计证据",
+    "syllabusCode": "AUD-EVD-014",
+    "examYear": "2026",
+    "topic": "分析程序运用",
+    "keywords": [
+      "分析程序运用",
+      "审计证据",
+      "AUD-EVD",
+      "audit",
+      "CPA"
+    ],
+    "concept": "分析程序运用是审计证据中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理分析程序运用时，先核对适用前提与口径，再进行结论判断。",
+      "分析程序运用答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略分析程序运用的前提条件",
+      "将分析程序运用与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在审计证据相关业务中涉及“分析程序运用”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-evd-015",
+    "subject": "audit",
+    "chapter": "审计证据",
+    "syllabusCode": "AUD-EVD-015",
+    "examYear": "2026",
+    "topic": "替代程序选择",
+    "keywords": [
+      "替代程序选择",
+      "审计证据",
+      "AUD-EVD",
+      "audit",
+      "CPA"
+    ],
+    "concept": "替代程序选择是审计证据中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理替代程序选择时，先核对适用前提与口径，再进行结论判断。",
+      "替代程序选择答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略替代程序选择的前提条件",
+      "将替代程序选择与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在审计证据相关业务中涉及“替代程序选择”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-spc-016",
+    "subject": "audit",
+    "chapter": "特殊项目审计",
+    "syllabusCode": "AUD-SPC-016",
+    "examYear": "2026",
+    "topic": "收入舞弊迹象",
+    "keywords": [
+      "收入舞弊迹象",
+      "特殊项目审计",
+      "AUD-SPC",
+      "audit",
+      "CPA"
+    ],
+    "concept": "收入舞弊迹象是特殊项目审计中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理收入舞弊迹象时，先核对适用前提与口径，再进行结论判断。",
+      "收入舞弊迹象答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略收入舞弊迹象的前提条件",
+      "将收入舞弊迹象与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在特殊项目审计相关业务中涉及“收入舞弊迹象”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-spc-017",
+    "subject": "audit",
+    "chapter": "特殊项目审计",
+    "syllabusCode": "AUD-SPC-017",
+    "examYear": "2026",
+    "topic": "关联方交易识别",
+    "keywords": [
+      "关联方交易识别",
+      "特殊项目审计",
+      "AUD-SPC",
+      "audit",
+      "CPA"
+    ],
+    "concept": "关联方交易识别是特殊项目审计中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理关联方交易识别时，先核对适用前提与口径，再进行结论判断。",
+      "关联方交易识别答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略关联方交易识别的前提条件",
+      "将关联方交易识别与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在特殊项目审计相关业务中涉及“关联方交易识别”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-spc-018",
+    "subject": "audit",
+    "chapter": "特殊项目审计",
+    "syllabusCode": "AUD-SPC-018",
+    "examYear": "2026",
+    "topic": "持续经营判断",
+    "keywords": [
+      "持续经营判断",
+      "特殊项目审计",
+      "AUD-SPC",
+      "audit",
+      "CPA"
+    ],
+    "concept": "持续经营判断是特殊项目审计中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理持续经营判断时，先核对适用前提与口径，再进行结论判断。",
+      "持续经营判断答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略持续经营判断的前提条件",
+      "将持续经营判断与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在特殊项目审计相关业务中涉及“持续经营判断”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-spc-019",
+    "subject": "audit",
+    "chapter": "特殊项目审计",
+    "syllabusCode": "AUD-SPC-019",
+    "examYear": "2026",
+    "topic": "集团审计协调",
+    "keywords": [
+      "集团审计协调",
+      "特殊项目审计",
+      "AUD-SPC",
+      "audit",
+      "CPA"
+    ],
+    "concept": "集团审计协调是特殊项目审计中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理集团审计协调时，先核对适用前提与口径，再进行结论判断。",
+      "集团审计协调答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略集团审计协调的前提条件",
+      "将集团审计协调与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在特殊项目审计相关业务中涉及“集团审计协调”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-spc-020",
+    "subject": "audit",
+    "chapter": "特殊项目审计",
+    "syllabusCode": "AUD-SPC-020",
+    "examYear": "2026",
+    "topic": "关键审计事项提炼",
+    "keywords": [
+      "关键审计事项提炼",
+      "特殊项目审计",
+      "AUD-SPC",
+      "audit",
+      "CPA"
+    ],
+    "concept": "关键审计事项提炼是特殊项目审计中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理关键审计事项提炼时，先核对适用前提与口径，再进行结论判断。",
+      "关键审计事项提炼答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略关键审计事项提炼的前提条件",
+      "将关键审计事项提炼与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在特殊项目审计相关业务中涉及“关键审计事项提炼”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-rpt-021",
+    "subject": "audit",
+    "chapter": "审计完成与报告",
+    "syllabusCode": "AUD-RPT-021",
+    "examYear": "2026",
+    "topic": "期后事项审计",
+    "keywords": [
+      "期后事项审计",
+      "审计完成与报告",
+      "AUD-RPT",
+      "audit",
+      "CPA"
+    ],
+    "concept": "期后事项审计是审计完成与报告中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理期后事项审计时，先核对适用前提与口径，再进行结论判断。",
+      "期后事项审计答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略期后事项审计的前提条件",
+      "将期后事项审计与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在审计完成与报告相关业务中涉及“期后事项审计”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-rpt-022",
+    "subject": "audit",
+    "chapter": "审计完成与报告",
+    "syllabusCode": "AUD-RPT-022",
+    "examYear": "2026",
+    "topic": "书面声明获取",
+    "keywords": [
+      "书面声明获取",
+      "审计完成与报告",
+      "AUD-RPT",
+      "audit",
+      "CPA"
+    ],
+    "concept": "书面声明获取是审计完成与报告中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理书面声明获取时，先核对适用前提与口径，再进行结论判断。",
+      "书面声明获取答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略书面声明获取的前提条件",
+      "将书面声明获取与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在审计完成与报告相关业务中涉及“书面声明获取”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-rpt-023",
+    "subject": "audit",
+    "chapter": "审计完成与报告",
+    "syllabusCode": "AUD-RPT-023",
+    "examYear": "2026",
+    "topic": "审计意见判断",
+    "keywords": [
+      "审计意见判断",
+      "审计完成与报告",
+      "AUD-RPT",
+      "audit",
+      "CPA"
+    ],
+    "concept": "审计意见判断是审计完成与报告中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理审计意见判断时，先核对适用前提与口径，再进行结论判断。",
+      "审计意见判断答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略审计意见判断的前提条件",
+      "将审计意见判断与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在审计完成与报告相关业务中涉及“审计意见判断”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-rpt-024",
+    "subject": "audit",
+    "chapter": "审计完成与报告",
+    "syllabusCode": "AUD-RPT-024",
+    "examYear": "2026",
+    "topic": "非无保留意见条件",
+    "keywords": [
+      "非无保留意见条件",
+      "审计完成与报告",
+      "AUD-RPT",
+      "audit",
+      "CPA"
+    ],
+    "concept": "非无保留意见条件是审计完成与报告中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理非无保留意见条件时，先核对适用前提与口径，再进行结论判断。",
+      "非无保留意见条件答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略非无保留意见条件的前提条件",
+      "将非无保留意见条件与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在审计完成与报告相关业务中涉及“非无保留意见条件”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-rpt-025",
+    "subject": "audit",
+    "chapter": "审计完成与报告",
+    "syllabusCode": "AUD-RPT-025",
+    "examYear": "2026",
+    "topic": "报告结构披露",
+    "keywords": [
+      "报告结构披露",
+      "审计完成与报告",
+      "AUD-RPT",
+      "audit",
+      "CPA"
+    ],
+    "concept": "报告结构披露是审计完成与报告中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理报告结构披露时，先核对适用前提与口径，再进行结论判断。",
+      "报告结构披露答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略报告结构披露的前提条件",
+      "将报告结构披露与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在审计完成与报告相关业务中涉及“报告结构披露”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-eth-026",
+    "subject": "audit",
+    "chapter": "质量管理与职业道德",
+    "syllabusCode": "AUD-ETH-026",
+    "examYear": "2026",
+    "topic": "独立性威胁识别",
+    "keywords": [
+      "独立性威胁识别",
+      "质量管理与职业道德",
+      "AUD-ETH",
+      "audit",
+      "CPA"
+    ],
+    "concept": "独立性威胁识别是质量管理与职业道德中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理独立性威胁识别时，先核对适用前提与口径，再进行结论判断。",
+      "独立性威胁识别答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略独立性威胁识别的前提条件",
+      "将独立性威胁识别与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在质量管理与职业道德相关业务中涉及“独立性威胁识别”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-eth-027",
+    "subject": "audit",
+    "chapter": "质量管理与职业道德",
+    "syllabusCode": "AUD-ETH-027",
+    "examYear": "2026",
+    "topic": "质量管理体系",
+    "keywords": [
+      "质量管理体系",
+      "质量管理与职业道德",
+      "AUD-ETH",
+      "audit",
+      "CPA"
+    ],
+    "concept": "质量管理体系是质量管理与职业道德中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理质量管理体系时，先核对适用前提与口径，再进行结论判断。",
+      "质量管理体系答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略质量管理体系的前提条件",
+      "将质量管理体系与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在质量管理与职业道德相关业务中涉及“质量管理体系”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-eth-028",
+    "subject": "audit",
+    "chapter": "质量管理与职业道德",
+    "syllabusCode": "AUD-ETH-028",
+    "examYear": "2026",
+    "topic": "项目复核机制",
+    "keywords": [
+      "项目复核机制",
+      "质量管理与职业道德",
+      "AUD-ETH",
+      "audit",
+      "CPA"
+    ],
+    "concept": "项目复核机制是质量管理与职业道德中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理项目复核机制时，先核对适用前提与口径，再进行结论判断。",
+      "项目复核机制答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略项目复核机制的前提条件",
+      "将项目复核机制与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在质量管理与职业道德相关业务中涉及“项目复核机制”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-eth-029",
+    "subject": "audit",
+    "chapter": "质量管理与职业道德",
+    "syllabusCode": "AUD-ETH-029",
+    "examYear": "2026",
+    "topic": "职业怀疑保持",
+    "keywords": [
+      "职业怀疑保持",
+      "质量管理与职业道德",
+      "AUD-ETH",
+      "audit",
+      "CPA"
+    ],
+    "concept": "职业怀疑保持是质量管理与职业道德中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理职业怀疑保持时，先核对适用前提与口径，再进行结论判断。",
+      "职业怀疑保持答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略职业怀疑保持的前提条件",
+      "将职业怀疑保持与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在质量管理与职业道德相关业务中涉及“职业怀疑保持”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "audit-aud-eth-030",
+    "subject": "audit",
+    "chapter": "质量管理与职业道德",
+    "syllabusCode": "AUD-ETH-030",
+    "examYear": "2026",
+    "topic": "职业判断偏差控制",
+    "keywords": [
+      "职业判断偏差控制",
+      "质量管理与职业道德",
+      "AUD-ETH",
+      "audit",
+      "CPA"
+    ],
+    "concept": "职业判断偏差控制是质量管理与职业道德中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理职业判断偏差控制时，先核对适用前提与口径，再进行结论判断。",
+      "职业判断偏差控制答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略职业判断偏差控制的前提条件",
+      "将职业判断偏差控制与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在质量管理与职业道德相关业务中涉及“职业判断偏差控制”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-bas-001",
+    "subject": "finance",
+    "chapter": "财务管理基础",
+    "syllabusCode": "FIN-BAS-001",
+    "examYear": "2026",
+    "topic": "现值终值换算",
+    "keywords": [
+      "现值终值换算",
+      "财务管理基础",
+      "FIN-BAS",
+      "finance",
+      "CPA"
+    ],
+    "concept": "现值终值换算是财务管理基础中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理现值终值换算时，先核对适用前提与口径，再进行结论判断。",
+      "现值终值换算答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略现值终值换算的前提条件",
+      "将现值终值换算与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在财务管理基础相关业务中涉及“现值终值换算”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-bas-002",
+    "subject": "finance",
+    "chapter": "财务管理基础",
+    "syllabusCode": "FIN-BAS-002",
+    "examYear": "2026",
+    "topic": "年金模型应用",
+    "keywords": [
+      "年金模型应用",
+      "财务管理基础",
+      "FIN-BAS",
+      "finance",
+      "CPA"
+    ],
+    "concept": "年金模型应用是财务管理基础中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理年金模型应用时，先核对适用前提与口径，再进行结论判断。",
+      "年金模型应用答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略年金模型应用的前提条件",
+      "将年金模型应用与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在财务管理基础相关业务中涉及“年金模型应用”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-bas-003",
+    "subject": "finance",
+    "chapter": "财务管理基础",
+    "syllabusCode": "FIN-BAS-003",
+    "examYear": "2026",
+    "topic": "风险报酬估计",
+    "keywords": [
+      "风险报酬估计",
+      "财务管理基础",
+      "FIN-BAS",
+      "finance",
+      "CPA"
+    ],
+    "concept": "风险报酬估计是财务管理基础中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理风险报酬估计时，先核对适用前提与口径，再进行结论判断。",
+      "风险报酬估计答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略风险报酬估计的前提条件",
+      "将风险报酬估计与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在财务管理基础相关业务中涉及“风险报酬估计”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-bas-004",
+    "subject": "finance",
+    "chapter": "财务管理基础",
+    "syllabusCode": "FIN-BAS-004",
+    "examYear": "2026",
+    "topic": "必要报酬率",
+    "keywords": [
+      "必要报酬率",
+      "财务管理基础",
+      "FIN-BAS",
+      "finance",
+      "CPA"
+    ],
+    "concept": "必要报酬率是财务管理基础中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理必要报酬率时，先核对适用前提与口径，再进行结论判断。",
+      "必要报酬率答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略必要报酬率的前提条件",
+      "将必要报酬率与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在财务管理基础相关业务中涉及“必要报酬率”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-bas-005",
+    "subject": "finance",
+    "chapter": "财务管理基础",
+    "syllabusCode": "FIN-BAS-005",
+    "examYear": "2026",
+    "topic": "CAPM参数判断",
+    "keywords": [
+      "CAPM参数判断",
+      "财务管理基础",
+      "FIN-BAS",
+      "finance",
+      "CPA"
+    ],
+    "concept": "CAPM参数判断是财务管理基础中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理CAPM参数判断时，先核对适用前提与口径，再进行结论判断。",
+      "CAPM参数判断答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略CAPM参数判断的前提条件",
+      "将CAPM参数判断与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在财务管理基础相关业务中涉及“CAPM参数判断”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-fin-006",
+    "subject": "finance",
+    "chapter": "筹资管理",
+    "syllabusCode": "FIN-FIN-006",
+    "examYear": "2026",
+    "topic": "资本结构权衡",
+    "keywords": [
+      "资本结构权衡",
+      "筹资管理",
+      "FIN-FIN",
+      "finance",
+      "CPA"
+    ],
+    "concept": "资本结构权衡是筹资管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理资本结构权衡时，先核对适用前提与口径，再进行结论判断。",
+      "资本结构权衡答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略资本结构权衡的前提条件",
+      "将资本结构权衡与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在筹资管理相关业务中涉及“资本结构权衡”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-fin-007",
+    "subject": "finance",
+    "chapter": "筹资管理",
+    "syllabusCode": "FIN-FIN-007",
+    "examYear": "2026",
+    "topic": "财务杠杆效应",
+    "keywords": [
+      "财务杠杆效应",
+      "筹资管理",
+      "FIN-FIN",
+      "finance",
+      "CPA"
+    ],
+    "concept": "财务杠杆效应是筹资管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理财务杠杆效应时，先核对适用前提与口径，再进行结论判断。",
+      "财务杠杆效应答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略财务杠杆效应的前提条件",
+      "将财务杠杆效应与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在筹资管理相关业务中涉及“财务杠杆效应”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-fin-008",
+    "subject": "finance",
+    "chapter": "筹资管理",
+    "syllabusCode": "FIN-FIN-008",
+    "examYear": "2026",
+    "topic": "债务融资成本",
+    "keywords": [
+      "债务融资成本",
+      "筹资管理",
+      "FIN-FIN",
+      "finance",
+      "CPA"
+    ],
+    "concept": "债务融资成本是筹资管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理债务融资成本时，先核对适用前提与口径，再进行结论判断。",
+      "债务融资成本答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略债务融资成本的前提条件",
+      "将债务融资成本与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在筹资管理相关业务中涉及“债务融资成本”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-fin-009",
+    "subject": "finance",
+    "chapter": "筹资管理",
+    "syllabusCode": "FIN-FIN-009",
+    "examYear": "2026",
+    "topic": "权益融资成本",
+    "keywords": [
+      "权益融资成本",
+      "筹资管理",
+      "FIN-FIN",
+      "finance",
+      "CPA"
+    ],
+    "concept": "权益融资成本是筹资管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理权益融资成本时，先核对适用前提与口径，再进行结论判断。",
+      "权益融资成本答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略权益融资成本的前提条件",
+      "将权益融资成本与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在筹资管理相关业务中涉及“权益融资成本”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-fin-010",
+    "subject": "finance",
+    "chapter": "筹资管理",
+    "syllabusCode": "FIN-FIN-010",
+    "examYear": "2026",
+    "topic": "股利政策影响",
+    "keywords": [
+      "股利政策影响",
+      "筹资管理",
+      "FIN-FIN",
+      "finance",
+      "CPA"
+    ],
+    "concept": "股利政策影响是筹资管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理股利政策影响时，先核对适用前提与口径，再进行结论判断。",
+      "股利政策影响答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略股利政策影响的前提条件",
+      "将股利政策影响与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在筹资管理相关业务中涉及“股利政策影响”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-inv-011",
+    "subject": "finance",
+    "chapter": "投资管理",
+    "syllabusCode": "FIN-INV-011",
+    "examYear": "2026",
+    "topic": "增量现金流识别",
+    "keywords": [
+      "增量现金流识别",
+      "投资管理",
+      "FIN-INV",
+      "finance",
+      "CPA"
+    ],
+    "concept": "增量现金流识别是投资管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理增量现金流识别时，先核对适用前提与口径，再进行结论判断。",
+      "增量现金流识别答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略增量现金流识别的前提条件",
+      "将增量现金流识别与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在投资管理相关业务中涉及“增量现金流识别”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-inv-012",
+    "subject": "finance",
+    "chapter": "投资管理",
+    "syllabusCode": "FIN-INV-012",
+    "examYear": "2026",
+    "topic": "净现值判定",
+    "keywords": [
+      "净现值判定",
+      "投资管理",
+      "FIN-INV",
+      "finance",
+      "CPA"
+    ],
+    "concept": "净现值判定是投资管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理净现值判定时，先核对适用前提与口径，再进行结论判断。",
+      "净现值判定答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略净现值判定的前提条件",
+      "将净现值判定与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在投资管理相关业务中涉及“净现值判定”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-inv-013",
+    "subject": "finance",
+    "chapter": "投资管理",
+    "syllabusCode": "FIN-INV-013",
+    "examYear": "2026",
+    "topic": "内含报酬率限制",
+    "keywords": [
+      "内含报酬率限制",
+      "投资管理",
+      "FIN-INV",
+      "finance",
+      "CPA"
+    ],
+    "concept": "内含报酬率限制是投资管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理内含报酬率限制时，先核对适用前提与口径，再进行结论判断。",
+      "内含报酬率限制答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略内含报酬率限制的前提条件",
+      "将内含报酬率限制与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在投资管理相关业务中涉及“内含报酬率限制”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-inv-014",
+    "subject": "finance",
+    "chapter": "投资管理",
+    "syllabusCode": "FIN-INV-014",
+    "examYear": "2026",
+    "topic": "互斥项目排序",
+    "keywords": [
+      "互斥项目排序",
+      "投资管理",
+      "FIN-INV",
+      "finance",
+      "CPA"
+    ],
+    "concept": "互斥项目排序是投资管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理互斥项目排序时，先核对适用前提与口径，再进行结论判断。",
+      "互斥项目排序答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略互斥项目排序的前提条件",
+      "将互斥项目排序与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在投资管理相关业务中涉及“互斥项目排序”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-inv-015",
+    "subject": "finance",
+    "chapter": "投资管理",
+    "syllabusCode": "FIN-INV-015",
+    "examYear": "2026",
+    "topic": "项目敏感性分析",
+    "keywords": [
+      "项目敏感性分析",
+      "投资管理",
+      "FIN-INV",
+      "finance",
+      "CPA"
+    ],
+    "concept": "项目敏感性分析是投资管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理项目敏感性分析时，先核对适用前提与口径，再进行结论判断。",
+      "项目敏感性分析答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略项目敏感性分析的前提条件",
+      "将项目敏感性分析与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在投资管理相关业务中涉及“项目敏感性分析”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-wc-016",
+    "subject": "finance",
+    "chapter": "营运资本管理",
+    "syllabusCode": "FIN-WC-016",
+    "examYear": "2026",
+    "topic": "现金持有策略",
+    "keywords": [
+      "现金持有策略",
+      "营运资本管理",
+      "FIN-WC",
+      "finance",
+      "CPA"
+    ],
+    "concept": "现金持有策略是营运资本管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理现金持有策略时，先核对适用前提与口径，再进行结论判断。",
+      "现金持有策略答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略现金持有策略的前提条件",
+      "将现金持有策略与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在营运资本管理相关业务中涉及“现金持有策略”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-wc-017",
+    "subject": "finance",
+    "chapter": "营运资本管理",
+    "syllabusCode": "FIN-WC-017",
+    "examYear": "2026",
+    "topic": "信用政策设定",
+    "keywords": [
+      "信用政策设定",
+      "营运资本管理",
+      "FIN-WC",
+      "finance",
+      "CPA"
+    ],
+    "concept": "信用政策设定是营运资本管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理信用政策设定时，先核对适用前提与口径，再进行结论判断。",
+      "信用政策设定答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略信用政策设定的前提条件",
+      "将信用政策设定与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在营运资本管理相关业务中涉及“信用政策设定”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-wc-018",
+    "subject": "finance",
+    "chapter": "营运资本管理",
+    "syllabusCode": "FIN-WC-018",
+    "examYear": "2026",
+    "topic": "应收账款周转",
+    "keywords": [
+      "应收账款周转",
+      "营运资本管理",
+      "FIN-WC",
+      "finance",
+      "CPA"
+    ],
+    "concept": "应收账款周转是营运资本管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理应收账款周转时，先核对适用前提与口径，再进行结论判断。",
+      "应收账款周转答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略应收账款周转的前提条件",
+      "将应收账款周转与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在营运资本管理相关业务中涉及“应收账款周转”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-wc-019",
+    "subject": "finance",
+    "chapter": "营运资本管理",
+    "syllabusCode": "FIN-WC-019",
+    "examYear": "2026",
+    "topic": "存货订货模型",
+    "keywords": [
+      "存货订货模型",
+      "营运资本管理",
+      "FIN-WC",
+      "finance",
+      "CPA"
+    ],
+    "concept": "存货订货模型是营运资本管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理存货订货模型时，先核对适用前提与口径，再进行结论判断。",
+      "存货订货模型答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略存货订货模型的前提条件",
+      "将存货订货模型与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在营运资本管理相关业务中涉及“存货订货模型”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-wc-020",
+    "subject": "finance",
+    "chapter": "营运资本管理",
+    "syllabusCode": "FIN-WC-020",
+    "examYear": "2026",
+    "topic": "短期融资匹配",
+    "keywords": [
+      "短期融资匹配",
+      "营运资本管理",
+      "FIN-WC",
+      "finance",
+      "CPA"
+    ],
+    "concept": "短期融资匹配是营运资本管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理短期融资匹配时，先核对适用前提与口径，再进行结论判断。",
+      "短期融资匹配答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略短期融资匹配的前提条件",
+      "将短期融资匹配与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在营运资本管理相关业务中涉及“短期融资匹配”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-bud-021",
+    "subject": "finance",
+    "chapter": "预算与绩效",
+    "syllabusCode": "FIN-BUD-021",
+    "examYear": "2026",
+    "topic": "预算编制起点",
+    "keywords": [
+      "预算编制起点",
+      "预算与绩效",
+      "FIN-BUD",
+      "finance",
+      "CPA"
+    ],
+    "concept": "预算编制起点是预算与绩效中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理预算编制起点时，先核对适用前提与口径，再进行结论判断。",
+      "预算编制起点答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略预算编制起点的前提条件",
+      "将预算编制起点与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在预算与绩效相关业务中涉及“预算编制起点”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-bud-022",
+    "subject": "finance",
+    "chapter": "预算与绩效",
+    "syllabusCode": "FIN-BUD-022",
+    "examYear": "2026",
+    "topic": "预算勾稽关系",
+    "keywords": [
+      "预算勾稽关系",
+      "预算与绩效",
+      "FIN-BUD",
+      "finance",
+      "CPA"
+    ],
+    "concept": "预算勾稽关系是预算与绩效中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理预算勾稽关系时，先核对适用前提与口径，再进行结论判断。",
+      "预算勾稽关系答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略预算勾稽关系的前提条件",
+      "将预算勾稽关系与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在预算与绩效相关业务中涉及“预算勾稽关系”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-bud-023",
+    "subject": "finance",
+    "chapter": "预算与绩效",
+    "syllabusCode": "FIN-BUD-023",
+    "examYear": "2026",
+    "topic": "标准成本差异",
+    "keywords": [
+      "标准成本差异",
+      "预算与绩效",
+      "FIN-BUD",
+      "finance",
+      "CPA"
+    ],
+    "concept": "标准成本差异是预算与绩效中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理标准成本差异时，先核对适用前提与口径，再进行结论判断。",
+      "标准成本差异答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略标准成本差异的前提条件",
+      "将标准成本差异与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在预算与绩效相关业务中涉及“标准成本差异”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-bud-024",
+    "subject": "finance",
+    "chapter": "预算与绩效",
+    "syllabusCode": "FIN-BUD-024",
+    "examYear": "2026",
+    "topic": "责任中心评价",
+    "keywords": [
+      "责任中心评价",
+      "预算与绩效",
+      "FIN-BUD",
+      "finance",
+      "CPA"
+    ],
+    "concept": "责任中心评价是预算与绩效中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理责任中心评价时，先核对适用前提与口径，再进行结论判断。",
+      "责任中心评价答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略责任中心评价的前提条件",
+      "将责任中心评价与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在预算与绩效相关业务中涉及“责任中心评价”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-bud-025",
+    "subject": "finance",
+    "chapter": "预算与绩效",
+    "syllabusCode": "FIN-BUD-025",
+    "examYear": "2026",
+    "topic": "业绩考核修正",
+    "keywords": [
+      "业绩考核修正",
+      "预算与绩效",
+      "FIN-BUD",
+      "finance",
+      "CPA"
+    ],
+    "concept": "业绩考核修正是预算与绩效中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理业绩考核修正时，先核对适用前提与口径，再进行结论判断。",
+      "业绩考核修正答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略业绩考核修正的前提条件",
+      "将业绩考核修正与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在预算与绩效相关业务中涉及“业绩考核修正”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-val-026",
+    "subject": "finance",
+    "chapter": "价值评估与专题",
+    "syllabusCode": "FIN-VAL-026",
+    "examYear": "2026",
+    "topic": "企业价值驱动",
+    "keywords": [
+      "企业价值驱动",
+      "价值评估与专题",
+      "FIN-VAL",
+      "finance",
+      "CPA"
+    ],
+    "concept": "企业价值驱动是价值评估与专题中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理企业价值驱动时，先核对适用前提与口径，再进行结论判断。",
+      "企业价值驱动答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略企业价值驱动的前提条件",
+      "将企业价值驱动与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在价值评估与专题相关业务中涉及“企业价值驱动”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-val-027",
+    "subject": "finance",
+    "chapter": "价值评估与专题",
+    "syllabusCode": "FIN-VAL-027",
+    "examYear": "2026",
+    "topic": "股权价值评估",
+    "keywords": [
+      "股权价值评估",
+      "价值评估与专题",
+      "FIN-VAL",
+      "finance",
+      "CPA"
+    ],
+    "concept": "股权价值评估是价值评估与专题中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理股权价值评估时，先核对适用前提与口径，再进行结论判断。",
+      "股权价值评估答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略股权价值评估的前提条件",
+      "将股权价值评估与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在价值评估与专题相关业务中涉及“股权价值评估”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-val-028",
+    "subject": "finance",
+    "chapter": "价值评估与专题",
+    "syllabusCode": "FIN-VAL-028",
+    "examYear": "2026",
+    "topic": "债券价值评估",
+    "keywords": [
+      "债券价值评估",
+      "价值评估与专题",
+      "FIN-VAL",
+      "finance",
+      "CPA"
+    ],
+    "concept": "债券价值评估是价值评估与专题中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理债券价值评估时，先核对适用前提与口径，再进行结论判断。",
+      "债券价值评估答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略债券价值评估的前提条件",
+      "将债券价值评估与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在价值评估与专题相关业务中涉及“债券价值评估”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-val-029",
+    "subject": "finance",
+    "chapter": "价值评估与专题",
+    "syllabusCode": "FIN-VAL-029",
+    "examYear": "2026",
+    "topic": "期权基础判断",
+    "keywords": [
+      "期权基础判断",
+      "价值评估与专题",
+      "FIN-VAL",
+      "finance",
+      "CPA"
+    ],
+    "concept": "期权基础判断是价值评估与专题中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理期权基础判断时，先核对适用前提与口径，再进行结论判断。",
+      "期权基础判断答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略期权基础判断的前提条件",
+      "将期权基础判断与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在价值评估与专题相关业务中涉及“期权基础判断”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "finance-fin-val-030",
+    "subject": "finance",
+    "chapter": "价值评估与专题",
+    "syllabusCode": "FIN-VAL-030",
+    "examYear": "2026",
+    "topic": "估值假设敏感性",
+    "keywords": [
+      "估值假设敏感性",
+      "价值评估与专题",
+      "FIN-VAL",
+      "finance",
+      "CPA"
+    ],
+    "concept": "估值假设敏感性是价值评估与专题中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理估值假设敏感性时，先核对适用前提与口径，再进行结论判断。",
+      "估值假设敏感性答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略估值假设敏感性的前提条件",
+      "将估值假设敏感性与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在价值评估与专题相关业务中涉及“估值假设敏感性”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-con-001",
+    "subject": "law",
+    "chapter": "合同法律制度",
+    "syllabusCode": "LAW-CON-001",
+    "examYear": "2026",
+    "topic": "要约承诺成立",
+    "keywords": [
+      "要约承诺成立",
+      "合同法律制度",
+      "LAW-CON",
+      "law",
+      "CPA"
+    ],
+    "concept": "要约承诺成立是合同法律制度中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理要约承诺成立时，先核对适用前提与口径，再进行结论判断。",
+      "要约承诺成立答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略要约承诺成立的前提条件",
+      "将要约承诺成立与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在合同法律制度相关业务中涉及“要约承诺成立”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-con-002",
+    "subject": "law",
+    "chapter": "合同法律制度",
+    "syllabusCode": "LAW-CON-002",
+    "examYear": "2026",
+    "topic": "合同效力判断",
+    "keywords": [
+      "合同效力判断",
+      "合同法律制度",
+      "LAW-CON",
+      "law",
+      "CPA"
+    ],
+    "concept": "合同效力判断是合同法律制度中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理合同效力判断时，先核对适用前提与口径，再进行结论判断。",
+      "合同效力判断答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略合同效力判断的前提条件",
+      "将合同效力判断与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在合同法律制度相关业务中涉及“合同效力判断”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-con-003",
+    "subject": "law",
+    "chapter": "合同法律制度",
+    "syllabusCode": "LAW-CON-003",
+    "examYear": "2026",
+    "topic": "可撤销情形",
+    "keywords": [
+      "可撤销情形",
+      "合同法律制度",
+      "LAW-CON",
+      "law",
+      "CPA"
+    ],
+    "concept": "可撤销情形是合同法律制度中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理可撤销情形时，先核对适用前提与口径，再进行结论判断。",
+      "可撤销情形答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略可撤销情形的前提条件",
+      "将可撤销情形与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在合同法律制度相关业务中涉及“可撤销情形”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-con-004",
+    "subject": "law",
+    "chapter": "合同法律制度",
+    "syllabusCode": "LAW-CON-004",
+    "examYear": "2026",
+    "topic": "违约责任承担",
+    "keywords": [
+      "违约责任承担",
+      "合同法律制度",
+      "LAW-CON",
+      "law",
+      "CPA"
+    ],
+    "concept": "违约责任承担是合同法律制度中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理违约责任承担时，先核对适用前提与口径，再进行结论判断。",
+      "违约责任承担答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略违约责任承担的前提条件",
+      "将违约责任承担与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在合同法律制度相关业务中涉及“违约责任承担”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-con-005",
+    "subject": "law",
+    "chapter": "合同法律制度",
+    "syllabusCode": "LAW-CON-005",
+    "examYear": "2026",
+    "topic": "担保方式适用",
+    "keywords": [
+      "担保方式适用",
+      "合同法律制度",
+      "LAW-CON",
+      "law",
+      "CPA"
+    ],
+    "concept": "担保方式适用是合同法律制度中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理担保方式适用时，先核对适用前提与口径，再进行结论判断。",
+      "担保方式适用答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略担保方式适用的前提条件",
+      "将担保方式适用与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在合同法律制度相关业务中涉及“担保方式适用”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-cor-006",
+    "subject": "law",
+    "chapter": "公司法律制度",
+    "syllabusCode": "LAW-COR-006",
+    "examYear": "2026",
+    "topic": "公司设立条件",
+    "keywords": [
+      "公司设立条件",
+      "公司法律制度",
+      "LAW-COR",
+      "law",
+      "CPA"
+    ],
+    "concept": "公司设立条件是公司法律制度中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理公司设立条件时，先核对适用前提与口径，再进行结论判断。",
+      "公司设立条件答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略公司设立条件的前提条件",
+      "将公司设立条件与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在公司法律制度相关业务中涉及“公司设立条件”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-cor-007",
+    "subject": "law",
+    "chapter": "公司法律制度",
+    "syllabusCode": "LAW-COR-007",
+    "examYear": "2026",
+    "topic": "出资义务履行",
+    "keywords": [
+      "出资义务履行",
+      "公司法律制度",
+      "LAW-COR",
+      "law",
+      "CPA"
+    ],
+    "concept": "出资义务履行是公司法律制度中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理出资义务履行时，先核对适用前提与口径，再进行结论判断。",
+      "出资义务履行答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略出资义务履行的前提条件",
+      "将出资义务履行与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在公司法律制度相关业务中涉及“出资义务履行”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-cor-008",
+    "subject": "law",
+    "chapter": "公司法律制度",
+    "syllabusCode": "LAW-COR-008",
+    "examYear": "2026",
+    "topic": "治理结构权责",
+    "keywords": [
+      "治理结构权责",
+      "公司法律制度",
+      "LAW-COR",
+      "law",
+      "CPA"
+    ],
+    "concept": "治理结构权责是公司法律制度中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理治理结构权责时，先核对适用前提与口径，再进行结论判断。",
+      "治理结构权责答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略治理结构权责的前提条件",
+      "将治理结构权责与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在公司法律制度相关业务中涉及“治理结构权责”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-cor-009",
+    "subject": "law",
+    "chapter": "公司法律制度",
+    "syllabusCode": "LAW-COR-009",
+    "examYear": "2026",
+    "topic": "股权转让程序",
+    "keywords": [
+      "股权转让程序",
+      "公司法律制度",
+      "LAW-COR",
+      "law",
+      "CPA"
+    ],
+    "concept": "股权转让程序是公司法律制度中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理股权转让程序时，先核对适用前提与口径，再进行结论判断。",
+      "股权转让程序答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略股权转让程序的前提条件",
+      "将股权转让程序与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在公司法律制度相关业务中涉及“股权转让程序”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-cor-010",
+    "subject": "law",
+    "chapter": "公司法律制度",
+    "syllabusCode": "LAW-COR-010",
+    "examYear": "2026",
+    "topic": "减资债权保护",
+    "keywords": [
+      "减资债权保护",
+      "公司法律制度",
+      "LAW-COR",
+      "law",
+      "CPA"
+    ],
+    "concept": "减资债权保护是公司法律制度中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理减资债权保护时，先核对适用前提与口径，再进行结论判断。",
+      "减资债权保护答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略减资债权保护的前提条件",
+      "将减资债权保护与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在公司法律制度相关业务中涉及“减资债权保护”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-sec-011",
+    "subject": "law",
+    "chapter": "证券法律制度",
+    "syllabusCode": "LAW-SEC-011",
+    "examYear": "2026",
+    "topic": "证券发行条件",
+    "keywords": [
+      "证券发行条件",
+      "证券法律制度",
+      "LAW-SEC",
+      "law",
+      "CPA"
+    ],
+    "concept": "证券发行条件是证券法律制度中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理证券发行条件时，先核对适用前提与口径，再进行结论判断。",
+      "证券发行条件答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略证券发行条件的前提条件",
+      "将证券发行条件与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在证券法律制度相关业务中涉及“证券发行条件”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-sec-012",
+    "subject": "law",
+    "chapter": "证券法律制度",
+    "syllabusCode": "LAW-SEC-012",
+    "examYear": "2026",
+    "topic": "信息披露义务",
+    "keywords": [
+      "信息披露义务",
+      "证券法律制度",
+      "LAW-SEC",
+      "law",
+      "CPA"
+    ],
+    "concept": "信息披露义务是证券法律制度中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理信息披露义务时，先核对适用前提与口径，再进行结论判断。",
+      "信息披露义务答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略信息披露义务的前提条件",
+      "将信息披露义务与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在证券法律制度相关业务中涉及“信息披露义务”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-sec-013",
+    "subject": "law",
+    "chapter": "证券法律制度",
+    "syllabusCode": "LAW-SEC-013",
+    "examYear": "2026",
+    "topic": "要约收购规则",
+    "keywords": [
+      "要约收购规则",
+      "证券法律制度",
+      "LAW-SEC",
+      "law",
+      "CPA"
+    ],
+    "concept": "要约收购规则是证券法律制度中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理要约收购规则时，先核对适用前提与口径，再进行结论判断。",
+      "要约收购规则答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略要约收购规则的前提条件",
+      "将要约收购规则与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在证券法律制度相关业务中涉及“要约收购规则”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-sec-014",
+    "subject": "law",
+    "chapter": "证券法律制度",
+    "syllabusCode": "LAW-SEC-014",
+    "examYear": "2026",
+    "topic": "内幕交易构成",
+    "keywords": [
+      "内幕交易构成",
+      "证券法律制度",
+      "LAW-SEC",
+      "law",
+      "CPA"
+    ],
+    "concept": "内幕交易构成是证券法律制度中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理内幕交易构成时，先核对适用前提与口径，再进行结论判断。",
+      "内幕交易构成答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略内幕交易构成的前提条件",
+      "将内幕交易构成与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在证券法律制度相关业务中涉及“内幕交易构成”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-sec-015",
+    "subject": "law",
+    "chapter": "证券法律制度",
+    "syllabusCode": "LAW-SEC-015",
+    "examYear": "2026",
+    "topic": "证券违法责任",
+    "keywords": [
+      "证券违法责任",
+      "证券法律制度",
+      "LAW-SEC",
+      "law",
+      "CPA"
+    ],
+    "concept": "证券违法责任是证券法律制度中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理证券违法责任时，先核对适用前提与口径，再进行结论判断。",
+      "证券违法责任答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略证券违法责任的前提条件",
+      "将证券违法责任与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在证券法律制度相关业务中涉及“证券违法责任”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-bil-016",
+    "subject": "law",
+    "chapter": "票据与结算法律",
+    "syllabusCode": "LAW-BIL-016",
+    "examYear": "2026",
+    "topic": "出票背书规则",
+    "keywords": [
+      "出票背书规则",
+      "票据与结算法律",
+      "LAW-BIL",
+      "law",
+      "CPA"
+    ],
+    "concept": "出票背书规则是票据与结算法律中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理出票背书规则时，先核对适用前提与口径，再进行结论判断。",
+      "出票背书规则答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略出票背书规则的前提条件",
+      "将出票背书规则与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在票据与结算法律相关业务中涉及“出票背书规则”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-bil-017",
+    "subject": "law",
+    "chapter": "票据与结算法律",
+    "syllabusCode": "LAW-BIL-017",
+    "examYear": "2026",
+    "topic": "票据抗辩范围",
+    "keywords": [
+      "票据抗辩范围",
+      "票据与结算法律",
+      "LAW-BIL",
+      "law",
+      "CPA"
+    ],
+    "concept": "票据抗辩范围是票据与结算法律中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理票据抗辩范围时，先核对适用前提与口径，再进行结论判断。",
+      "票据抗辩范围答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略票据抗辩范围的前提条件",
+      "将票据抗辩范围与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在票据与结算法律相关业务中涉及“票据抗辩范围”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-bil-018",
+    "subject": "law",
+    "chapter": "票据与结算法律",
+    "syllabusCode": "LAW-BIL-018",
+    "examYear": "2026",
+    "topic": "追索权行使",
+    "keywords": [
+      "追索权行使",
+      "票据与结算法律",
+      "LAW-BIL",
+      "law",
+      "CPA"
+    ],
+    "concept": "追索权行使是票据与结算法律中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理追索权行使时，先核对适用前提与口径，再进行结论判断。",
+      "追索权行使答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略追索权行使的前提条件",
+      "将追索权行使与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在票据与结算法律相关业务中涉及“追索权行使”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-bil-019",
+    "subject": "law",
+    "chapter": "票据与结算法律",
+    "syllabusCode": "LAW-BIL-019",
+    "examYear": "2026",
+    "topic": "支付结算合规",
+    "keywords": [
+      "支付结算合规",
+      "票据与结算法律",
+      "LAW-BIL",
+      "law",
+      "CPA"
+    ],
+    "concept": "支付结算合规是票据与结算法律中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理支付结算合规时，先核对适用前提与口径，再进行结论判断。",
+      "支付结算合规答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略支付结算合规的前提条件",
+      "将支付结算合规与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在票据与结算法律相关业务中涉及“支付结算合规”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-bil-020",
+    "subject": "law",
+    "chapter": "票据与结算法律",
+    "syllabusCode": "LAW-BIL-020",
+    "examYear": "2026",
+    "topic": "票据风险防控",
+    "keywords": [
+      "票据风险防控",
+      "票据与结算法律",
+      "LAW-BIL",
+      "law",
+      "CPA"
+    ],
+    "concept": "票据风险防控是票据与结算法律中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理票据风险防控时，先核对适用前提与口径，再进行结论判断。",
+      "票据风险防控答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略票据风险防控的前提条件",
+      "将票据风险防控与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在票据与结算法律相关业务中涉及“票据风险防控”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-bnk-021",
+    "subject": "law",
+    "chapter": "破产与竞争法",
+    "syllabusCode": "LAW-BNK-021",
+    "examYear": "2026",
+    "topic": "破产申请受理",
+    "keywords": [
+      "破产申请受理",
+      "破产与竞争法",
+      "LAW-BNK",
+      "law",
+      "CPA"
+    ],
+    "concept": "破产申请受理是破产与竞争法中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理破产申请受理时，先核对适用前提与口径，再进行结论判断。",
+      "破产申请受理答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略破产申请受理的前提条件",
+      "将破产申请受理与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在破产与竞争法相关业务中涉及“破产申请受理”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-bnk-022",
+    "subject": "law",
+    "chapter": "破产与竞争法",
+    "syllabusCode": "LAW-BNK-022",
+    "examYear": "2026",
+    "topic": "债权申报程序",
+    "keywords": [
+      "债权申报程序",
+      "破产与竞争法",
+      "LAW-BNK",
+      "law",
+      "CPA"
+    ],
+    "concept": "债权申报程序是破产与竞争法中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理债权申报程序时，先核对适用前提与口径，再进行结论判断。",
+      "债权申报程序答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略债权申报程序的前提条件",
+      "将债权申报程序与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在破产与竞争法相关业务中涉及“债权申报程序”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-bnk-023",
+    "subject": "law",
+    "chapter": "破产与竞争法",
+    "syllabusCode": "LAW-BNK-023",
+    "examYear": "2026",
+    "topic": "破产财产分配",
+    "keywords": [
+      "破产财产分配",
+      "破产与竞争法",
+      "LAW-BNK",
+      "law",
+      "CPA"
+    ],
+    "concept": "破产财产分配是破产与竞争法中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理破产财产分配时，先核对适用前提与口径，再进行结论判断。",
+      "破产财产分配答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略破产财产分配的前提条件",
+      "将破产财产分配与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在破产与竞争法相关业务中涉及“破产财产分配”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-bnk-024",
+    "subject": "law",
+    "chapter": "破产与竞争法",
+    "syllabusCode": "LAW-BNK-024",
+    "examYear": "2026",
+    "topic": "反垄断规则",
+    "keywords": [
+      "反垄断规则",
+      "破产与竞争法",
+      "LAW-BNK",
+      "law",
+      "CPA"
+    ],
+    "concept": "反垄断规则是破产与竞争法中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理反垄断规则时，先核对适用前提与口径，再进行结论判断。",
+      "反垄断规则答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略反垄断规则的前提条件",
+      "将反垄断规则与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在破产与竞争法相关业务中涉及“反垄断规则”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-bnk-025",
+    "subject": "law",
+    "chapter": "破产与竞争法",
+    "syllabusCode": "LAW-BNK-025",
+    "examYear": "2026",
+    "topic": "不正当竞争认定",
+    "keywords": [
+      "不正当竞争认定",
+      "破产与竞争法",
+      "LAW-BNK",
+      "law",
+      "CPA"
+    ],
+    "concept": "不正当竞争认定是破产与竞争法中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理不正当竞争认定时，先核对适用前提与口径，再进行结论判断。",
+      "不正当竞争认定答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略不正当竞争认定的前提条件",
+      "将不正当竞争认定与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在破产与竞争法相关业务中涉及“不正当竞争认定”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-int-026",
+    "subject": "law",
+    "chapter": "涉外与国资法律",
+    "syllabusCode": "LAW-INT-026",
+    "examYear": "2026",
+    "topic": "涉外合同准据法",
+    "keywords": [
+      "涉外合同准据法",
+      "涉外与国资法律",
+      "LAW-INT",
+      "law",
+      "CPA"
+    ],
+    "concept": "涉外合同准据法是涉外与国资法律中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理涉外合同准据法时，先核对适用前提与口径，再进行结论判断。",
+      "涉外合同准据法答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略涉外合同准据法的前提条件",
+      "将涉外合同准据法与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在涉外与国资法律相关业务中涉及“涉外合同准据法”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-int-027",
+    "subject": "law",
+    "chapter": "涉外与国资法律",
+    "syllabusCode": "LAW-INT-027",
+    "examYear": "2026",
+    "topic": "跨境争议解决",
+    "keywords": [
+      "跨境争议解决",
+      "涉外与国资法律",
+      "LAW-INT",
+      "law",
+      "CPA"
+    ],
+    "concept": "跨境争议解决是涉外与国资法律中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理跨境争议解决时，先核对适用前提与口径，再进行结论判断。",
+      "跨境争议解决答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略跨境争议解决的前提条件",
+      "将跨境争议解决与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在涉外与国资法律相关业务中涉及“跨境争议解决”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-int-028",
+    "subject": "law",
+    "chapter": "涉外与国资法律",
+    "syllabusCode": "LAW-INT-028",
+    "examYear": "2026",
+    "topic": "国资监管要求",
+    "keywords": [
+      "国资监管要求",
+      "涉外与国资法律",
+      "LAW-INT",
+      "law",
+      "CPA"
+    ],
+    "concept": "国资监管要求是涉外与国资法律中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理国资监管要求时，先核对适用前提与口径，再进行结论判断。",
+      "国资监管要求答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略国资监管要求的前提条件",
+      "将国资监管要求与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在涉外与国资法律相关业务中涉及“国资监管要求”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-int-029",
+    "subject": "law",
+    "chapter": "涉外与国资法律",
+    "syllabusCode": "LAW-INT-029",
+    "examYear": "2026",
+    "topic": "涉外投资合规",
+    "keywords": [
+      "涉外投资合规",
+      "涉外与国资法律",
+      "LAW-INT",
+      "law",
+      "CPA"
+    ],
+    "concept": "涉外投资合规是涉外与国资法律中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理涉外投资合规时，先核对适用前提与口径，再进行结论判断。",
+      "涉外投资合规答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略涉外投资合规的前提条件",
+      "将涉外投资合规与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在涉外与国资法律相关业务中涉及“涉外投资合规”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "law-law-int-030",
+    "subject": "law",
+    "chapter": "涉外与国资法律",
+    "syllabusCode": "LAW-INT-030",
+    "examYear": "2026",
+    "topic": "涉外担保限制",
+    "keywords": [
+      "涉外担保限制",
+      "涉外与国资法律",
+      "LAW-INT",
+      "law",
+      "CPA"
+    ],
+    "concept": "涉外担保限制是涉外与国资法律中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理涉外担保限制时，先核对适用前提与口径，再进行结论判断。",
+      "涉外担保限制答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略涉外担保限制的前提条件",
+      "将涉外担保限制与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在涉外与国资法律相关业务中涉及“涉外担保限制”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-ana-001",
+    "subject": "strategy",
+    "chapter": "战略分析",
+    "syllabusCode": "STR-ANA-001",
+    "examYear": "2026",
+    "topic": "PEST拆解",
+    "keywords": [
+      "PEST拆解",
+      "战略分析",
+      "STR-ANA",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "PEST拆解是战略分析中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理PEST拆解时，先核对适用前提与口径，再进行结论判断。",
+      "PEST拆解答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略PEST拆解的前提条件",
+      "将PEST拆解与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略分析相关业务中涉及“PEST拆解”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-ana-002",
+    "subject": "strategy",
+    "chapter": "战略分析",
+    "syllabusCode": "STR-ANA-002",
+    "examYear": "2026",
+    "topic": "五力模型应用",
+    "keywords": [
+      "五力模型应用",
+      "战略分析",
+      "STR-ANA",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "五力模型应用是战略分析中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理五力模型应用时，先核对适用前提与口径，再进行结论判断。",
+      "五力模型应用答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略五力模型应用的前提条件",
+      "将五力模型应用与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略分析相关业务中涉及“五力模型应用”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-ana-003",
+    "subject": "strategy",
+    "chapter": "战略分析",
+    "syllabusCode": "STR-ANA-003",
+    "examYear": "2026",
+    "topic": "价值链识别",
+    "keywords": [
+      "价值链识别",
+      "战略分析",
+      "STR-ANA",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "价值链识别是战略分析中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理价值链识别时，先核对适用前提与口径，再进行结论判断。",
+      "价值链识别答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略价值链识别的前提条件",
+      "将价值链识别与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略分析相关业务中涉及“价值链识别”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-ana-004",
+    "subject": "strategy",
+    "chapter": "战略分析",
+    "syllabusCode": "STR-ANA-004",
+    "examYear": "2026",
+    "topic": "资源能力评估",
+    "keywords": [
+      "资源能力评估",
+      "战略分析",
+      "STR-ANA",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "资源能力评估是战略分析中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理资源能力评估时，先核对适用前提与口径，再进行结论判断。",
+      "资源能力评估答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略资源能力评估的前提条件",
+      "将资源能力评估与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略分析相关业务中涉及“资源能力评估”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-ana-005",
+    "subject": "strategy",
+    "chapter": "战略分析",
+    "syllabusCode": "STR-ANA-005",
+    "examYear": "2026",
+    "topic": "竞争优势来源",
+    "keywords": [
+      "竞争优势来源",
+      "战略分析",
+      "STR-ANA",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "竞争优势来源是战略分析中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理竞争优势来源时，先核对适用前提与口径，再进行结论判断。",
+      "竞争优势来源答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略竞争优势来源的前提条件",
+      "将竞争优势来源与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略分析相关业务中涉及“竞争优势来源”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-sel-006",
+    "subject": "strategy",
+    "chapter": "战略选择",
+    "syllabusCode": "STR-SEL-006",
+    "examYear": "2026",
+    "topic": "公司层战略选择",
+    "keywords": [
+      "公司层战略选择",
+      "战略选择",
+      "STR-SEL",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "公司层战略选择是战略选择中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理公司层战略选择时，先核对适用前提与口径，再进行结论判断。",
+      "公司层战略选择答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略公司层战略选择的前提条件",
+      "将公司层战略选择与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略选择相关业务中涉及“公司层战略选择”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-sel-007",
+    "subject": "strategy",
+    "chapter": "战略选择",
+    "syllabusCode": "STR-SEL-007",
+    "examYear": "2026",
+    "topic": "业务层战略定位",
+    "keywords": [
+      "业务层战略定位",
+      "战略选择",
+      "STR-SEL",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "业务层战略定位是战略选择中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理业务层战略定位时，先核对适用前提与口径，再进行结论判断。",
+      "业务层战略定位答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略业务层战略定位的前提条件",
+      "将业务层战略定位与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略选择相关业务中涉及“业务层战略定位”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-sel-008",
+    "subject": "strategy",
+    "chapter": "战略选择",
+    "syllabusCode": "STR-SEL-008",
+    "examYear": "2026",
+    "topic": "国际化进入模式",
+    "keywords": [
+      "国际化进入模式",
+      "战略选择",
+      "STR-SEL",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "国际化进入模式是战略选择中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理国际化进入模式时，先核对适用前提与口径，再进行结论判断。",
+      "国际化进入模式答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略国际化进入模式的前提条件",
+      "将国际化进入模式与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略选择相关业务中涉及“国际化进入模式”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-sel-009",
+    "subject": "strategy",
+    "chapter": "战略选择",
+    "syllabusCode": "STR-SEL-009",
+    "examYear": "2026",
+    "topic": "多元化协同效应",
+    "keywords": [
+      "多元化协同效应",
+      "战略选择",
+      "STR-SEL",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "多元化协同效应是战略选择中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理多元化协同效应时，先核对适用前提与口径，再进行结论判断。",
+      "多元化协同效应答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略多元化协同效应的前提条件",
+      "将多元化协同效应与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略选择相关业务中涉及“多元化协同效应”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-sel-010",
+    "subject": "strategy",
+    "chapter": "战略选择",
+    "syllabusCode": "STR-SEL-010",
+    "examYear": "2026",
+    "topic": "战略风险匹配",
+    "keywords": [
+      "战略风险匹配",
+      "战略选择",
+      "STR-SEL",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "战略风险匹配是战略选择中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理战略风险匹配时，先核对适用前提与口径，再进行结论判断。",
+      "战略风险匹配答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略战略风险匹配的前提条件",
+      "将战略风险匹配与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略选择相关业务中涉及“战略风险匹配”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-imp-011",
+    "subject": "strategy",
+    "chapter": "战略实施",
+    "syllabusCode": "STR-IMP-011",
+    "examYear": "2026",
+    "topic": "组织结构匹配",
+    "keywords": [
+      "组织结构匹配",
+      "战略实施",
+      "STR-IMP",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "组织结构匹配是战略实施中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理组织结构匹配时，先核对适用前提与口径，再进行结论判断。",
+      "组织结构匹配答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略组织结构匹配的前提条件",
+      "将组织结构匹配与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略实施相关业务中涉及“组织结构匹配”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-imp-012",
+    "subject": "strategy",
+    "chapter": "战略实施",
+    "syllabusCode": "STR-IMP-012",
+    "examYear": "2026",
+    "topic": "战略资源配置",
+    "keywords": [
+      "战略资源配置",
+      "战略实施",
+      "STR-IMP",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "战略资源配置是战略实施中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理战略资源配置时，先核对适用前提与口径，再进行结论判断。",
+      "战略资源配置答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略战略资源配置的前提条件",
+      "将战略资源配置与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略实施相关业务中涉及“战略资源配置”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-imp-013",
+    "subject": "strategy",
+    "chapter": "战略实施",
+    "syllabusCode": "STR-IMP-013",
+    "examYear": "2026",
+    "topic": "变革阻力管理",
+    "keywords": [
+      "变革阻力管理",
+      "战略实施",
+      "STR-IMP",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "变革阻力管理是战略实施中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理变革阻力管理时，先核对适用前提与口径，再进行结论判断。",
+      "变革阻力管理答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略变革阻力管理的前提条件",
+      "将变革阻力管理与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略实施相关业务中涉及“变革阻力管理”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-imp-014",
+    "subject": "strategy",
+    "chapter": "战略实施",
+    "syllabusCode": "STR-IMP-014",
+    "examYear": "2026",
+    "topic": "流程重塑抓手",
+    "keywords": [
+      "流程重塑抓手",
+      "战略实施",
+      "STR-IMP",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "流程重塑抓手是战略实施中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理流程重塑抓手时，先核对适用前提与口径，再进行结论判断。",
+      "流程重塑抓手答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略流程重塑抓手的前提条件",
+      "将流程重塑抓手与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略实施相关业务中涉及“流程重塑抓手”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-imp-015",
+    "subject": "strategy",
+    "chapter": "战略实施",
+    "syllabusCode": "STR-IMP-015",
+    "examYear": "2026",
+    "topic": "战略沟通机制",
+    "keywords": [
+      "战略沟通机制",
+      "战略实施",
+      "STR-IMP",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "战略沟通机制是战略实施中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理战略沟通机制时，先核对适用前提与口径，再进行结论判断。",
+      "战略沟通机制答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略战略沟通机制的前提条件",
+      "将战略沟通机制与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略实施相关业务中涉及“战略沟通机制”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-rsk-016",
+    "subject": "strategy",
+    "chapter": "风险管理",
+    "syllabusCode": "STR-RSK-016",
+    "examYear": "2026",
+    "topic": "风险识别方法",
+    "keywords": [
+      "风险识别方法",
+      "风险管理",
+      "STR-RSK",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "风险识别方法是风险管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理风险识别方法时，先核对适用前提与口径，再进行结论判断。",
+      "风险识别方法答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略风险识别方法的前提条件",
+      "将风险识别方法与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在风险管理相关业务中涉及“风险识别方法”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-rsk-017",
+    "subject": "strategy",
+    "chapter": "风险管理",
+    "syllabusCode": "STR-RSK-017",
+    "examYear": "2026",
+    "topic": "风险评估矩阵",
+    "keywords": [
+      "风险评估矩阵",
+      "风险管理",
+      "STR-RSK",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "风险评估矩阵是风险管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理风险评估矩阵时，先核对适用前提与口径，再进行结论判断。",
+      "风险评估矩阵答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略风险评估矩阵的前提条件",
+      "将风险评估矩阵与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在风险管理相关业务中涉及“风险评估矩阵”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-rsk-018",
+    "subject": "strategy",
+    "chapter": "风险管理",
+    "syllabusCode": "STR-RSK-018",
+    "examYear": "2026",
+    "topic": "风险应对策略",
+    "keywords": [
+      "风险应对策略",
+      "风险管理",
+      "STR-RSK",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "风险应对策略是风险管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理风险应对策略时，先核对适用前提与口径，再进行结论判断。",
+      "风险应对策略答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略风险应对策略的前提条件",
+      "将风险应对策略与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在风险管理相关业务中涉及“风险应对策略”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-rsk-019",
+    "subject": "strategy",
+    "chapter": "风险管理",
+    "syllabusCode": "STR-RSK-019",
+    "examYear": "2026",
+    "topic": "风险监控指标",
+    "keywords": [
+      "风险监控指标",
+      "风险管理",
+      "STR-RSK",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "风险监控指标是风险管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理风险监控指标时，先核对适用前提与口径，再进行结论判断。",
+      "风险监控指标答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略风险监控指标的前提条件",
+      "将风险监控指标与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在风险管理相关业务中涉及“风险监控指标”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-rsk-020",
+    "subject": "strategy",
+    "chapter": "风险管理",
+    "syllabusCode": "STR-RSK-020",
+    "examYear": "2026",
+    "topic": "风险偏好设定",
+    "keywords": [
+      "风险偏好设定",
+      "风险管理",
+      "STR-RSK",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "风险偏好设定是风险管理中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理风险偏好设定时，先核对适用前提与口径，再进行结论判断。",
+      "风险偏好设定答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略风险偏好设定的前提条件",
+      "将风险偏好设定与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在风险管理相关业务中涉及“风险偏好设定”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-ic-021",
+    "subject": "strategy",
+    "chapter": "内部控制",
+    "syllabusCode": "STR-IC-021",
+    "examYear": "2026",
+    "topic": "控制环境要素",
+    "keywords": [
+      "控制环境要素",
+      "内部控制",
+      "STR-IC",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "控制环境要素是内部控制中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理控制环境要素时，先核对适用前提与口径，再进行结论判断。",
+      "控制环境要素答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略控制环境要素的前提条件",
+      "将控制环境要素与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在内部控制相关业务中涉及“控制环境要素”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-ic-022",
+    "subject": "strategy",
+    "chapter": "内部控制",
+    "syllabusCode": "STR-IC-022",
+    "examYear": "2026",
+    "topic": "控制活动设计",
+    "keywords": [
+      "控制活动设计",
+      "内部控制",
+      "STR-IC",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "控制活动设计是内部控制中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理控制活动设计时，先核对适用前提与口径，再进行结论判断。",
+      "控制活动设计答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略控制活动设计的前提条件",
+      "将控制活动设计与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在内部控制相关业务中涉及“控制活动设计”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-ic-023",
+    "subject": "strategy",
+    "chapter": "内部控制",
+    "syllabusCode": "STR-IC-023",
+    "examYear": "2026",
+    "topic": "信息沟通机制",
+    "keywords": [
+      "信息沟通机制",
+      "内部控制",
+      "STR-IC",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "信息沟通机制是内部控制中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理信息沟通机制时，先核对适用前提与口径，再进行结论判断。",
+      "信息沟通机制答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略信息沟通机制的前提条件",
+      "将信息沟通机制与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在内部控制相关业务中涉及“信息沟通机制”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-ic-024",
+    "subject": "strategy",
+    "chapter": "内部控制",
+    "syllabusCode": "STR-IC-024",
+    "examYear": "2026",
+    "topic": "监督评价流程",
+    "keywords": [
+      "监督评价流程",
+      "内部控制",
+      "STR-IC",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "监督评价流程是内部控制中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理监督评价流程时，先核对适用前提与口径，再进行结论判断。",
+      "监督评价流程答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略监督评价流程的前提条件",
+      "将监督评价流程与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在内部控制相关业务中涉及“监督评价流程”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-ic-025",
+    "subject": "strategy",
+    "chapter": "内部控制",
+    "syllabusCode": "STR-IC-025",
+    "examYear": "2026",
+    "topic": "内控缺陷整改",
+    "keywords": [
+      "内控缺陷整改",
+      "内部控制",
+      "STR-IC",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "内控缺陷整改是内部控制中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理内控缺陷整改时，先核对适用前提与口径，再进行结论判断。",
+      "内控缺陷整改答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略内控缺陷整改的前提条件",
+      "将内控缺陷整改与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在内部控制相关业务中涉及“内控缺陷整改”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-ctl-026",
+    "subject": "strategy",
+    "chapter": "战略控制与评价",
+    "syllabusCode": "STR-CTL-026",
+    "examYear": "2026",
+    "topic": "平衡计分卡设计",
+    "keywords": [
+      "平衡计分卡设计",
+      "战略控制与评价",
+      "STR-CTL",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "平衡计分卡设计是战略控制与评价中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理平衡计分卡设计时，先核对适用前提与口径，再进行结论判断。",
+      "平衡计分卡设计答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略平衡计分卡设计的前提条件",
+      "将平衡计分卡设计与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略控制与评价相关业务中涉及“平衡计分卡设计”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-ctl-027",
+    "subject": "strategy",
+    "chapter": "战略控制与评价",
+    "syllabusCode": "STR-CTL-027",
+    "examYear": "2026",
+    "topic": "战略KPI联动",
+    "keywords": [
+      "战略KPI联动",
+      "战略控制与评价",
+      "STR-CTL",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "战略KPI联动是战略控制与评价中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理战略KPI联动时，先核对适用前提与口径，再进行结论判断。",
+      "战略KPI联动答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略战略KPI联动的前提条件",
+      "将战略KPI联动与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略控制与评价相关业务中涉及“战略KPI联动”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-ctl-028",
+    "subject": "strategy",
+    "chapter": "战略控制与评价",
+    "syllabusCode": "STR-CTL-028",
+    "examYear": "2026",
+    "topic": "偏差分析闭环",
+    "keywords": [
+      "偏差分析闭环",
+      "战略控制与评价",
+      "STR-CTL",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "偏差分析闭环是战略控制与评价中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理偏差分析闭环时，先核对适用前提与口径，再进行结论判断。",
+      "偏差分析闭环答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略偏差分析闭环的前提条件",
+      "将偏差分析闭环与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略控制与评价相关业务中涉及“偏差分析闭环”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-ctl-029",
+    "subject": "strategy",
+    "chapter": "战略控制与评价",
+    "syllabusCode": "STR-CTL-029",
+    "examYear": "2026",
+    "topic": "滚动复盘机制",
+    "keywords": [
+      "滚动复盘机制",
+      "战略控制与评价",
+      "STR-CTL",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "滚动复盘机制是战略控制与评价中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理滚动复盘机制时，先核对适用前提与口径，再进行结论判断。",
+      "滚动复盘机制答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略滚动复盘机制的前提条件",
+      "将滚动复盘机制与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略控制与评价相关业务中涉及“滚动复盘机制”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
+  },
+  {
+    "id": "strategy-str-ctl-030",
+    "subject": "strategy",
+    "chapter": "战略控制与评价",
+    "syllabusCode": "STR-CTL-030",
+    "examYear": "2026",
+    "topic": "战略纠偏决策",
+    "keywords": [
+      "战略纠偏决策",
+      "战略控制与评价",
+      "STR-CTL",
+      "strategy",
+      "CPA"
+    ],
+    "concept": "战略纠偏决策是战略控制与评价中的高频考点，需要先明确适用条件，再结合业务事实做规范判断与会计/税务处理。",
+    "rules": [
+      "处理战略纠偏决策时，先核对适用前提与口径，再进行结论判断。",
+      "战略纠偏决策答题应遵循“规则-条件-结论”链路，不可只记结论。"
+    ],
+    "pitfalls": [
+      "忽略战略纠偏决策的前提条件",
+      "将战略纠偏决策与相近考点混淆"
+    ],
+    "miniCase": "案例：企业在战略控制与评价相关业务中涉及“战略纠偏决策”，需按规定确认、计量并完成申报/披露。",
+    "status": "approved",
+    "version": 1,
+    "qualityScore": 100,
+    "qualityIssues": [],
+    "reviewedBy": "phase2-seed-script",
+    "reviewedAt": "2026-02-22T16:15:35.221Z",
+    "createdAt": "2026-02-22T16:15:35.221Z",
+    "updatedAt": "2026-02-22T16:15:35.221Z"
   }
 ]

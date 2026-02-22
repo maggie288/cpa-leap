@@ -1,6 +1,8 @@
 import dayjs from 'dayjs'
 import { db } from '../db.js'
 import { generateFromKnowledge } from '../knowledge/generator.js'
+import { retrieveMaterialSnippets } from '../ingest/materialRetrieval.js'
+import { evaluateKnowledgeQuality } from '../knowledge/scoring.js'
 import {
   applyKnowledgeFix,
   getKnowledgeEntryById,
@@ -40,6 +42,30 @@ const chooseModelVersion = ({ settings, userId, lessonTitle }) => {
   return candidates[hashText(`${lessonTitle}|${userId}`) % candidates.length]
 }
 
+const choosePromptVersion = ({ settings, userId, lessonTitle }) => {
+  const fixed = settings.promptVersion || 'prompt-v1'
+  if (settings.promptExperimentEnabled === false) return fixed
+  const candidates = Array.isArray(settings.promptCandidates) ? settings.promptCandidates.filter(Boolean) : []
+  if (!candidates.length) return fixed
+  const split = settings.promptTrafficSplit && typeof settings.promptTrafficSplit === 'object' ? settings.promptTrafficSplit : {}
+  const bucket = hashText(`prompt|${userId}|${lessonTitle}`) % 100
+  let cursor = 0
+  for (const promptVersion of candidates) {
+    const weight = Number(split[promptVersion] || 0)
+    if (weight > 0) {
+      cursor += weight
+      if (bucket < cursor) return promptVersion
+    }
+  }
+  return candidates[hashText(`prompt-fallback|${lessonTitle}|${userId}`) % candidates.length]
+}
+
+const resolvePromptTemplate = (promptVersion) => {
+  const templates = db.data.promptTemplates || []
+  const hit = templates.find((tpl) => tpl.version === promptVersion)
+  return hit || templates[0] || { version: promptVersion || 'prompt-v1', style: 'balanced', instruction: '' }
+}
+
 const extractTopWeakPoints = (subject) => {
   const subjectLogs = (db.data.modelFeedback || []).filter((item) => item.subject === subject)
   const hit = {}
@@ -54,26 +80,49 @@ const extractTopWeakPoints = (subject) => {
     .map(([name]) => name)
 }
 
-const fallbackDraftEntry = ({ subject, lessonTitle, objective, examPoints, weakPoints, runId }) => {
+const fallbackDraftEntry = ({
+  subject,
+  chapterId,
+  knowledgePointId,
+  promptVersion,
+  promptTemplate,
+  lessonTitle,
+  objective,
+  examPoints,
+  weakPoints,
+  runId,
+  materialSnippets,
+}) => {
   const trendWeak = extractTopWeakPoints(subject)
   const focus = [...(weakPoints || []), ...trendWeak].slice(0, 3)
   const topic = `${lessonTitle}-AI生成知识条目`
   const pointA = examPoints[0] || lessonTitle
   const pointB = examPoints[1] || '边界条件'
 
+  const snippetText = (materialSnippets || [])
+    .slice(0, 2)
+    .map((item) => item.content)
+    .join(' ')
+  const materialHint = snippetText ? `教材依据：${snippetText.slice(0, 140)}...` : ''
+  const promptHint =
+    promptTemplate?.style === 'exam-focused'
+      ? '本条目采用考试导向模板，强调题干条件与边界判断。'
+      : '本条目采用标准模板，强调概念与规则完整性。'
+
   return {
     id: `${subject}-auto-${runId}`,
     subject,
-    chapter: pointA,
-    syllabusCode: `${subject.toUpperCase()}-AUTO-${runId.slice(-6)}`,
+    chapter: chapterId || pointA,
+    syllabusCode: knowledgePointId || `${subject.toUpperCase()}-AUTO-${runId.slice(-6)}`,
     examYear: String(dayjs().year()),
     topic,
     keywords: Array.from(new Set([lessonTitle, ...examPoints, ...focus])).slice(0, 6),
-    concept: `${lessonTitle}是CPA核心考点，需先识别${pointA}与${pointB}的适用边界，再结合业务事实判断最终处理。`,
+    concept: `${lessonTitle}是CPA核心考点，需先识别${pointA}与${pointB}的适用边界，再结合业务事实判断最终处理。${materialHint}${promptHint}`,
     rules: [
       `处理${lessonTitle}时，先验证前提条件，再应用规则结论。`,
       `出现多个看似正确选项时，以题干事实与考纲关键词优先匹配。`,
       focus.length ? `针对高频薄弱点（${focus.join('、')}）优先进行反例辨析。` : '通过对比题巩固概念边界，避免机械记忆。',
+      promptVersion ? `提示词版本：${promptVersion}` : '提示词版本：prompt-v1',
     ],
     pitfalls: [
       `忽略${pointA}的适用条件导致误判`,
@@ -105,11 +154,24 @@ const modelDraftEntry = async (payload) => {
   }
 }
 
-export const runAutonomousCoursePipeline = async ({ subject, lessonTitle, objective, examPoints, weakPoints, userId, lessonId }) => {
+export const runAutonomousCoursePipeline = async ({
+  subject,
+  chapterId,
+  knowledgePointId,
+  lessonTitle,
+  objective,
+  examPoints,
+  weakPoints,
+  userId,
+  tenantId,
+  lessonId,
+}) => {
   const settings = db.data.automationSettings || {}
   if (settings.autopilotEnabled === false) {
     const generated = generateFromKnowledge({
       subject,
+      chapterId,
+      knowledgePointId,
       lessonTitle,
       objective,
       examPoints,
@@ -131,16 +193,34 @@ export const runAutonomousCoursePipeline = async ({ subject, lessonTitle, object
   const actions = []
   const maxAutoFixRounds = Number(settings.maxAutoFixRounds || 2)
   const modelVersion = chooseModelVersion({ settings, userId, lessonTitle })
+  const promptVersion = choosePromptVersion({ settings, userId, lessonTitle })
+  const promptTemplate = resolvePromptTemplate(promptVersion)
   actions.push(`model_assigned:${modelVersion}`)
+  actions.push(`prompt_assigned:${promptVersion}`)
+  const materialSnippets = await retrieveMaterialSnippets({
+    subject,
+    lessonTitle,
+    objective,
+    examPoints,
+    weakPoints,
+    topK: 3,
+  })
+  if (materialSnippets.length) actions.push('material_context_attached')
 
   const draft = await modelDraftEntry({
     subject,
+    chapterId,
+    knowledgePointId,
+    promptVersion,
+    promptTemplate,
     lessonTitle,
     objective,
     examPoints,
     weakPoints,
     runId,
     modelVersion,
+    promptVersion,
+    materialSnippets,
   })
   actions.push('ai_generate_draft')
 
@@ -174,6 +254,8 @@ export const runAutonomousCoursePipeline = async ({ subject, lessonTitle, object
 
   const generated = generateFromKnowledge({
     subject,
+    chapterId,
+    knowledgePointId,
     lessonTitle,
     objective,
     examPoints,
@@ -184,10 +266,14 @@ export const runAutonomousCoursePipeline = async ({ subject, lessonTitle, object
     runId,
     at: dayjs().toISOString(),
     userId,
+    tenantId: tenantId || 'default',
     subject,
+    chapterId: chapterId || null,
+    knowledgePointId: knowledgePointId || null,
     lessonId,
     lessonTitle,
     modelVersion,
+    promptVersion,
     actions,
     autoApproved,
     qualityScore: current?.qualityScore || 0,
@@ -201,9 +287,101 @@ export const runAutonomousCoursePipeline = async ({ subject, lessonTitle, object
     automationReport: {
       runId,
       modelVersion,
+      promptVersion,
       actions,
       autoApproved,
       qualityScore: current?.qualityScore || 0,
     },
+  }
+}
+
+export const replayPromptEvaluation = async ({ promptVersion, limit = 20 }) => {
+  const version = String(promptVersion || '').trim() || 'prompt-v1'
+  const template = resolvePromptTemplate(version)
+  const runs = (db.data.generationRuns || []).slice(-Math.max(1, limit))
+  const samples = runs.map((run, idx) => ({
+    subject: run.subject || 'accounting',
+    chapterId: run.chapterId || undefined,
+    knowledgePointId: run.knowledgePointId || undefined,
+    lessonTitle: run.lessonTitle || `回放样本-${idx + 1}`,
+    objective: `围绕${run.lessonTitle || '样本课程'}输出可教学知识条目`,
+    examPoints: [run.lessonTitle || '样本考点'],
+    weakPoints: [],
+    runId: `replay-${Date.now()}-${idx + 1}`,
+    materialSnippets: [],
+    promptVersion: version,
+    promptTemplate: template,
+  }))
+  const drafts = await Promise.all(samples.map((s) => Promise.resolve(fallbackDraftEntry(s))))
+  const scores = drafts.map((draft) => evaluateKnowledgeQuality(draft))
+  const avgScore = scores.length ? Number((scores.reduce((sum, row) => sum + row.score, 0) / scores.length).toFixed(2)) : 0
+  const passRate = scores.length
+    ? Number(((scores.filter((row) => row.passForGeneration).length / scores.length) * 100).toFixed(2))
+    : 0
+  return {
+    promptVersion: version,
+    sampleCount: scores.length,
+    avgScore,
+    passRate,
+    template,
+  }
+}
+
+const promptPerformanceRows = () => {
+  const runs = db.data.generationRuns || []
+  const feedback = db.data.modelFeedback || []
+  const map = {}
+  for (const run of runs) {
+    const key = run.promptVersion || 'prompt-v1'
+    if (!map[key]) map[key] = { runCount: 0, avgQualityScore: 0, feedbackCount: 0, avgLearnerScore: 0 }
+    map[key].runCount += 1
+    map[key].avgQualityScore += Number(run.qualityScore || 0)
+  }
+  for (const row of feedback) {
+    const run = runs.find((item) => item.runId === row.runId)
+    const key = run?.promptVersion || 'prompt-v1'
+    if (!map[key]) map[key] = { runCount: 0, avgQualityScore: 0, feedbackCount: 0, avgLearnerScore: 0 }
+    map[key].feedbackCount += 1
+    map[key].avgLearnerScore += Number(row.score || 0)
+  }
+  for (const key of Object.keys(map)) {
+    const row = map[key]
+    row.avgQualityScore = row.runCount ? Number((row.avgQualityScore / row.runCount).toFixed(2)) : 0
+    row.avgLearnerScore = row.feedbackCount ? Number((row.avgLearnerScore / row.feedbackCount).toFixed(2)) : 0
+  }
+  return map
+}
+
+export const runPromptAutoPromote = async () => {
+  const settings = db.data.automationSettings || {}
+  if (!settings.promptAutoPromoteEnabled) {
+    return { ok: false, message: 'promptAutoPromoteEnabled=false，未启用自动晋升' }
+  }
+  const current = settings.promptVersion || 'prompt-v1'
+  const rows = promptPerformanceRows()
+  const baseline = rows[current] || { feedbackCount: 0, avgLearnerScore: 0 }
+  const minFeedback = Number(settings.promptMinFeedbackCount || 20)
+  const minLift = Number(settings.promptMinScoreLift || 2)
+  const candidates = Array.isArray(settings.promptCandidates) ? settings.promptCandidates.filter(Boolean) : []
+  let best = null
+  for (const candidate of candidates) {
+    if (candidate === current) continue
+    const row = rows[candidate]
+    if (!row || row.feedbackCount < minFeedback) continue
+    const lift = Number((row.avgLearnerScore - Number(baseline.avgLearnerScore || 0)).toFixed(2))
+    if (lift >= minLift && (!best || lift > best.lift)) {
+      best = { promptVersion: candidate, lift, row }
+    }
+  }
+  if (!best) return { ok: false, message: '暂无满足阈值的候选提示词版本', rows, currentPromptVersion: current }
+  settings.promptVersion = best.promptVersion
+  db.data.automationSettings = settings
+  await db.write()
+  return {
+    ok: true,
+    promotedTo: best.promptVersion,
+    previousPromptVersion: current,
+    lift: best.lift,
+    rows,
   }
 }

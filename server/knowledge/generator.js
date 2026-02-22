@@ -17,9 +17,11 @@ const buildQuestionFromDoc = (doc, index) => {
   }
 }
 
-export const generateFromKnowledge = ({ subject, lessonTitle, objective, examPoints, weakPoints }) => {
+export const generateFromKnowledge = ({ subject, chapterId, knowledgePointId, lessonTitle, objective, examPoints, weakPoints }) => {
   const docs = retrieveKnowledge({
     subject,
+    chapterId,
+    knowledgePointId,
     lessonTitle,
     objective,
     examPoints,
@@ -29,8 +31,12 @@ export const generateFromKnowledge = ({ subject, lessonTitle, objective, examPoi
 
   const hasDocs = docs.length > 0
 
+  const policyRefs = docs.filter((doc) => doc.policyMeta && doc.policyMeta.sourceUrl)
+
   const lessonScript = [
     `本节主题：${lessonTitle}`,
+    ...(chapterId ? [`章节锚点：${chapterId}`] : []),
+    ...(knowledgePointId ? [`知识点锚点：${knowledgePointId}`] : []),
     `学习目标：${objective}`,
     `核心考点：${(examPoints || []).join('、') || '基础概念与核心规则'}`,
     '学习顺序：先概念锚定 -> 再规则辨析 -> 最后做题迁移。',
@@ -38,6 +44,16 @@ export const generateFromKnowledge = ({ subject, lessonTitle, objective, examPoi
     ...(hasDocs
       ? docs.map((doc, idx) => `${idx + 1}.【${doc.topic}】${doc.concept}`)
       : ['当前科目暂无通过质量门禁的知识条目，请先补充并审核知识库后再生成高质量内容。']),
+    ...(policyRefs.length
+      ? policyRefs
+          .slice(0, 2)
+          .map(
+            (doc) =>
+              `政策口径提示：${doc.policyMeta.publisher || '官方来源'}发布于${doc.policyMeta.publishedAt || '未知日期'}，生效${
+                doc.policyMeta.effectiveAt || '时间请以原文为准'
+              }，适用对象：${doc.policyMeta.applicableScope || '请以原文适用范围为准'}。`,
+          )
+      : []),
   ]
 
   const generatedQuestions = validateAndRepairQuestions(docs.map(buildQuestionFromDoc))
@@ -51,6 +67,9 @@ export const generateFromKnowledge = ({ subject, lessonTitle, objective, examPoi
   const sourceRefs = docs.map((doc) => ({
     id: doc.id,
     topic: doc.topic,
+    sourceUrl: doc.policyMeta?.sourceUrl || '',
+    publisher: doc.policyMeta?.publisher || '',
+    effectiveAt: doc.policyMeta?.effectiveAt || '',
   }))
 
   const qualityWarnings = hasDocs ? [] : ['无可用知识条目（要求：status=approved 且 qualityScore>=85）']

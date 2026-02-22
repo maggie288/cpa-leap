@@ -254,6 +254,22 @@ button.ghost {
   margin-top: 4px;
 }
 
+.material-item {
+  border: 2px solid #1d1d1f;
+  border-radius: 12px;
+  padding: 10px;
+  background: #f8fff2;
+  display: grid;
+  gap: 4px;
+}
+
+.material-item button {
+  width: auto;
+  justify-self: start;
+  margin-top: 6px;
+  padding: 8px 12px;
+}
+
 .ops-detail {
   display: grid;
   gap: 8px;

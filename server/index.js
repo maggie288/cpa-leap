@@ -2,14 +2,29 @@ import bcrypt from 'bcryptjs'
 import cors from 'cors'
 import dayjs from 'dayjs'
 import express from 'express'
-import { existsSync } from 'node:fs'
+import { existsSync, mkdirSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { authRequired, signToken } from './auth.js'
+import multer from 'multer'
+import { authRequired, requireRoles, signToken } from './auth.js'
 import { db } from './db.js'
-import { runAutonomousCoursePipeline } from './ai/autonomousCourseEngine.js'
+import { appendAuditLog, listAuditLogs } from './audit.js'
+import { canAttemptLogin, clearLoginFailures, markLoginFailure } from './security/loginRateLimit.js'
+import { replayPromptEvaluation, runAutonomousCoursePipeline, runPromptAutoPromote } from './ai/autonomousCourseEngine.js'
+import { ingestPdfToChunks } from './ingest/pdfPipeline.js'
+import { upsertMaterialChunksToVectorStore } from './ingest/vectorStore.js'
+import {
+  getPolicyScoutSettings,
+  getPolicyScoutStats,
+  listPolicyScoutRuns,
+  runPolicyScoutOnce,
+  startPolicyScoutScheduler,
+  updatePolicyScoutSettings,
+} from './policy/policyScout.js'
 import {
   applyKnowledgeFix,
   getKnowledgeEntryById,
+  getKnowledgeCoverage,
+  listKnowledgeConflicts,
   getKnowledgeStats,
   listKnowledgeEntries,
   suggestKnowledgeFix,
@@ -20,12 +35,33 @@ import {
 const app = express()
 const PORT = Number(process.env.PORT || 8787)
 const VALID_SUBJECTS = ['accounting', 'audit', 'finance', 'tax', 'law', 'strategy']
+const VALID_ROLES = ['student', 'teacher', 'admin']
 const DIST_DIR = resolve(process.cwd(), 'dist')
 const INDEX_PATH = resolve(DIST_DIR, 'index.html')
+const UPLOAD_DIR = resolve(process.cwd(), 'server/data/uploads')
 const ALLOWED_ORIGIN = process.env.CORS_ORIGIN || '*'
+const DEFAULT_TENANT_ID = process.env.DEFAULT_TENANT_ID || 'default'
+const SECURITY_ALERT_WEBHOOK = process.env.SECURITY_ALERT_WEBHOOK || ''
+
+if (!existsSync(UPLOAD_DIR)) {
+  mkdirSync(UPLOAD_DIR, { recursive: true })
+}
+
+const storage = multer.diskStorage({
+  destination: (_req, _file, cb) => cb(null, UPLOAD_DIR),
+  filename: (_req, file, cb) => {
+    const safeBase = file.originalname.replace(/[^\w.\-\u4e00-\u9fa5]+/g, '_')
+    cb(null, `${Date.now()}_${safeBase}`)
+  },
+})
+const upload = multer({
+  storage,
+  limits: { fileSize: 50 * 1024 * 1024 },
+})
 
 app.use(cors({ origin: ALLOWED_ORIGIN }))
 app.use(express.json())
+app.use('/uploads', express.static(UPLOAD_DIR))
 
 const sanitizeUser = (user) => ({
   id: user.id,
@@ -35,10 +71,39 @@ const sanitizeUser = (user) => ({
   plan: user.plan,
   streakDays: user.streakDays,
   createdAt: user.createdAt,
+  tenantId: String(user.tenantId || DEFAULT_TENANT_ID),
+  role: VALID_ROLES.includes(String(user.role)) ? user.role : 'student',
 })
 
-const createDefaultProgress = (userId) => ({
+const requestIp = (req) => {
+  const xff = String(req.headers['x-forwarded-for'] || '')
+  if (xff) return xff.split(',')[0].trim()
+  return String(req.ip || req.socket?.remoteAddress || 'unknown')
+}
+
+const emitSecurityAlert = async (payload) => {
+  db.data.securityAlerts ||= []
+  db.data.securityAlerts.push({
+    id: `sec_${Date.now()}_${Math.random().toString(16).slice(2, 8)}`,
+    at: dayjs().toISOString(),
+    ...payload,
+  })
+  db.data.securityAlerts = db.data.securityAlerts.slice(-1000)
+  if (!SECURITY_ALERT_WEBHOOK) return
+  try {
+    await fetch(SECURITY_ALERT_WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+  } catch {
+    // Do not block main transaction on alert webhook failure.
+  }
+}
+
+const createDefaultProgress = (userId, tenantId = DEFAULT_TENANT_ID) => ({
   userId,
+  tenantId,
   xp: 0,
   completedLessons: [],
   lessonProgressMap: {},
@@ -59,21 +124,34 @@ app.post('/api/auth/register', async (req, res) => {
   const existing = db.data.users.find((item) => item.email === normalizedEmail)
   if (existing) return res.status(409).json({ message: '该邮箱已注册，请直接登录' })
 
+  const hasAdmin = (db.data.users || []).some((item) => item.role === 'admin')
   const user = {
     id: `u_${Date.now()}`,
     name: String(name).trim(),
     email: normalizedEmail,
     passwordHash: await bcrypt.hash(String(password), 10),
     targetExamDate,
+    tenantId: DEFAULT_TENANT_ID,
     plan: 'free',
+    role: hasAdmin ? 'student' : 'admin',
     streakDays: 1,
     createdAt: dayjs().toISOString(),
   }
   db.data.users.push(user)
-  db.data.progresses[user.id] = createDefaultProgress(user.id)
+  db.data.progresses[user.id] = createDefaultProgress(user.id, user.tenantId)
   await db.write()
 
-  const token = signToken(user.id)
+  await appendAuditLog({
+    actorUserId: user.id,
+    actorRole: 'self-register',
+    tenantId: user.tenantId,
+    action: 'auth.register',
+    resourceType: 'user',
+    resourceId: user.id,
+    ip: requestIp(req),
+  })
+
+  const token = signToken(user.id, user.tenantId)
   return res.json({ token, user: sanitizeUser(user), progress: db.data.progresses[user.id] })
 })
 
@@ -81,17 +159,38 @@ app.post('/api/auth/login', async (req, res) => {
   const { email, password } = req.body
   if (!email || !password) return res.status(400).json({ message: '参数不完整' })
   const normalizedEmail = String(email).trim().toLowerCase()
+  const ip = requestIp(req)
+  const gate = canAttemptLogin({ ip, email: normalizedEmail })
+  if (!gate.ok) {
+    return res.status(429).json({ message: `登录尝试过于频繁，请 ${gate.retryAfterSeconds} 秒后重试` })
+  }
   const user = db.data.users.find((item) => item.email === normalizedEmail)
-  if (!user) return res.status(401).json({ message: '邮箱或密码不正确' })
+  if (!user) {
+    await markLoginFailure({ ip, email: normalizedEmail })
+    return res.status(401).json({ message: '邮箱或密码不正确' })
+  }
   const ok = await bcrypt.compare(String(password), user.passwordHash)
-  if (!ok) return res.status(401).json({ message: '邮箱或密码不正确' })
+  if (!ok) {
+    await markLoginFailure({ ip, email: normalizedEmail })
+    return res.status(401).json({ message: '邮箱或密码不正确' })
+  }
+  await clearLoginFailures({ ip, email: normalizedEmail })
 
   if (!db.data.progresses[user.id]) {
-    db.data.progresses[user.id] = createDefaultProgress(user.id)
+    db.data.progresses[user.id] = createDefaultProgress(user.id, user.tenantId || DEFAULT_TENANT_ID)
     await db.write()
   }
 
-  const token = signToken(user.id)
+  const token = signToken(user.id, user.tenantId || DEFAULT_TENANT_ID)
+  await appendAuditLog({
+    actorUserId: user.id,
+    actorRole: user.role || 'student',
+    tenantId: user.tenantId || DEFAULT_TENANT_ID,
+    action: 'auth.login',
+    resourceType: 'user',
+    resourceId: user.id,
+    ip,
+  })
   return res.json({ token, user: sanitizeUser(user), progress: db.data.progresses[user.id] })
 })
 
@@ -102,14 +201,14 @@ app.get('/api/me', authRequired, (req, res) => {
 })
 
 app.get('/api/progress', authRequired, (req, res) => {
-  const progress = db.data.progresses[req.userId] ?? createDefaultProgress(req.userId)
+  const progress = db.data.progresses[req.userId] ?? createDefaultProgress(req.userId, req.tenantId || DEFAULT_TENANT_ID)
   return res.json({ progress })
 })
 
 app.post('/api/progress/lesson', authRequired, async (req, res) => {
   const { lessonId, score, weakPoints, subject, runId } = req.body
   if (!lessonId || typeof score !== 'number') return res.status(400).json({ message: '参数不完整' })
-  const base = db.data.progresses[req.userId] ?? createDefaultProgress(req.userId)
+  const base = db.data.progresses[req.userId] ?? createDefaultProgress(req.userId, req.tenantId || DEFAULT_TENANT_ID)
   const next = {
     ...base,
     xp: base.xp + Math.max(10, score),
@@ -139,6 +238,7 @@ app.post('/api/progress/lesson', authRequired, async (req, res) => {
       weakPoints: Array.isArray(weakPoints) ? weakPoints.slice(0, 5) : [],
       runId: run?.runId || null,
       modelVersion: run?.modelVersion || null,
+      promptVersion: run?.promptVersion || null,
     })
   }
   await db.write()
@@ -156,7 +256,7 @@ app.post('/api/subscription', authRequired, async (req, res) => {
 })
 
 app.post('/api/llm/generate-cpa-lesson', authRequired, async (req, res) => {
-  const { subject, lessonId, lessonTitle, objective, examPoints, weakPoints } = req.body
+  const { subject, lessonId, chapterId, knowledgePointId, lessonTitle, objective, examPoints, weakPoints } = req.body
   const safeExamPoints = Array.isArray(examPoints) ? examPoints : []
   const safeWeakPoints = Array.isArray(weakPoints) ? weakPoints : []
   const safeSubject = String(subject || '').trim()
@@ -171,11 +271,14 @@ app.post('/api/llm/generate-cpa-lesson', authRequired, async (req, res) => {
   const generated = await runAutonomousCoursePipeline({
     subject: safeSubject,
     lessonId: lessonId ? String(lessonId) : undefined,
+    chapterId: chapterId ? String(chapterId) : undefined,
+    knowledgePointId: knowledgePointId ? String(knowledgePointId) : undefined,
     lessonTitle: String(lessonTitle),
     objective: String(objective),
     examPoints: safeExamPoints,
     weakPoints: safeWeakPoints,
     userId: req.userId,
+    tenantId: req.tenantId,
   })
 
   return res.json({
@@ -183,7 +286,7 @@ app.post('/api/llm/generate-cpa-lesson', authRequired, async (req, res) => {
   })
 })
 
-app.get('/api/automation/stats', authRequired, (_req, res) => {
+app.get('/api/automation/stats', authRequired, requireRoles('teacher', 'admin'), (_req, res) => {
   const runs = db.data.generationRuns || []
   const feedback = db.data.modelFeedback || []
   const total = runs.length
@@ -191,6 +294,7 @@ app.get('/api/automation/stats', authRequired, (_req, res) => {
   const latest = runs.slice(-20)
 
   const byModel = {}
+  const byPrompt = {}
   for (const run of runs) {
     const key = run.modelVersion || 'unknown'
     if (!byModel[key]) {
@@ -199,6 +303,13 @@ app.get('/api/automation/stats', authRequired, (_req, res) => {
     byModel[key].runs += 1
     if (run.autoApproved) byModel[key].autoApprovedRuns += 1
     byModel[key].avgQualityScore += Number(run.qualityScore || 0)
+
+    const promptKey = run.promptVersion || 'prompt-v1'
+    if (!byPrompt[promptKey]) {
+      byPrompt[promptKey] = { runs: 0, avgQualityScore: 0, avgLearnerScore: 0, feedbackCount: 0 }
+    }
+    byPrompt[promptKey].runs += 1
+    byPrompt[promptKey].avgQualityScore += Number(run.qualityScore || 0)
   }
   for (const fb of feedback) {
     if (!fb.modelVersion) continue
@@ -207,10 +318,23 @@ app.get('/api/automation/stats', authRequired, (_req, res) => {
     }
     byModel[fb.modelVersion].avgLearnerScore += Number(fb.score || 0)
     byModel[fb.modelVersion].feedbackCount += 1
+
+    const run = fb.runId ? runs.find((item) => item.runId === fb.runId) : null
+    const promptKey = run?.promptVersion || 'prompt-v1'
+    if (!byPrompt[promptKey]) {
+      byPrompt[promptKey] = { runs: 0, avgQualityScore: 0, avgLearnerScore: 0, feedbackCount: 0 }
+    }
+    byPrompt[promptKey].avgLearnerScore += Number(fb.score || 0)
+    byPrompt[promptKey].feedbackCount += 1
   }
   for (const key of Object.keys(byModel)) {
     const row = byModel[key]
     row.autoApproveRate = row.runs ? Number(((row.autoApprovedRuns / row.runs) * 100).toFixed(2)) : 0
+    row.avgQualityScore = row.runs ? Number((row.avgQualityScore / row.runs).toFixed(2)) : 0
+    row.avgLearnerScore = row.feedbackCount ? Number((row.avgLearnerScore / row.feedbackCount).toFixed(2)) : 0
+  }
+  for (const key of Object.keys(byPrompt)) {
+    const row = byPrompt[key]
     row.avgQualityScore = row.runs ? Number((row.avgQualityScore / row.runs).toFixed(2)) : 0
     row.avgLearnerScore = row.feedbackCount ? Number((row.avgLearnerScore / row.feedbackCount).toFixed(2)) : 0
   }
@@ -221,14 +345,15 @@ app.get('/api/automation/stats', authRequired, (_req, res) => {
     autoApproveRate: total ? Number(((autoApproved / total) * 100).toFixed(2)) : 0,
     latestRuns: latest,
     byModel,
+    byPrompt,
   })
 })
 
-app.get('/api/automation/settings', authRequired, (_req, res) => {
+app.get('/api/automation/settings', authRequired, requireRoles('teacher', 'admin'), (_req, res) => {
   return res.json({ settings: db.data.automationSettings || {} })
 })
 
-app.post('/api/automation/settings', authRequired, async (req, res) => {
+app.post('/api/automation/settings', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
   const base = db.data.automationSettings || {}
   const next = {
     ...base,
@@ -236,14 +361,114 @@ app.post('/api/automation/settings', authRequired, async (req, res) => {
   }
   db.data.automationSettings = next
   await db.write()
+  await appendAuditLog({
+    actorUserId: req.userId,
+    actorRole: req.userRole,
+    tenantId: req.tenantId,
+    action: 'automation.settings.update',
+    resourceType: 'automationSettings',
+    resourceId: 'main',
+    detail: { keys: Object.keys(req.body || {}) },
+    ip: requestIp(req),
+  })
   return res.json({ settings: next })
 })
 
-app.get('/api/knowledge/stats', authRequired, (_req, res) => {
+app.post('/api/automation/prompts/replay-eval', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
+  const promptVersion = String(req.body?.promptVersion || '')
+  const limit = Number(req.body?.limit || 20)
+  const result = await replayPromptEvaluation({ promptVersion, limit })
+  return res.json(result)
+})
+
+app.post('/api/automation/prompts/auto-promote', authRequired, requireRoles('teacher', 'admin'), async (_req, res) => {
+  const result = await runPromptAutoPromote()
+  if (!result.ok) return res.status(400).json({ message: result.message, ...result })
+  return res.json(result)
+})
+
+app.get('/api/knowledge/stats', authRequired, requireRoles('teacher', 'admin'), (_req, res) => {
   return res.json(getKnowledgeStats())
 })
 
-app.get('/api/knowledge', authRequired, (req, res) => {
+app.get('/api/knowledge/coverage', authRequired, requireRoles('teacher', 'admin'), (_req, res) => {
+  return res.json(getKnowledgeCoverage())
+})
+
+app.get('/api/knowledge/conflicts', authRequired, requireRoles('teacher', 'admin'), (req, res) => {
+  const limit = Math.max(1, Math.min(300, Number(req.query.limit || 100)))
+  const entries = listKnowledgeConflicts(limit)
+  return res.json({ total: entries.length, entries })
+})
+
+app.get('/api/knowledge/revision-drafts', authRequired, requireRoles('teacher', 'admin'), (req, res) => {
+  const status = String(req.query.status || '').trim()
+  const limit = Math.max(1, Math.min(300, Number(req.query.limit || 100)))
+  const rows = (db.data.knowledgeRevisionDrafts || [])
+    .filter((item) => (!status ? true : item.status === status))
+    .slice(-limit)
+    .reverse()
+  return res.json({ total: rows.length, drafts: rows })
+})
+
+app.post('/api/knowledge/revision-drafts/:id/apply', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
+  const id = String(req.params.id || '')
+  const idx = (db.data.knowledgeRevisionDrafts || []).findIndex((item) => item.id === id)
+  if (idx < 0) return res.status(404).json({ message: '修订草案不存在' })
+  const draft = db.data.knowledgeRevisionDrafts[idx]
+  if (draft.status !== 'pending') return res.status(400).json({ message: '草案状态不可应用' })
+  const result = applyKnowledgeFix({
+    id: String(draft.targetEntryId),
+    actor: `revision-draft:${req.userId}`,
+    patch: draft.proposedPatch && typeof draft.proposedPatch === 'object' ? draft.proposedPatch : undefined,
+  })
+  if (!result.ok) return res.status(400).json({ message: result.message || '应用草案失败' })
+  db.data.knowledgeRevisionDrafts[idx] = {
+    ...draft,
+    status: 'applied',
+    appliedAt: dayjs().toISOString(),
+    appliedBy: req.userId,
+  }
+  await db.write()
+  await appendAuditLog({
+    actorUserId: req.userId,
+    actorRole: req.userRole,
+    tenantId: req.tenantId,
+    action: 'knowledge.revision_draft.apply',
+    resourceType: 'knowledgeRevisionDraft',
+    resourceId: id,
+    detail: { targetEntryId: draft.targetEntryId },
+    ip: requestIp(req),
+  })
+  return res.json({ ok: true, draft: db.data.knowledgeRevisionDrafts[idx], entry: result.entry })
+})
+
+app.post('/api/knowledge/revision-drafts/:id/reject', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
+  const id = String(req.params.id || '')
+  const idx = (db.data.knowledgeRevisionDrafts || []).findIndex((item) => item.id === id)
+  if (idx < 0) return res.status(404).json({ message: '修订草案不存在' })
+  const draft = db.data.knowledgeRevisionDrafts[idx]
+  if (draft.status !== 'pending') return res.status(400).json({ message: '草案状态不可驳回' })
+  db.data.knowledgeRevisionDrafts[idx] = {
+    ...draft,
+    status: 'rejected',
+    rejectedAt: dayjs().toISOString(),
+    rejectedBy: req.userId,
+  }
+  await db.write()
+  await appendAuditLog({
+    actorUserId: req.userId,
+    actorRole: req.userRole,
+    tenantId: req.tenantId,
+    action: 'knowledge.revision_draft.reject',
+    resourceType: 'knowledgeRevisionDraft',
+    resourceId: id,
+    ip: requestIp(req),
+  })
+  return res.json({ ok: true, draft: db.data.knowledgeRevisionDrafts[idx] })
+})
+
+app.get('/api/knowledge', authRequired, requireRoles('teacher', 'admin'), (req, res) => {
   const { subject, status, q, minQualityScore } = req.query
   const entries = listKnowledgeEntries({
     subject: subject ? String(subject) : undefined,
@@ -254,22 +479,32 @@ app.get('/api/knowledge', authRequired, (req, res) => {
   return res.json({ total: entries.length, entries })
 })
 
-app.get('/api/knowledge/:id', authRequired, (req, res) => {
+app.get('/api/knowledge/:id', authRequired, requireRoles('teacher', 'admin'), (req, res) => {
   const entry = getKnowledgeEntryById(String(req.params.id))
   if (!entry) return res.status(404).json({ message: '知识条目不存在' })
   return res.json({ entry })
 })
 
-app.post('/api/knowledge/import', authRequired, (req, res) => {
+app.post('/api/knowledge/import', authRequired, requireRoles('teacher', 'admin'), (req, res) => {
   const { entries, actor } = req.body
   const result = upsertKnowledgeEntries({
     entries,
     actor: actor ? String(actor) : req.userId,
   })
+  void appendAuditLog({
+    actorUserId: req.userId,
+    actorRole: req.userRole,
+    tenantId: req.tenantId,
+    action: 'knowledge.import',
+    resourceType: 'knowledgeEntry',
+    resourceId: '',
+    detail: { acceptedCount: result.acceptedCount, rejectedCount: result.rejectedCount },
+    ip: requestIp(req),
+  })
   return res.json(result)
 })
 
-app.post('/api/knowledge/review', authRequired, (req, res) => {
+app.post('/api/knowledge/review', authRequired, requireRoles('teacher', 'admin'), (req, res) => {
   const { id, status, actor } = req.body
   if (!id || !status) return res.status(400).json({ message: '参数不完整' })
   const result = updateKnowledgeReview({
@@ -278,10 +513,20 @@ app.post('/api/knowledge/review', authRequired, (req, res) => {
     actor: actor ? String(actor) : req.userId,
   })
   if (!result.ok) return res.status(400).json({ message: result.message, quality: result.quality })
+  void appendAuditLog({
+    actorUserId: req.userId,
+    actorRole: req.userRole,
+    tenantId: req.tenantId,
+    action: 'knowledge.review',
+    resourceType: 'knowledgeEntry',
+    resourceId: String(id),
+    detail: { status: String(status) },
+    ip: requestIp(req),
+  })
   return res.json(result)
 })
 
-app.post('/api/knowledge/suggest-fix', authRequired, (req, res) => {
+app.post('/api/knowledge/suggest-fix', authRequired, requireRoles('teacher', 'admin'), (req, res) => {
   const { id } = req.body
   if (!id) return res.status(400).json({ message: '参数不完整' })
   const result = suggestKnowledgeFix({ id: String(id) })
@@ -289,7 +534,7 @@ app.post('/api/knowledge/suggest-fix', authRequired, (req, res) => {
   return res.json(result)
 })
 
-app.post('/api/knowledge/apply-fix', authRequired, (req, res) => {
+app.post('/api/knowledge/apply-fix', authRequired, requireRoles('teacher', 'admin'), (req, res) => {
   const { id, actor, patch } = req.body
   if (!id) return res.status(400).json({ message: '参数不完整' })
   const result = applyKnowledgeFix({
@@ -299,6 +544,246 @@ app.post('/api/knowledge/apply-fix', authRequired, (req, res) => {
   })
   if (!result.ok) return res.status(404).json({ message: result.message })
   return res.json(result)
+})
+
+app.get('/api/materials', authRequired, requireRoles('teacher', 'admin'), (req, res) => {
+  const { subject, status } = req.query
+  const materials = (db.data.materials || []).filter((item) => {
+    if (subject && item.subject !== String(subject)) return false
+    if (status && item.status !== String(status)) return false
+    return true
+  })
+  return res.json({ total: materials.length, materials })
+})
+
+app.get('/api/materials/stats', authRequired, requireRoles('teacher', 'admin'), (_req, res) => {
+  const bySubject = {}
+  const byStatus = {}
+  for (const row of db.data.materials || []) {
+    bySubject[row.subject] = (bySubject[row.subject] || 0) + 1
+    byStatus[row.status] = (byStatus[row.status] || 0) + 1
+  }
+  return res.json({ total: (db.data.materials || []).length, bySubject, byStatus })
+})
+
+app.post('/api/materials/upload', authRequired, requireRoles('teacher', 'admin'), upload.single('file'), async (req, res) => {
+  const file = req.file
+  const { subject, chapter, year, sourceType } = req.body
+  if (!file) return res.status(400).json({ message: '请上传文件' })
+  if (!subject || !VALID_SUBJECTS.includes(String(subject))) return res.status(400).json({ message: '科目非法' })
+  if (!(file.mimetype || '').toLowerCase().includes('pdf') && !file.originalname.toLowerCase().endsWith('.pdf')) {
+    return res.status(400).json({ message: '仅支持PDF文件' })
+  }
+
+  const material = {
+    id: `m_${Date.now()}`,
+    filename: file.filename,
+    originalName: file.originalname,
+    subject: String(subject),
+    chapter: String(chapter || '').trim(),
+    year: String(year || dayjs().year()),
+    sourceType: ['textbook', 'syllabus', 'exam', 'notes'].includes(String(sourceType)) ? String(sourceType) : 'textbook',
+    size: file.size,
+    mimetype: file.mimetype,
+    status: 'uploaded',
+    chunkCount: 0,
+    ocrUsed: false,
+    uploadedAt: dayjs().toISOString(),
+  }
+
+  db.data.materials.push(material)
+  await db.write()
+  return res.json({ message: '上传成功，等待处理', material })
+})
+
+app.post('/api/materials/:id/process', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
+  const id = String(req.params.id)
+  const idx = (db.data.materials || []).findIndex((item) => item.id === id)
+  if (idx < 0) return res.status(404).json({ message: '资料不存在' })
+
+  db.data.materials[idx].status = 'processing'
+  await db.write()
+
+  try {
+    const material = db.data.materials[idx]
+    const parsed = await ingestPdfToChunks({
+      material,
+      uploadsDir: UPLOAD_DIR,
+    })
+
+    if (!parsed.pageCount || !parsed.chunks.length) {
+      throw new Error('未能解析到有效文本。若为扫描版PDF，请配置 OCR_SPACE_API_KEY 后重试。')
+    }
+
+    const oldChunks = (db.data.materialChunks || []).filter((item) => item.materialId !== id)
+    db.data.materialChunks = [...oldChunks, ...parsed.chunks]
+    const vectorSync = await upsertMaterialChunksToVectorStore(parsed.chunks)
+
+    const sample = parsed.chunks.slice(0, 3).map((item) => item.content).join(' ')
+    const sourceEntry = {
+      id: `mat_${material.id}_core`,
+      subject: material.subject,
+      chapter: material.chapter || material.originalName,
+      syllabusCode: `${material.subject.toUpperCase()}-MAT-${material.id.slice(-6)}`,
+      examYear: material.year,
+      topic: `${material.chapter || material.originalName}-教材核心要点`,
+      keywords: [material.chapter, material.originalName, material.subject].filter(Boolean),
+      concept: sample.slice(0, 220) || `${material.originalName}教材核心知识点`,
+      rules: [
+        '先基于教材原文识别概念定义，再判断适用边界。',
+        '做题时以教材术语口径为准，避免口语化替代。',
+      ],
+      pitfalls: ['只记结论不看教材定义', '忽视章节中的适用前提'],
+      miniCase: `依据资料《${material.originalName}》提炼题干场景并进行规范作答。`,
+      status: 'review',
+    }
+    upsertKnowledgeEntries({ entries: [sourceEntry], actor: `material-ingest:${req.userId}` })
+
+    db.data.materials[idx].status = 'ready'
+    db.data.materials[idx].chunkCount = parsed.chunks.length
+    db.data.materials[idx].ocrUsed = Boolean(parsed.ocrUsed)
+    db.data.materials[idx].processedAt = dayjs().toISOString()
+    db.data.materials[idx].errorMessage = ''
+    await db.write()
+    return res.json({
+      message: `处理完成，已提取 ${parsed.pageCount} 页，${parsed.chunks.length} 个切片并进入知识库流程${parsed.ocrUsed ? '（已启用OCR）' : ''}`,
+      vectorSync,
+      material: db.data.materials[idx],
+    })
+  } catch (error) {
+    db.data.materials[idx].status = 'failed'
+    db.data.materials[idx].errorMessage = error instanceof Error ? error.message : '处理失败'
+    await db.write()
+    return res.status(500).json({ message: '处理失败', material: db.data.materials[idx] })
+  }
+})
+
+app.get('/api/policy-scout/stats', authRequired, requireRoles('teacher', 'admin'), (_req, res) => {
+  return res.json(getPolicyScoutStats())
+})
+
+app.get('/api/policy-scout/runs', authRequired, requireRoles('teacher', 'admin'), (req, res) => {
+  const limit = Math.max(1, Math.min(100, Number(req.query.limit || 20)))
+  return res.json({ runs: listPolicyScoutRuns(limit) })
+})
+
+app.get('/api/policy-scout/settings', authRequired, requireRoles('teacher', 'admin'), (_req, res) => {
+  return res.json({ settings: getPolicyScoutSettings() })
+})
+
+app.post('/api/policy-scout/settings', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
+  const settings = await updatePolicyScoutSettings(req.body || {})
+  startPolicyScoutScheduler()
+  await appendAuditLog({
+    actorUserId: req.userId,
+    actorRole: req.userRole,
+    tenantId: req.tenantId,
+    action: 'policy_scout.settings.update',
+    resourceType: 'policyScoutSettings',
+    resourceId: 'main',
+    detail: { keys: Object.keys(req.body || {}) },
+    ip: requestIp(req),
+  })
+  return res.json({ settings })
+})
+
+app.post('/api/policy-scout/run', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
+  const run = await runPolicyScoutOnce({
+    actor: req.userId,
+    reason: 'manual-api',
+  })
+  await appendAuditLog({
+    actorUserId: req.userId,
+    actorRole: req.userRole,
+    tenantId: req.tenantId,
+    action: 'policy_scout.run.manual',
+    resourceType: 'policyScoutRun',
+    resourceId: run.runId || '',
+    detail: { skipped: Boolean(run.skipped), fetchedCount: Number(run.fetchedCount || 0) },
+    ip: requestIp(req),
+  })
+  return res.json({ run })
+})
+
+app.get('/api/users', authRequired, requireRoles('admin'), (_req, res) => {
+  const users = (db.data.users || [])
+    .filter((item) => String(item.tenantId || DEFAULT_TENANT_ID) === String(_req.tenantId || DEFAULT_TENANT_ID))
+    .map((item) => sanitizeUser(item))
+  return res.json({ total: users.length, users })
+})
+
+app.get('/api/rbac/policy', authRequired, requireRoles('admin'), (_req, res) => {
+  return res.json({ policy: db.data.rbacPolicy || {} })
+})
+
+app.post('/api/rbac/policy', authRequired, requireRoles('admin'), async (req, res) => {
+  const next = {
+    ...(db.data.rbacPolicy || {}),
+    ...(req.body && typeof req.body === 'object' ? req.body : {}),
+  }
+  db.data.rbacPolicy = next
+  await db.write()
+  await appendAuditLog({
+    actorUserId: req.userId,
+    actorRole: req.userRole,
+    tenantId: req.tenantId,
+    action: 'rbac.policy.update',
+    resourceType: 'rbacPolicy',
+    resourceId: 'main',
+    detail: { keys: Object.keys(req.body || {}) },
+    ip: requestIp(req),
+  })
+  return res.json({ policy: next })
+})
+
+app.post('/api/users/:id/role', authRequired, requireRoles('admin'), async (req, res) => {
+  const userId = String(req.params.id || '')
+  const nextRole = String(req.body?.role || '')
+  if (!VALID_ROLES.includes(nextRole)) return res.status(400).json({ message: '角色非法' })
+  const idx = (db.data.users || []).findIndex((item) => item.id === userId && String(item.tenantId || DEFAULT_TENANT_ID) === String(req.tenantId || DEFAULT_TENANT_ID))
+  if (idx < 0) return res.status(404).json({ message: '用户不存在' })
+
+  const prevRole = db.data.users[idx].role
+  db.data.users[idx].role = nextRole
+  await db.write()
+  await appendAuditLog({
+    actorUserId: req.userId,
+    actorRole: req.userRole,
+    tenantId: req.tenantId,
+    action: 'user.role.update',
+    resourceType: 'user',
+    resourceId: userId,
+    detail: { prevRole, nextRole },
+    ip: requestIp(req),
+  })
+  if (nextRole === 'admin' && prevRole !== 'admin') {
+    await emitSecurityAlert({
+      type: 'privilege_escalation',
+      severity: 'high',
+      message: `User ${userId} role escalated to admin`,
+      actorUserId: req.userId,
+      targetUserId: userId,
+      tenantId: req.tenantId,
+    })
+  }
+  return res.json({ user: sanitizeUser(db.data.users[idx]) })
+})
+
+app.get('/api/audit/logs', authRequired, requireRoles('admin'), (req, res) => {
+  const limit = Math.max(1, Math.min(500, Number(req.query.limit || 100)))
+  const action = req.query.action ? String(req.query.action) : undefined
+  const logs = listAuditLogs({
+    tenantId: req.tenantId,
+    limit,
+    action,
+  })
+  return res.json({ total: logs.length, logs })
+})
+
+app.get('/api/security/alerts', authRequired, requireRoles('admin'), (req, res) => {
+  const limit = Math.max(1, Math.min(500, Number(req.query.limit || 100)))
+  const alerts = (db.data.securityAlerts || []).slice(-limit).reverse()
+  return res.json({ total: alerts.length, alerts })
 })
 
 if (existsSync(DIST_DIR)) {
@@ -311,3 +796,5 @@ if (existsSync(DIST_DIR)) {
 app.listen(PORT, () => {
   console.log(`CPA Leap API running on http://localhost:${PORT}`)
 })
+
+startPolicyScoutScheduler()
