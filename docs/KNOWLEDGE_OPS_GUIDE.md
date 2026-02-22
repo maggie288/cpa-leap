@@ -268,6 +268,7 @@ POLICY_SCOUT_MAX_ITEMS_PER_SOURCE=8
 - 生命周期字段（`effectiveAt` / `expiresAt`）与状态（`active/scheduled/expired`）
 - 生成门禁：未生效或已过期条目不参与生成召回
 - 自动修订建议草案（diff）：政策新条目命中冲突后，自动生成“建议 patch + 触发原因 + 置信度”
+- 自动去重（AI 生成条目）：同科目同 topic 的 `AI生成知识条目` 仅保留最新一条，旧条目自动 `deprecated`
 
 实践建议：
 - 课程生成建议优先使用 `sourceTier=1/2` 条目

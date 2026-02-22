@@ -8,6 +8,7 @@
     "dev:client": "vite",
     "dev:server": "node server/index.js",
     "start": "node server/index.js",
+    "user:set-role": "node server/scripts/setUserRole.js",
     "kb:import": "node server/scripts/importKnowledge.js",
     "kb:seed:phase2": "node server/scripts/seedPhase2Knowledge.js",
     "eval:prompt:replay": "node server/scripts/replayPromptEval.js",

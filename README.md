@@ -77,6 +77,16 @@ VITE_LLM_API_KEY=your_api_key
 npm run kb:import -- --file path/to/knowledge.json --actor your_name
 ```
 
+## 角色初始化脚本（管理员/教师）
+
+```bash
+npm run user:set-role -- --email=your_account@example.com --role=admin
+npm run user:set-role -- --email=your_teacher@example.com --role=teacher
+```
+
+可选参数：
+- `--tenant=default`（多租户场景下指定租户）
+
 模板：`server/knowledge/templates/knowledge-entry.template.json`
 
 ## AI自动教研接口
