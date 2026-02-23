@@ -534,9 +534,9 @@ export function KnowledgeOpsPage() {
                 <span style={{ marginLeft: 8, fontSize: 12, color: 'var(--muted)' }}>
                   {entry.subject} · {entry.id}
                 </span>
-                {(entry.conflictRefs?.length ?? 0) > 0 && (
+                {((entry.conflictRefs ?? []).length) > 0 && (
                   <small style={{ display: 'block', marginTop: 4 }}>
-                    与 {entry.conflictRefs.map((r) => `${r.withTopic}（${r.reasons?.join('、')}）`).join('；')}
+                    与 {(entry.conflictRefs ?? []).map((r) => `${r.withTopic}（${r.reasons?.join('、')}）`).join('；')}
                   </small>
                 )}
                 <div style={{ display: 'flex', gap: 8, marginTop: 8, flexWrap: 'wrap' }}>

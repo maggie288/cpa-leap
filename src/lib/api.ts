@@ -198,6 +198,7 @@ export const knowledgeApi = {
   async suggestFix(id: string) {
     return request<{
       ok: boolean
+      message?: string
       id: string
       before: { score: number; issues: string[]; passForGeneration: boolean }
       after: { score: number; issues: string[]; passForGeneration: boolean }
