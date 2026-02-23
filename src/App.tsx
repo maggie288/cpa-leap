@@ -7,6 +7,7 @@ import { LessonPage } from './pages/LessonPage'
 import { LoginPage } from './pages/LoginPage'
 import { KnowledgeOpsPage } from './pages/KnowledgeOpsPage'
 import { ProfilePage } from './pages/ProfilePage'
+import { SourcesViewPage } from './pages/SourcesViewPage'
 import { SubscriptionPage } from './pages/SubscriptionPage'
 
 function ShellLayout() {
@@ -18,7 +19,12 @@ function ShellLayout() {
       {currentUser && (
         <nav className="main-nav">
           <Link to="/">学习</Link>
-          {canAccessKnowledge && <Link to="/knowledge">教研</Link>}
+          {canAccessKnowledge && (
+            <>
+              <Link to="/knowledge">教研</Link>
+              <Link to="/sources">资料总览</Link>
+            </>
+          )}
           <Link to="/subscription">订阅</Link>
           <Link to="/profile">我的</Link>
         </nav>
@@ -46,6 +52,14 @@ function ShellLayout() {
           element={
             <ProtectedRoute roles={['teacher', 'admin']}>
               <KnowledgeOpsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/sources"
+          element={
+            <ProtectedRoute roles={['teacher', 'admin']}>
+              <SourcesViewPage />
             </ProtectedRoute>
           }
         />

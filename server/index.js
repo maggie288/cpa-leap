@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs'
 import cors from 'cors'
 import dayjs from 'dayjs'
 import express from 'express'
-import { existsSync, mkdirSync } from 'node:fs'
+import { existsSync, mkdirSync, unlinkSync } from 'node:fs'
 import { resolve } from 'node:path'
 import multer from 'multer'
 import { authRequired, requireRoles, signToken } from './auth.js'
@@ -11,11 +11,12 @@ import { appendAuditLog, listAuditLogs } from './audit.js'
 import { canAttemptLogin, clearLoginFailures, markLoginFailure } from './security/loginRateLimit.js'
 import { replayPromptEvaluation, runAutonomousCoursePipeline, runPromptAutoPromote } from './ai/autonomousCourseEngine.js'
 import { ingestPdfToChunks } from './ingest/pdfPipeline.js'
-import { upsertMaterialChunksToVectorStore } from './ingest/vectorStore.js'
-import { createSignedUploadForObject, getStorageBucket, isSupabaseStorageEnabled } from './storage/materialStorage.js'
+import { deleteMaterialChunksFromVectorStore, upsertMaterialChunksToVectorStore } from './ingest/vectorStore.js'
+import { createSignedUploadForObject, getStorageBucket, isSupabaseStorageEnabled, removeObject } from './storage/materialStorage.js'
 import {
   getPolicyScoutSettings,
   getPolicyScoutStats,
+  listPolicyScoutItems,
   listPolicyScoutRuns,
   runPolicyScoutOnce,
   startPolicyScoutScheduler,
@@ -23,11 +24,13 @@ import {
 } from './policy/policyScout.js'
 import {
   applyKnowledgeFix,
+  deleteKnowledgeEntriesById,
   getKnowledgeEntryById,
   getKnowledgeCoverage,
   listKnowledgeConflicts,
   getKnowledgeStats,
   listKnowledgeEntries,
+  purgeAiGeneratedKnowledge,
   suggestKnowledgeFix,
   updateKnowledgeReview,
   upsertKnowledgeEntries,
@@ -651,7 +654,9 @@ const processMaterialById = async ({ id, actorUserId, tenantId }) => {
   const idx = (db.data.materials || []).findIndex((item) => item.id === id && String(item.tenantId || '') === String(tenantId))
   if (idx < 0) return { ok: false, status: 404, message: '资料不存在' }
 
-  if (db.data.materials[idx].status === 'processing') return { ok: true, material: db.data.materials[idx], message: '已在处理中' }
+  const cur = db.data.materials[idx]
+  if (cur.status === 'uploading') return { ok: false, status: 400, material: cur, message: '上传尚未完成，请稍后再处理入库' }
+  if (cur.status === 'processing') return { ok: true, material: cur, message: '已在处理中' }
 
   db.data.materials[idx].status = 'processing'
   await db.write()
@@ -765,11 +770,120 @@ app.post('/api/materials/:id/process-async', authRequired, requireRoles('teacher
   const tenantId = String(req.tenantId || DEFAULT_TENANT_ID)
 
   // Fire-and-forget. The UI can poll by reloading materials list.
-  setTimeout(() => {
-    void processMaterialById({ id, actorUserId: req.userId, tenantId })
-  }, 0)
+  void processMaterialById({ id, actorUserId: req.userId, tenantId })
 
   return res.json({ ok: true, message: '已提交异步处理任务，请稍后刷新查看状态', id })
+})
+
+app.post('/api/materials/process-all-async', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
+  const tenantId = String(req.tenantId || DEFAULT_TENANT_ID)
+  const candidates = (db.data.materials || []).filter(
+    (m) =>
+      String(m.tenantId || DEFAULT_TENANT_ID) === tenantId &&
+      (m.status === 'uploaded' || m.status === 'failed') &&
+      m.id,
+  )
+
+  // Fire-and-forget sequential processing to reduce memory spikes.
+  void (async () => {
+    for (const mat of candidates) {
+      // eslint-disable-next-line no-await-in-loop
+      await processMaterialById({ id: String(mat.id), actorUserId: req.userId, tenantId })
+    }
+  })()
+
+  return res.json({ ok: true, acceptedCount: candidates.length, message: `已提交批量入库任务：${candidates.length} 个资料` })
+})
+
+app.delete('/api/materials/:id', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
+  const id = String(req.params.id)
+  const tenantId = String(req.tenantId || DEFAULT_TENANT_ID)
+  const idx = (db.data.materials || []).findIndex((item) => item.id === id && String(item.tenantId || '') === tenantId)
+  if (idx < 0) return res.status(404).json({ message: '资料不存在' })
+
+  const material = db.data.materials[idx]
+  const warnings = []
+
+  // Remove metadata row first to keep UI consistent even if cleanup partially fails.
+  db.data.materials.splice(idx, 1)
+  db.data.materialChunks = (db.data.materialChunks || []).filter((row) => row.materialId !== id)
+  await db.write()
+
+  // Best-effort cleanup: vector store rows + stored file + derived KB entry.
+  try {
+    const del = await deleteMaterialChunksFromVectorStore({ materialId: id })
+    if (del.enabled && del.error) warnings.push(`vector_store:${del.error}`)
+  } catch (e) {
+    warnings.push(`vector_store:${e instanceof Error ? e.message : 'failed'}`)
+  }
+
+  try {
+    if (material?.storage?.provider === 'supabase' && material.storage.bucket && material.storage.path) {
+      await removeObject({ bucket: material.storage.bucket, objectPath: material.storage.path })
+    } else if (material?.filename) {
+      const absolutePath = resolve(UPLOAD_DIR, material.filename)
+      if (existsSync(absolutePath)) unlinkSync(absolutePath)
+    }
+  } catch (e) {
+    warnings.push(`storage:${e instanceof Error ? e.message : 'failed'}`)
+  }
+
+  try {
+    deleteKnowledgeEntriesById({ ids: [`mat_${id}_core`] })
+  } catch (e) {
+    warnings.push(`kb:${e instanceof Error ? e.message : 'failed'}`)
+  }
+
+  void appendAuditLog({
+    actorUserId: req.userId,
+    actorRole: req.userRole,
+    tenantId: req.tenantId,
+    action: 'materials.delete',
+    resourceType: 'material',
+    resourceId: id,
+    detail: { originalName: material.originalName || '', warnings },
+    ip: requestIp(req),
+  })
+
+  return res.json({ ok: true, message: warnings.length ? `已删除（有${warnings.length}条清理告警）` : '已删除', warnings })
+})
+
+app.post('/api/admin/purge-ai-knowledge', authRequired, requireRoles('admin'), async (req, res) => {
+  const confirm = String(req.body?.confirm || '')
+  if (confirm !== 'PURGE_AI_KNOWLEDGE') return res.status(400).json({ message: '危险操作：confirm=PURGE_AI_KNOWLEDGE 才会执行' })
+  const result = purgeAiGeneratedKnowledge({ actor: req.userId })
+  void appendAuditLog({
+    actorUserId: req.userId,
+    actorRole: req.userRole,
+    tenantId: req.tenantId,
+    action: 'knowledge.purge_ai_generated',
+    resourceType: 'knowledgeEntry',
+    resourceId: '',
+    detail: { deletedCount: result.deletedCount },
+    ip: requestIp(req),
+  })
+  return res.json(result)
+})
+
+app.post('/api/admin/clear-generation-runs', authRequired, requireRoles('admin'), async (req, res) => {
+  const confirm = String(req.body?.confirm || '')
+  if (confirm !== 'CLEAR_GENERATION_RUNS') return res.status(400).json({ message: '危险操作：confirm=CLEAR_GENERATION_RUNS 才会执行' })
+  const beforeRuns = (db.data.generationRuns || []).length
+  const beforeFeedback = (db.data.modelFeedback || []).length
+  db.data.generationRuns = []
+  db.data.modelFeedback = []
+  await db.write()
+  void appendAuditLog({
+    actorUserId: req.userId,
+    actorRole: req.userRole,
+    tenantId: req.tenantId,
+    action: 'automation.clear_runs',
+    resourceType: 'generationRun',
+    resourceId: '',
+    detail: { beforeRuns, beforeFeedback },
+    ip: requestIp(req),
+  })
+  return res.json({ ok: true, beforeRuns, beforeFeedback })
 })
 
 app.get('/api/policy-scout/stats', authRequired, requireRoles('teacher', 'admin'), (_req, res) => {
@@ -779,6 +893,13 @@ app.get('/api/policy-scout/stats', authRequired, requireRoles('teacher', 'admin'
 app.get('/api/policy-scout/runs', authRequired, requireRoles('teacher', 'admin'), (req, res) => {
   const limit = Math.max(1, Math.min(100, Number(req.query.limit || 20)))
   return res.json({ runs: listPolicyScoutRuns(limit) })
+})
+
+app.get('/api/policy-scout/items', authRequired, requireRoles('teacher', 'admin'), (req, res) => {
+  const limit = Math.max(1, Math.min(500, Number(req.query.limit || 100)))
+  const subject = req.query.subject ? String(req.query.subject).trim() : undefined
+  const items = listPolicyScoutItems({ limit, subject })
+  return res.json({ total: items.length, items })
 })
 
 app.get('/api/policy-scout/settings', authRequired, requireRoles('teacher', 'admin'), (_req, res) => {

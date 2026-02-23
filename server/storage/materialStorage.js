@@ -43,3 +43,13 @@ export const downloadObjectAsBuffer = async ({ bucket = SUPABASE_STORAGE_BUCKET,
   return Buffer.from(ab)
 }
 
+export const removeObject = async ({ bucket = SUPABASE_STORAGE_BUCKET, objectPath }) => {
+  const supabase = getAdminClient()
+  if (!supabase) throw new Error('Supabase Storage 未配置（缺少 SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY）')
+  if (!objectPath) throw new Error('objectPath is required')
+
+  const { data, error } = await supabase.storage.from(bucket).remove([objectPath])
+  if (error) throw new Error(`storage.remove failed: ${error.message}`)
+  return { removed: data || [] }
+}
+

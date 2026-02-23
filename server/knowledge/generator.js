@@ -49,7 +49,16 @@ const selectDocsForGeneration = (docs, topK = 4) => {
   return pool.slice(0, topK)
 }
 
-export const generateFromKnowledge = ({ subject, chapterId, knowledgePointId, lessonTitle, objective, examPoints, weakPoints }) => {
+export const generateFromKnowledge = ({
+  subject,
+  chapterId,
+  knowledgePointId,
+  lessonTitle,
+  objective,
+  examPoints,
+  weakPoints,
+  materialSnippets,
+}) => {
   const retrievedDocs = retrieveKnowledge({
     subject,
     chapterId,
@@ -65,6 +74,7 @@ export const generateFromKnowledge = ({ subject, chapterId, knowledgePointId, le
   const hasDocs = docs.length > 0
 
   const policyRefs = docs.filter((doc) => doc.policyMeta && doc.policyMeta.sourceUrl)
+  const materialRefs = Array.isArray(materialSnippets) ? materialSnippets : []
 
   const lessonScript = [
     `本节主题：${lessonTitle}`,
@@ -77,6 +87,14 @@ export const generateFromKnowledge = ({ subject, chapterId, knowledgePointId, le
     ...(hasDocs
       ? docs.map((doc, idx) => `${idx + 1}.【${doc.topic}】${doc.concept}`)
       : ['当前科目暂无通过质量门禁的知识条目，请先补充并审核知识库后再生成高质量内容。']),
+    ...(materialRefs.length
+      ? [
+          '教材原文锚点（用于口径对齐）：',
+          ...materialRefs
+            .slice(0, 2)
+            .map((row, idx) => `M${idx + 1}. p${row.page || '?'} ${String(row.content || '').slice(0, 180)}`),
+        ]
+      : []),
     ...(policyRefs.length
       ? policyRefs
           .slice(0, 2)
@@ -93,6 +111,7 @@ export const generateFromKnowledge = ({ subject, chapterId, knowledgePointId, le
 
   const revisionTips = [
     ...docs.slice(0, 2).map((doc) => `复习${doc.topic}时，重点避免：${doc.pitfalls[0] || '概念混淆'}`),
+    ...(materialRefs.length ? ['做题时遇到口径不确定，回看教材原文锚点，避免凭直觉选项。'] : []),
     '使用“规则-条件-结论”三步法复述错题。',
     '在24小时内做一次5分钟复盘，强化记忆保持。',
   ]
@@ -104,8 +123,15 @@ export const generateFromKnowledge = ({ subject, chapterId, knowledgePointId, le
     publisher: doc.policyMeta?.publisher || '',
     effectiveAt: doc.policyMeta?.effectiveAt || '',
   }))
+  const materialSourceRefs = materialRefs.slice(0, 2).map((row) => ({
+    id: String(row.id || row.materialId || 'material'),
+    topic: `教材片段 p${row.page || '?'}`,
+    sourceUrl: '',
+    publisher: '教材PDF',
+    effectiveAt: '',
+  }))
 
-  const qualityWarnings = hasDocs ? [] : ['无可用知识条目（要求：status=approved 且 qualityScore>=85）']
+  const qualityWarnings = hasDocs || materialRefs.length ? [] : ['无可用知识条目（要求：status=approved 且 qualityScore>=85）']
 
-  return { lessonScript, generatedQuestions, revisionTips, sourceRefs, qualityWarnings }
+  return { lessonScript, generatedQuestions, revisionTips, sourceRefs: [...sourceRefs, ...materialSourceRefs], qualityWarnings }
 }

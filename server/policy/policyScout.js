@@ -396,6 +396,15 @@ export const getPolicyScoutStats = () => {
 
 export const listPolicyScoutRuns = (limit = 20) => (db.data.policyScoutRuns || []).slice(-limit).reverse()
 
+export const listPolicyScoutItems = ({ limit = 100, subject } = {}) => {
+  let list = (db.data.policyScoutItems || []).slice().reverse()
+  if (subject && String(subject).trim()) {
+    list = list.filter((row) => String(row.subject || '').toLowerCase() === String(subject).toLowerCase().trim())
+  }
+  const cap = Math.max(1, Math.min(500, Number(limit) || 100))
+  return list.slice(0, cap)
+}
+
 const sendAlertWebhook = async ({ webhookUrl, payload }) => {
   if (!webhookUrl) return { ok: false, reason: 'missing_webhook_url' }
   try {

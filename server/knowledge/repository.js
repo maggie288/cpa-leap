@@ -29,6 +29,27 @@ const writeKb = (entries) => {
   writeFileSync(KB_PATH, JSON.stringify(entries, null, 2), 'utf-8')
 }
 
+export const deleteKnowledgeEntriesById = ({ ids, actor = 'system' }) => {
+  const idList = Array.isArray(ids) ? ids.map((x) => String(x || '').trim()).filter(Boolean) : []
+  if (idList.length === 0) return { ok: true, deletedCount: 0, deletedIds: [] }
+
+  const before = readKb()
+  const idSet = new Set(idList)
+  const remaining = before.filter((entry) => !idSet.has(String(entry.id || '')))
+  const deletedCount = before.length - remaining.length
+  if (deletedCount > 0) writeKb(remaining)
+  return { ok: true, deletedCount, deletedIds: idList, actor }
+}
+
+export const purgeAiGeneratedKnowledge = ({ actor = 'system' } = {}) => {
+  const before = readKb()
+  const removed = before.filter((e) => String(e.topic || '').includes('AI生成知识条目') || String(e.id || '').includes('-auto-'))
+  const remaining = before.filter((e) => !String(e.topic || '').includes('AI生成知识条目') && !String(e.id || '').includes('-auto-'))
+  const deletedCount = before.length - remaining.length
+  if (deletedCount > 0) writeKb(remaining)
+  return { ok: true, deletedCount, deletedIds: removed.map((x) => x.id), actor }
+}
+
 const parseTime = (value) => {
   if (!value) return null
   const ts = dayjs(String(value))

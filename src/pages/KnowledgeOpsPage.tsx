@@ -1,16 +1,11 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { automationApi, knowledgeApi, materialsApi, policyScoutApi, userAdminApi } from '../lib/api'
+import { Link } from 'react-router-dom'
+import { adminOpsApi, automationApi, knowledgeApi, materialsApi, policyScoutApi, userAdminApi } from '../lib/api'
 import type { KnowledgeEntry, MaterialAsset } from '../types'
 import { useAppStore } from '../lib/useAppStore'
 
-const STATUS_OPTIONS: KnowledgeEntry['status'][] = ['draft', 'review', 'approved', 'deprecated']
-
 export function KnowledgeOpsPage() {
   const { currentUser } = useAppStore()
-  const [subject, setSubject] = useState('')
-  const [status, setStatus] = useState('')
-  const [q, setQ] = useState('')
-  const [entries, setEntries] = useState<KnowledgeEntry[]>([])
   const [stats, setStats] = useState<{ total: number; byStatus: Record<string, number>; qualityBuckets: Record<string, number> } | null>(
     null,
   )
@@ -28,8 +23,6 @@ export function KnowledgeOpsPage() {
     >
     subjectSyllabusTarget: Record<string, number>
   } | null>(null)
-  const [selectedId, setSelectedId] = useState('')
-  const [selected, setSelected] = useState<KnowledgeEntry | null>(null)
   const [conflictEntries, setConflictEntries] = useState<KnowledgeEntry[]>([])
   const [revisionDrafts, setRevisionDrafts] = useState<
     Array<{
@@ -47,7 +40,6 @@ export function KnowledgeOpsPage() {
     }>
   >([])
   const [message, setMessage] = useState('')
-  const [loading, setLoading] = useState(false)
   const [automationStats, setAutomationStats] = useState<{
     totalRuns: number
     autoApprovedRuns: number
@@ -176,11 +168,9 @@ export function KnowledgeOpsPage() {
   >([])
 
   const load = useCallback(async () => {
-    setLoading(true)
     try {
-      const [listRes, statsRes, coverageRes, conflictRes, revisionRes, autoStatsRes, autoSettingsRes, materialsRes, materialStatsRes, policyStatsRes, policySettingsRes, usersRes] =
+      const [statsRes, coverageRes, conflictRes, revisionRes, autoStatsRes, autoSettingsRes, materialsRes, materialStatsRes, policyStatsRes, policySettingsRes, usersRes] =
         await Promise.all([
-        knowledgeApi.list({ subject: subject || undefined, status: status || undefined, q: q || undefined }),
         knowledgeApi.stats(),
         knowledgeApi.coverage(),
         knowledgeApi.conflicts(50),
@@ -189,11 +179,10 @@ export function KnowledgeOpsPage() {
         automationApi.getSettings(),
         materialsApi.list(),
         materialsApi.stats(),
-          policyScoutApi.stats(),
-          policyScoutApi.getSettings(),
-          currentUser?.role === 'admin' ? userAdminApi.listUsers() : Promise.resolve({ total: 0, users: [] }),
+        policyScoutApi.stats(),
+        policyScoutApi.getSettings(),
+        currentUser?.role === 'admin' ? userAdminApi.listUsers() : Promise.resolve({ total: 0, users: [] }),
         ])
-      setEntries(listRes.entries)
       setStats(statsRes)
       setCoverage(coverageRes)
       setConflictEntries(conflictRes.entries || [])
@@ -220,67 +209,14 @@ export function KnowledgeOpsPage() {
       setPolicyStats(policyStatsRes)
       setPolicySettings(policySettingsRes.settings)
       setUsers(usersRes.users || [])
-      if (selectedId) {
-        const found = listRes.entries.find((item) => item.id === selectedId)
-        setSelected(found || null)
-      }
     } catch (error) {
       setMessage(error instanceof Error ? error.message : '加载失败')
-    } finally {
-      setLoading(false)
     }
-  }, [currentUser?.role, q, selectedId, status, subject])
+  }, [currentUser?.role])
 
   useEffect(() => {
     void load()
   }, [load])
-
-  const selectedIssues = useMemo(() => selected?.qualityIssues || [], [selected])
-
-  const onSelect = async (id: string) => {
-    setSelectedId(id)
-    try {
-      const detail = await knowledgeApi.getById(id)
-      setSelected(detail.entry)
-      setMessage('')
-    } catch (error) {
-      setMessage(error instanceof Error ? error.message : '加载详情失败')
-    }
-  }
-
-  const onSuggestFix = async () => {
-    if (!selectedId) return
-    try {
-      const res = await knowledgeApi.suggestFix(selectedId)
-      setMessage(`建议修复：${res.before.score} -> ${res.after.score}，变更字段：${res.changedFields.join('、')}`)
-    } catch (error) {
-      setMessage(error instanceof Error ? error.message : '生成建议失败')
-    }
-  }
-
-  const onApplyFix = async () => {
-    if (!selectedId) return
-    try {
-      const res = await knowledgeApi.applyFix(selectedId)
-      setSelected(res.entry)
-      setMessage(`已应用修复，当前分数 ${res.entry.qualityScore}，状态 ${res.entry.status}`)
-      await load()
-    } catch (error) {
-      setMessage(error instanceof Error ? error.message : '应用修复失败')
-    }
-  }
-
-  const onReview = async (nextStatus: KnowledgeEntry['status']) => {
-    if (!selectedId) return
-    try {
-      const res = await knowledgeApi.review(selectedId, nextStatus)
-      setSelected(res.entry)
-      setMessage(`状态已更新为 ${res.entry.status}`)
-      await load()
-    } catch (error) {
-      setMessage(error instanceof Error ? error.message : '状态更新失败')
-    }
-  }
 
   const parseSplit = (raw: string) => {
     const map: Record<string, number> = {}
@@ -397,6 +333,42 @@ export function KnowledgeOpsPage() {
       await load()
     } catch (error) {
       setMessage(error instanceof Error ? error.message : '处理失败')
+    }
+  }
+
+  const onDeleteMaterial = async (id: string) => {
+    const yes = window.confirm('确认删除该资料？将同时删除切片/向量库记录，且不可恢复。')
+    if (!yes) return
+    try {
+      const res = await materialsApi.remove(id)
+      setMessage(res.message)
+      await load()
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : '删除失败')
+    }
+  }
+
+  const onPurgeAiKnowledge = async () => {
+    const yes = window.confirm('确认清理所有 AI生成知识条目？（危险操作，不可恢复）')
+    if (!yes) return
+    try {
+      const res = await adminOpsApi.purgeAiKnowledge()
+      setMessage(`已清理 AI生成知识条目：${res.deletedCount} 条`)
+      await load()
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : '清理失败')
+    }
+  }
+
+  const onClearGenerationRuns = async () => {
+    const yes = window.confirm('确认清空课程生成记录与反馈？（仅影响统计/实验，不影响资料与知识库）')
+    if (!yes) return
+    try {
+      const res = await adminOpsApi.clearGenerationRuns()
+      setMessage(`已清空生成记录：runs ${res.beforeRuns}，feedback ${res.beforeFeedback}`)
+      await load()
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : '清空失败')
     }
   }
 
@@ -1041,106 +1013,60 @@ export function KnowledgeOpsPage() {
               <small>
                 {item.chapter || '未标记章节'} · {item.year}
               </small>
-              <button onClick={() => void onProcessMaterial(item.id)}>处理入库</button>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="card ops-filters">
-        <label>
-          科目
-          <select value={subject} onChange={(e) => setSubject(e.target.value)}>
-            <option value="">全部</option>
-            <option value="accounting">会计</option>
-            <option value="audit">审计</option>
-            <option value="finance">财管</option>
-            <option value="tax">税法</option>
-            <option value="law">经济法</option>
-            <option value="strategy">战略</option>
-          </select>
-        </label>
-        <label>
-          状态
-          <select value={status} onChange={(e) => setStatus(e.target.value)}>
-            <option value="">全部</option>
-            {STATUS_OPTIONS.map((item) => (
-              <option value={item} key={item}>
-                {item}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          搜索
-          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="topic/keyword" />
-        </label>
-        <button onClick={() => void load()}>{loading ? '加载中...' : '查询'}</button>
-      </section>
-
-      <section className="ops-layout">
-        <article className="card">
-          <h2>条目列表</h2>
-          <div className="ops-list">
-            {entries.map((entry) => (
-              <button className="ops-item" key={entry.id} onClick={() => void onSelect(entry.id)}>
-                <strong>{entry.topic}</strong>
-                <span>
-                  {entry.subject} · {entry.status} · 分数 {entry.qualityScore}
-                </span>
-                <small>{entry.id}</small>
-              </button>
-            ))}
-          </div>
-        </article>
-
-        <article className="card">
-          <h2>条目详情</h2>
-          {!selected && <p>请选择左侧条目</p>}
-          {selected && (
-            <div className="ops-detail">
-              <p>
-                <strong>{selected.topic}</strong>（{selected.id}）
-              </p>
-              <p>
-                {selected.subject} · {selected.chapter} · {selected.syllabusCode} · {selected.examYear}
-              </p>
-              <p>
-                生命周期：{selected.lifecycle || 'active'} · 来源等级：{selected.sourceTier || 2}
-              </p>
-              <p>质量分：{selected.qualityScore}</p>
-              <p>当前状态：{selected.status}</p>
-              {selected.conflictRefs?.length ? (
-                <ul>
-                  {selected.conflictRefs.map((ref) => (
-                    <li key={ref.withId}>
-                      冲突：{ref.withTopic}（{ref.withId}）- {ref.reasons.join('；')}
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
-              {selectedIssues.length > 0 ? (
-                <ul>
-                  {selectedIssues.map((issue) => (
-                    <li key={issue}>{issue}</li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="correct">无质量问题</p>
-              )}
-              <div className="ops-actions">
-                <button onClick={() => void onSuggestFix()}>生成修复建议</button>
-                <button onClick={() => void onApplyFix()}>一键应用修复</button>
-                <button onClick={() => void onReview('review')}>送审(review)</button>
-                <button onClick={() => void onReview('approved')}>审核通过</button>
-                <button className="ghost" onClick={() => void onReview('deprecated')}>
-                  下线(deprecated)
+              {item.errorMessage ? <small className="wrong">错误：{item.errorMessage}</small> : null}
+              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                <button
+                  onClick={() => void onProcessMaterial(item.id)}
+                  disabled={item.status === 'uploading' || item.status === 'processing'}
+                >
+                  {item.status === 'processing' ? '处理中...' : '处理入库'}
+                </button>
+                <button className="ghost" onClick={() => void onDeleteMaterial(item.id)}>
+                  删除
                 </button>
               </div>
             </div>
-          )}
-        </article>
+          ))}
+        </div>
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          <button className="ghost" onClick={() => void load()}>
+            刷新列表
+          </button>
+          <button
+            className="ghost"
+            onClick={async () => {
+              try {
+                const res = await materialsApi.processAllAsync()
+                setMessage(res.message)
+                await load()
+              } catch (error) {
+                setMessage(error instanceof Error ? error.message : '批量入库提交失败')
+              }
+            }}
+          >
+            批量处理待入库
+          </button>
+        </div>
       </section>
+
+      {currentUser?.role === 'admin' && (
+        <section className="card">
+          <h2>内容清理与重建</h2>
+          <p>用于删除错误的 AI 自动生成知识，并让课程生成回到“教材PDF + 政策来源优先”的口径。</p>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            <button className="ghost" onClick={() => void onPurgeAiKnowledge()}>
+              清理 AI生成知识条目
+            </button>
+            <button className="ghost" onClick={() => void onClearGenerationRuns()}>
+              清空生成记录/反馈
+            </button>
+          </div>
+        </section>
+      )}
+
+      <p className="tip">
+        查看知识库条目、上传资料与政策抓取结果请到「<Link to="/sources">资料总览</Link>」；课程内容由教材 PDF、政策来源与已审核知识条目实时生成。
+      </p>
     </div>
   )
 }

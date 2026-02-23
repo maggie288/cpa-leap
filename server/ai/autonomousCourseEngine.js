@@ -169,6 +169,14 @@ export const runAutonomousCoursePipeline = async ({
 }) => {
   const settings = db.data.automationSettings || {}
   if (settings.autopilotEnabled === false) {
+    const materialSnippets = await retrieveMaterialSnippets({
+      subject,
+      lessonTitle,
+      objective,
+      examPoints,
+      weakPoints,
+      topK: 3,
+    })
     const generated = generateFromKnowledge({
       subject,
       chapterId,
@@ -177,6 +185,7 @@ export const runAutonomousCoursePipeline = async ({
       objective,
       examPoints,
       weakPoints,
+      materialSnippets,
     })
     return {
       ...generated,
@@ -273,6 +282,7 @@ export const runAutonomousCoursePipeline = async ({
     objective,
     examPoints,
     weakPoints,
+    materialSnippets,
   })
 
   const runLog = {

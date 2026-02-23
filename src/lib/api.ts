@@ -1,4 +1,5 @@
 import type { KnowledgeEntry, MaterialAsset, SubscriptionPlan, UserProfile, UserProgress } from '../types'
+import * as tus from 'tus-js-client'
 
 const API_BASE = (() => {
   const raw = (import.meta.env.VITE_API_BASE as string | undefined) || ''
@@ -315,10 +316,10 @@ export const materialsApi = {
     sourceType: 'textbook' | 'syllabus' | 'exam' | 'notes'
   }) {
     const file = input.file
-    const shouldDirectUpload = file.size > 45 * 1024 * 1024
+    const shouldUseResumable = file.size > 20 * 1024 * 1024
 
-    const directUpload = async () => {
-      const init = await request<{
+    const initiate = async () => {
+      return request<{
         material: MaterialAsset
         upload: { bucket: string; path: string; token: string; signedUrl: string }
       }>('/materials/upload/initiate', {
@@ -333,37 +334,83 @@ export const materialsApi = {
           size: file.size,
         }),
       })
+    }
 
-      const putRes = await fetch(init.upload.signedUrl, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': file.type || 'application/pdf',
-        },
-        body: file,
-      })
-      if (!putRes.ok) {
-        throw new Error(`Storage 上传失败 (HTTP ${putRes.status})`)
-      }
-
-      const completed = await request<{ ok: boolean; material: MaterialAsset; message: string }>(
-        `/materials/${init.material.id}/complete-upload`,
-        { method: 'POST', body: JSON.stringify({}) },
-      )
-
-      // Async ingest to avoid request timeouts for large PDFs.
-      await request<{ ok: boolean; message: string; id: string }>(`/materials/${init.material.id}/process-async`, {
+    const completeUpload = async (id: string) => {
+      return request<{ ok: boolean; material: MaterialAsset; message: string }>(`/materials/${id}/complete-upload`, {
         method: 'POST',
         body: JSON.stringify({}),
       })
+    }
 
+    const startAsyncIngest = async (id: string) => {
+      return request<{ ok: boolean; message: string; id: string }>(`/materials/${id}/process-async`, {
+        method: 'POST',
+        body: JSON.stringify({}),
+      })
+    }
+
+    const uploadViaSinglePut = async (signedUrl: string) => {
+      const putRes = await fetch(signedUrl, {
+        method: 'PUT',
+        headers: { 'Content-Type': file.type || 'application/pdf' },
+        body: file,
+      })
+      if (!putRes.ok) throw new Error(`Storage 上传失败 (HTTP ${putRes.status})`)
+    }
+
+    const uploadViaResumable = async (init: {
+      upload: { bucket: string; path: string; token: string; signedUrl: string }
+    }) => {
+      const projectId = new URL(init.upload.signedUrl).host.split('.')[0]
+      const endpoint = `https://${projectId}.storage.supabase.co/storage/v1/upload/resumable`
+
+      await new Promise<void>((resolve, reject) => {
+        const up = new tus.Upload(file, {
+          endpoint,
+          retryDelays: [0, 3000, 5000, 10000, 20000],
+          headers: {
+            // Signed upload token from createSignedUploadUrl()
+            'x-signature': init.upload.token,
+          },
+          uploadDataDuringCreation: true,
+          removeFingerprintOnSuccess: true,
+          metadata: {
+            bucketName: init.upload.bucket,
+            objectName: init.upload.path,
+            contentType: file.type || 'application/pdf',
+          },
+          // Supabase currently requires 6MB chunks for resumable uploads.
+          chunkSize: 6 * 1024 * 1024,
+          onError: (error) => reject(error),
+          onSuccess: () => resolve(),
+        })
+
+        void up.findPreviousUploads().then((previousUploads) => {
+          if (previousUploads.length) up.resumeFromPreviousUpload(previousUploads[0])
+          up.start()
+        })
+      })
+    }
+
+    const directToStorage = async () => {
+      const init = await initiate()
+      if (shouldUseResumable) {
+        await uploadViaResumable(init)
+      } else {
+        await uploadViaSinglePut(init.upload.signedUrl)
+      }
+
+      const completed = await completeUpload(init.material.id)
+      await startAsyncIngest(init.material.id)
       return { material: completed.material, message: '上传成功，已提交异步入库处理' }
     }
 
-    if (shouldDirectUpload) return directUpload()
+    if (shouldUseResumable) return directToStorage()
 
-    // For small files: try direct upload first (if backend supports), otherwise fallback to multipart.
+    // For small files: try direct-to-storage first, otherwise fallback to multipart.
     try {
-      return await directUpload()
+      return await directToStorage()
     } catch {
       const form = new FormData()
       form.append('file', file)
@@ -371,10 +418,7 @@ export const materialsApi = {
       form.append('chapter', input.chapter)
       form.append('year', input.year)
       form.append('sourceType', input.sourceType)
-      return request<{ material: MaterialAsset; message: string }>('/materials/upload', {
-        method: 'POST',
-        body: form,
-      })
+      return request<{ material: MaterialAsset; message: string }>('/materials/upload', { method: 'POST', body: form })
     }
   },
   async process(id: string) {
@@ -387,6 +431,32 @@ export const materialsApi = {
     return request<{ ok: boolean; message: string; id: string }>(`/materials/${id}/process-async`, {
       method: 'POST',
       body: JSON.stringify({}),
+    })
+  },
+  async remove(id: string) {
+    return request<{ ok: boolean; message: string; warnings?: string[] }>(`/materials/${id}`, {
+      method: 'DELETE',
+    })
+  },
+  async processAllAsync() {
+    return request<{ ok: boolean; acceptedCount: number; message: string }>('/materials/process-all-async', {
+      method: 'POST',
+      body: JSON.stringify({}),
+    })
+  },
+}
+
+export const adminOpsApi = {
+  async purgeAiKnowledge() {
+    return request<{ ok: boolean; deletedCount: number; deletedIds: string[] }>('/admin/purge-ai-knowledge', {
+      method: 'POST',
+      body: JSON.stringify({ confirm: 'PURGE_AI_KNOWLEDGE' }),
+    })
+  },
+  async clearGenerationRuns() {
+    return request<{ ok: boolean; beforeRuns: number; beforeFeedback: number }>('/admin/clear-generation-runs', {
+      method: 'POST',
+      body: JSON.stringify({ confirm: 'CLEAR_GENERATION_RUNS' }),
     })
   },
 }
@@ -521,6 +591,31 @@ export const policyScoutApi = {
       method: 'POST',
       body: JSON.stringify({}),
     })
+  },
+  async items(params?: { limit?: number; subject?: string }) {
+    const search = new URLSearchParams()
+    if (params?.limit != null) search.set('limit', String(params.limit))
+    if (params?.subject) search.set('subject', params.subject)
+    const query = search.toString()
+    return request<{
+      total: number
+      items: Array<{
+        id: string
+        sourceId: string
+        sourceName: string
+        publisher?: string
+        subject: string
+        topicHint?: string
+        region?: string
+        title: string
+        url: string
+        publishedAt?: string
+        summary?: string
+        sourceTier?: number
+        capturedAt?: string
+        runId?: string
+      }>
+    }>(`/policy-scout/items${query ? `?${query}` : ''}`)
   },
 }
 

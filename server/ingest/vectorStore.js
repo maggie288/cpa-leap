@@ -57,3 +57,13 @@ export const queryMaterialChunksByVector = async ({ queryEmbedding, subject, top
     similarity: row.similarity,
   }))
 }
+
+export const deleteMaterialChunksFromVectorStore = async ({ materialId }) => {
+  if (!supabase) return { enabled: false, deletedCount: 0 }
+  const safeId = String(materialId || '').trim()
+  if (!safeId) return { enabled: true, deletedCount: 0 }
+
+  const { error, count } = await supabase.from(VECTOR_TABLE).delete({ count: 'exact' }).eq('material_id', safeId)
+  if (error) return { enabled: true, deletedCount: 0, error: error.message }
+  return { enabled: true, deletedCount: Number(count || 0) }
+}
