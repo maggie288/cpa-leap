@@ -37,6 +37,43 @@ npm run dev
 
 数据库文件：`server/data/db.json`（自动生成）
 
+### 若出现 404（Failed to load resource）
+
+- **本地**：请用 `npm run dev` 同时启动前端与后端。若只跑了 `vite` 或 `npm run dev:client`，后端未启动，请求 `http://localhost:8787/api/...` 会 404。
+- **生产（如 Vercel 只部署前端）**：见下方「Vercel 部署」说明。
+
+## Vercel 部署（前端）
+
+当前项目在 Vercel 上只会部署**前端静态资源**（`vite build` 产物）。**后端是 Node 服务**（`server/index.js`），Vercel 不会运行它，所以访问 Vercel 域名时所有 `/api/*` 请求都会 **404**。
+
+要让已部署在 Vercel 的前端正常用上 API，需要两步：
+
+### 1. 把后端部署到其他平台
+
+在后端可用的平台（任选其一）部署本仓库的 **Node 服务**，例如：
+
+- **Railway**：连 GitHub 仓库，Root Directory 留空，Build 命令可不填或 `npm install`，Start 命令填 `npm run start`（即 `node server/index.js`）。把 `PORT` 设为平台提供的端口（如 Railway 用 `process.env.PORT`，已支持）。
+- **Render**：New → Web Service，连仓库，Build：`npm install`，Start：`npm run start`，并设置所需环境变量（如 `JWT_SECRETS` 等）。
+
+部署完成后记下后端地址，例如：`https://cpa-leap-api.railway.app`（注意不要带末尾 `/api`，下面会加）。
+
+### 2. 在 Vercel 里配置 API 地址
+
+在 Vercel 项目 **Settings → Environment Variables** 中新增：
+
+| 名称 | 值 | 说明 |
+|------|-----|------|
+| `VITE_API_BASE` | `https://你的后端域名/api` | 例如 `https://cpa-leap-api.railway.app/api` |
+
+保存后，在 **Deployments** 里对最新一次部署点 **Redeploy**（或重新推代码触发部署），让新环境变量参与构建。构建时 Vite 会把 `VITE_API_BASE` 写进前端，之后所有 API 请求都会发到该后端，404 会消失。
+
+### 小结
+
+| 环境 | 前端 | 后端 | 说明 |
+|------|------|------|------|
+| 本地 | `npm run dev`（含 Vite） | 同一命令下的 `node server/index.js` | 无需设 `VITE_API_BASE`（默认连 localhost:8787） |
+| 生产 | Vercel（静态） | Railway / Render 等（Node） | 必须在 Vercel 设 `VITE_API_BASE` 为后端完整 `/api` 地址 |
+
 ## 环境变量（可选）
 
 在根目录创建 `.env`：

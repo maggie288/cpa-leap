@@ -624,6 +624,22 @@ export const policyScoutApi = {
       body: JSON.stringify({}),
     })
   },
+  async runs(limit = 20) {
+    return request<{
+      runs: Array<{
+        runId: string
+        actor?: string
+        reason?: string
+        startedAt: string
+        finishedAt: string | null
+        sourceCount?: number
+        fetchedCount: number
+        newItemCount: number
+        importedCount: number
+        errors: string[]
+      }>
+    }>(`/policy-scout/runs?limit=${Math.max(1, Math.min(100, limit))}`)
+  },
   async items(params?: { limit?: number; subject?: string }) {
     const search = new URLSearchParams()
     if (params?.limit != null) search.set('limit', String(params.limit))
@@ -648,6 +664,49 @@ export const policyScoutApi = {
         runId?: string
       }>
     }>(`/policy-scout/items${query ? `?${query}` : ''}`)
+  },
+}
+
+export const auditApi = {
+  async logs(params?: { limit?: number; action?: string }) {
+    const search = new URLSearchParams()
+    if (Number.isFinite(params?.limit)) search.set('limit', String(params!.limit))
+    if (params?.action) search.set('action', params.action)
+    const query = search.toString()
+    return request<{
+      total: number
+      logs: Array<{
+        id: string
+        at: string
+        actorUserId: string
+        actorRole: string
+        tenantId: string
+        action: string
+        resourceType: string
+        resourceId: string
+        result: string
+        ip: string
+        detail: Record<string, unknown>
+      }>
+    }>(`/audit/logs${query ? `?${query}` : ''}`)
+  },
+}
+
+export const securityApi = {
+  async alerts(limit = 100) {
+    return request<{
+      total: number
+      alerts: Array<{
+        id: string
+        at: string
+        type?: string
+        severity?: string
+        message?: string
+        actorUserId?: string
+        targetUserId?: string
+        tenantId?: string
+      }>
+    }>(`/security/alerts?limit=${Math.max(1, Math.min(500, limit))}`)
   },
 }
 

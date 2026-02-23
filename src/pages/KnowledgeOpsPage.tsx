@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { adminOpsApi, automationApi, knowledgeApi, materialsApi, policyScoutApi, userAdminApi } from '../lib/api'
+import { adminOpsApi, auditApi, automationApi, knowledgeApi, materialsApi, policyScoutApi, securityApi, userAdminApi } from '../lib/api'
 import type { KnowledgeEntry, MaterialAsset } from '../types'
 import { useAppStore } from '../lib/useAppStore'
 
@@ -40,6 +40,8 @@ export function KnowledgeOpsPage() {
     }>
   >([])
   const [message, setMessage] = useState('')
+  const [processingMaterialId, setProcessingMaterialId] = useState<string | null>(null)
+  const [batchProcessing, setBatchProcessing] = useState(false)
   const [automationStats, setAutomationStats] = useState<{
     totalRuns: number
     autoApprovedRuns: number
@@ -154,6 +156,15 @@ export function KnowledgeOpsPage() {
       sourceTier: 1 | 2 | 3
     }>
   } | null>(null)
+  const [policyRuns, setPolicyRuns] = useState<Array<{
+    runId: string
+    startedAt: string
+    finishedAt: string | null
+    fetchedCount: number
+    newItemCount: number
+    importedCount: number
+    errors: string[]
+  }>>([])
   const [users, setUsers] = useState<
     Array<{
       id: string
@@ -166,10 +177,12 @@ export function KnowledgeOpsPage() {
       createdAt: string
     }>
   >([])
+  const [auditLogs, setAuditLogs] = useState<Array<{ id: string; at: string; actorUserId: string; actorRole: string; action: string; resourceType: string; resourceId: string; result: string; detail: Record<string, unknown> }>>([])
+  const [securityAlerts, setSecurityAlerts] = useState<Array<{ id: string; at: string; type?: string; severity?: string; message?: string }>>([])
 
   const load = useCallback(async () => {
     try {
-      const [statsRes, coverageRes, conflictRes, revisionRes, autoStatsRes, autoSettingsRes, materialsRes, materialStatsRes, policyStatsRes, policySettingsRes, usersRes] =
+      const [statsRes, coverageRes, conflictRes, revisionRes, autoStatsRes, autoSettingsRes, materialsRes, materialStatsRes, policyStatsRes, policySettingsRes, policyRunsRes, usersRes, auditRes, securityRes] =
         await Promise.all([
         knowledgeApi.stats(),
         knowledgeApi.coverage(),
@@ -181,7 +194,10 @@ export function KnowledgeOpsPage() {
         materialsApi.stats(),
         policyScoutApi.stats(),
         policyScoutApi.getSettings(),
+        policyScoutApi.runs(30),
         currentUser?.role === 'admin' ? userAdminApi.listUsers() : Promise.resolve({ total: 0, users: [] }),
+        currentUser?.role === 'admin' ? auditApi.logs({ limit: 100 }) : Promise.resolve({ total: 0, logs: [] }),
+        currentUser?.role === 'admin' ? securityApi.alerts(100) : Promise.resolve({ total: 0, alerts: [] }),
         ])
       setStats(statsRes)
       setCoverage(coverageRes)
@@ -208,7 +224,10 @@ export function KnowledgeOpsPage() {
       })
       setPolicyStats(policyStatsRes)
       setPolicySettings(policySettingsRes.settings)
+      setPolicyRuns(policyRunsRes.runs || [])
       setUsers(usersRes.users || [])
+      setAuditLogs(auditRes?.logs || [])
+      setSecurityAlerts(securityRes?.alerts || [])
     } catch (error) {
       setMessage(error instanceof Error ? error.message : '加载失败')
     }
@@ -327,12 +346,16 @@ export function KnowledgeOpsPage() {
   }
 
   const onProcessMaterial = async (id: string) => {
+    setProcessingMaterialId(id)
+    setMessage('正在提交处理任务…')
     try {
       const res = await materialsApi.processAsync(id)
-      setMessage(res.message)
+      setMessage(res.message + ' 请稍后点击「刷新列表」查看状态。')
       await load()
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : '处理失败')
+      setMessage(error instanceof Error ? error.message : '处理失败（若后端未部署，请先部署后端并配置 VITE_API_BASE）')
+    } finally {
+      setProcessingMaterialId(null)
     }
   }
 
@@ -501,8 +524,60 @@ export function KnowledgeOpsPage() {
             ))}
           </div>
         )}
-        <p>冲突条目 {conflictEntries.length}（同 syllabusCode 或高相似 topic）</p>
         <p>待处理修订草案 {revisionDrafts.length}</p>
+        {conflictEntries.length > 0 && (
+          <div className="ops-list" style={{ marginTop: 12 }}>
+            <h3 style={{ marginBottom: 8 }}>冲突条目 {conflictEntries.length}（同 syllabusCode 或高相似 topic）</h3>
+            {conflictEntries.slice(0, 30).map((entry) => (
+              <div className="material-item" key={entry.id} style={{ marginBottom: 12 }}>
+                <strong>{entry.topic}</strong>
+                <span style={{ marginLeft: 8, fontSize: 12, color: 'var(--muted)' }}>
+                  {entry.subject} · {entry.id}
+                </span>
+                {(entry.conflictRefs?.length ?? 0) > 0 && (
+                  <small style={{ display: 'block', marginTop: 4 }}>
+                    与 {entry.conflictRefs.map((r) => `${r.withTopic}（${r.reasons?.join('、')}）`).join('；')}
+                  </small>
+                )}
+                <div style={{ display: 'flex', gap: 8, marginTop: 8, flexWrap: 'wrap' }}>
+                  <button
+                    type="button"
+                    className="ghost"
+                    onClick={async () => {
+                      try {
+                        const res = await knowledgeApi.suggestFix(entry.id)
+                        setMessage(
+                          res.ok
+                            ? `建议修复：质量分 ${res.before?.score ?? '-'} → ${res.after?.score ?? '-'}，可通过生成 ${res.after?.passForGeneration ? '是' : '否'}，变更字段：${(res.changedFields || []).join('、') || '无'}`
+                            : res.message || '建议修复失败',
+                        )
+                      } catch (e) {
+                        setMessage(e instanceof Error ? e.message : '建议修复失败')
+                      }
+                    }}
+                  >
+                    建议修复
+                  </button>
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      try {
+                        await knowledgeApi.applyFix(entry.id)
+                        setMessage('已应用修复，条目已更新为 review 状态')
+                        await load()
+                      } catch (e) {
+                        setMessage(e instanceof Error ? e.message : '应用修复失败')
+                      }
+                    }}
+                  >
+                    应用修复
+                  </button>
+                </div>
+              </div>
+            ))}
+            {conflictEntries.length > 30 && <p className="tip">仅展示前 30 条</p>}
+          </div>
+        )}
       </section>
 
       <section className="card">
@@ -712,6 +787,9 @@ export function KnowledgeOpsPage() {
 
       <section className="card">
         <h2>全球政策雷达（税收/财务准则）</h2>
+        <p className="tip">
+          开启「自动入知识库」后，每次抓取到的新政策会自动写入知识库；修改下方选项后需点击「保存政策雷达配置」生效。已抓取但未入库的条目可点击「立即抓取并入库」重新执行一次抓取并入库。
+        </p>
         {policyStats && (
           <p>
             总运行 {policyStats.totalRuns} · 总抓取 {policyStats.totalItems} · 来源分布 {JSON.stringify(policyStats.bySource)} · 科目分布{' '}
@@ -724,6 +802,23 @@ export function KnowledgeOpsPage() {
             {policyStats.latestRun.importedCount}
             {policyStats.latestRun.errors.length ? `，错误 ${policyStats.latestRun.errors.length}` : ''}
           </p>
+        )}
+        {policyRuns.length > 0 && (
+          <details style={{ marginTop: 8, marginBottom: 8 }}>
+            <summary>最近运行记录（共 {policyRuns.length} 次）</summary>
+            <ul className="ops-list" style={{ listStyle: 'none', padding: 0, marginTop: 8 }}>
+              {policyRuns.slice(0, 15).map((run) => (
+                <li key={run.runId} style={{ padding: '6px 0', borderBottom: '1px solid var(--border)', fontSize: 13 }}>
+                  <span style={{ color: 'var(--muted)' }}>
+                    {run.startedAt.slice(0, 19).replace('T', ' ')}
+                  </span>
+                  {' · '}
+                  抓取 {run.fetchedCount}，新增 {run.newItemCount}，入库 {run.importedCount}
+                  {run.errors?.length ? <span className="wrong"> · 错误 {run.errors.length}</span> : ''}
+                </li>
+              ))}
+            </ul>
+          </details>
         )}
         <div className="ops-filters">
           <label>
@@ -764,7 +859,7 @@ export function KnowledgeOpsPage() {
               }
             />
           </label>
-          <label>
+          <label title="开启后，政策抓取到的新条目会自动写入知识库">
             自动入知识库
             <select
               value={policySettings?.autoImportToKnowledge ? 'on' : 'off'}
@@ -1004,9 +1099,36 @@ export function KnowledgeOpsPage() {
           <button onClick={() => void onUploadMaterial()}>上传资料</button>
         </div>
         <div className="ops-list">
-          {materials.map((item) => (
+          {materials.map((item) => {
+            const ingestLabel =
+              item.status === 'ready'
+                ? '已入库'
+                : item.status === 'processing'
+                  ? '处理中'
+                  : item.status === 'uploading'
+                    ? '上传中'
+                    : '待入库'
+            const ingestClass =
+              item.status === 'ready' ? 'correct' : item.status === 'processing' || item.status === 'uploading' ? '' : 'wrong'
+            return (
             <div className="material-item" key={item.id}>
-              <strong>{item.originalName}</strong>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+                <strong>{item.originalName}</strong>
+                <span
+                  className={ingestClass}
+                  style={{
+                    fontSize: 12,
+                    fontWeight: 600,
+                    padding: '2px 8px',
+                    borderRadius: 4,
+                    background: item.status === 'ready' ? 'var(--bg-2)' : 'transparent',
+                    border: '1px solid var(--border)',
+                  }}
+                  title={item.status === 'ready' ? '已入知识库，可参与课程生成' : item.status === 'uploaded' || item.status === 'failed' ? '点击「处理入库」写入知识库' : ''}
+                >
+                  {ingestLabel}
+                </span>
+              </div>
               <span>
                 {item.subject} · {item.sourceType} · {item.status} · 切片 {item.chunkCount} {item.ocrUsed ? '· OCR' : ''}
               </span>
@@ -1017,16 +1139,21 @@ export function KnowledgeOpsPage() {
               <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                 <button
                   onClick={() => void onProcessMaterial(item.id)}
-                  disabled={item.status === 'uploading' || item.status === 'processing'}
+                  disabled={item.status === 'uploading' || item.status === 'processing' || processingMaterialId !== null}
                 >
-                  {item.status === 'processing' ? '处理中...' : '处理入库'}
+                  {processingMaterialId === item.id
+                    ? '提交中…'
+                    : item.status === 'processing'
+                      ? '处理中…'
+                      : '处理入库'}
                 </button>
                 <button className="ghost" onClick={() => void onDeleteMaterial(item.id)}>
                   删除
                 </button>
               </div>
             </div>
-          ))}
+            )
+          })}
         </div>
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
           <button className="ghost" onClick={() => void load()}>
@@ -1034,17 +1161,22 @@ export function KnowledgeOpsPage() {
           </button>
           <button
             className="ghost"
+            disabled={batchProcessing}
             onClick={async () => {
+              setBatchProcessing(true)
+              setMessage('正在提交批量任务…')
               try {
                 const res = await materialsApi.processAllAsync()
-                setMessage(res.message)
+                setMessage(res.message + ' 请稍后点击「刷新列表」查看状态。')
                 await load()
               } catch (error) {
-                setMessage(error instanceof Error ? error.message : '批量入库提交失败')
+                setMessage(error instanceof Error ? error.message : '批量入库提交失败（若后端未部署，请先部署后端并配置 VITE_API_BASE）')
+              } finally {
+                setBatchProcessing(false)
               }
             }}
           >
-            批量处理待入库
+            {batchProcessing ? '提交中…' : '批量处理待入库'}
           </button>
         </div>
       </section>
@@ -1061,6 +1193,39 @@ export function KnowledgeOpsPage() {
               清空生成记录/反馈
             </button>
           </div>
+        </section>
+      )}
+
+      {currentUser?.role === 'admin' && (
+        <section className="card">
+          <h2>审计日志与安全告警</h2>
+          <details style={{ marginBottom: 12 }}>
+            <summary>审计日志（最近 {auditLogs.length} 条）</summary>
+            <ul className="ops-list" style={{ listStyle: 'none', padding: 0, marginTop: 8, maxHeight: 300, overflow: 'auto' }}>
+              {auditLogs.slice(0, 50).map((log) => (
+                <li key={log.id} style={{ padding: '6px 0', borderBottom: '1px solid var(--border)', fontSize: 12 }}>
+                  <span style={{ color: 'var(--muted)' }}>{log.at.slice(0, 19).replace('T', ' ')}</span>
+                  {' · '}
+                  {log.actorUserId} ({log.actorRole}) · {log.action}
+                  {log.resourceType && ` · ${log.resourceType}/${log.resourceId}`}
+                  {log.result === 'failed' && <span className="wrong"> 失败</span>}
+                </li>
+              ))}
+            </ul>
+          </details>
+          <details>
+            <summary>安全告警（最近 {securityAlerts.length} 条）</summary>
+            <ul className="ops-list" style={{ listStyle: 'none', padding: 0, marginTop: 8, maxHeight: 200, overflow: 'auto' }}>
+              {securityAlerts.slice(0, 30).map((a) => (
+                <li key={a.id} style={{ padding: '6px 0', borderBottom: '1px solid var(--border)', fontSize: 12 }} className={a.severity === 'high' ? 'wrong' : ''}>
+                  <span style={{ color: 'var(--muted)' }}>{a.at.slice(0, 19).replace('T', ' ')}</span>
+                  {' · '}
+                  {a.type || 'alert'} {a.severity ? `[${a.severity}]` : ''} · {a.message || '-'}
+                </li>
+              ))}
+              {securityAlerts.length === 0 && <li>暂无安全告警</li>}
+            </ul>
+          </details>
         </section>
       )}
 

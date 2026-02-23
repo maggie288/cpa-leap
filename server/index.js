@@ -835,6 +835,25 @@ app.post('/api/materials/upload', authRequired, requireRoles('teacher', 'admin')
   })
 })
 
+// 必须放在 /api/materials/:id/* 之前，否则 "process-all-async" 会被当作 :id 匹配
+app.post('/api/materials/process-all-async', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
+  const tenantId = String(req.tenantId || DEFAULT_TENANT_ID)
+  const candidates = (db.data.materials || []).filter(
+    (m) =>
+      String(m.tenantId || DEFAULT_TENANT_ID) === tenantId &&
+      (m.status === 'uploaded' || m.status === 'failed') &&
+      m.id,
+  )
+
+  void (async () => {
+    for (const mat of candidates) {
+      await processMaterialById({ id: String(mat.id), actorUserId: req.userId, tenantId })
+    }
+  })()
+
+  return res.json({ ok: true, acceptedCount: candidates.length, message: `已提交批量入库任务：${candidates.length} 个资料` })
+})
+
 app.post('/api/materials/:id/process', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
   const id = String(req.params.id)
   const tenantId = String(req.tenantId || DEFAULT_TENANT_ID)
@@ -846,31 +865,8 @@ app.post('/api/materials/:id/process', authRequired, requireRoles('teacher', 'ad
 app.post('/api/materials/:id/process-async', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
   const id = String(req.params.id)
   const tenantId = String(req.tenantId || DEFAULT_TENANT_ID)
-
-  // Fire-and-forget. The UI can poll by reloading materials list.
   void processMaterialById({ id, actorUserId: req.userId, tenantId })
-
   return res.json({ ok: true, message: '已提交异步处理任务，请稍后刷新查看状态', id })
-})
-
-app.post('/api/materials/process-all-async', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
-  const tenantId = String(req.tenantId || DEFAULT_TENANT_ID)
-  const candidates = (db.data.materials || []).filter(
-    (m) =>
-      String(m.tenantId || DEFAULT_TENANT_ID) === tenantId &&
-      (m.status === 'uploaded' || m.status === 'failed') &&
-      m.id,
-  )
-
-  // Fire-and-forget sequential processing to reduce memory spikes.
-  void (async () => {
-    for (const mat of candidates) {
-      // eslint-disable-next-line no-await-in-loop
-      await processMaterialById({ id: String(mat.id), actorUserId: req.userId, tenantId })
-    }
-  })()
-
-  return res.json({ ok: true, acceptedCount: candidates.length, message: `已提交批量入库任务：${candidates.length} 个资料` })
 })
 
 app.delete('/api/materials/:id', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {

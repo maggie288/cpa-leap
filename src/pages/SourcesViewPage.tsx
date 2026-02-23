@@ -84,6 +84,22 @@ export function SourcesViewPage() {
     [canEdit, load],
   )
 
+  const onReviewEntry = useCallback(
+    async (id: string, status: 'approved' | 'deprecated') => {
+      if (!canEdit) return
+      const action = status === 'approved' ? '通过' : '废弃'
+      if (!window.confirm(`确认${action}该知识条目？`)) return
+      try {
+        await knowledgeApi.review(id, status)
+        setMessage(status === 'approved' ? '已通过，将参与课程生成' : '已废弃')
+        void load()
+      } catch (e) {
+        setMessage(e instanceof Error ? e.message : `审核失败：${action}`)
+      }
+    },
+    [canEdit, load],
+  )
+
   return (
     <div className="page">
       <section className="card">
@@ -161,12 +177,24 @@ export function SourcesViewPage() {
                           </small>
                         )}
                       </div>
-                      <div style={{ flexShrink: 0, display: 'flex', gap: 8, alignItems: 'center' }}>
+                      <div style={{ flexShrink: 0, display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
                         <Link to={`/sources/entry/${entry.id}`} className="button ghost">查看详情</Link>
                         {canEdit && (
-                          <button type="button" className="ghost" onClick={() => void onDeleteEntry(entry.id)}>
-                            删除
-                          </button>
+                          <>
+                            {(entry.status === 'draft' || entry.status === 'review') && (
+                              <button type="button" className="button" onClick={() => void onReviewEntry(entry.id, 'approved')}>
+                                通过
+                              </button>
+                            )}
+                            {entry.status !== 'deprecated' && (
+                              <button type="button" className="ghost" onClick={() => void onReviewEntry(entry.id, 'deprecated')}>
+                                废弃
+                              </button>
+                            )}
+                            <button type="button" className="ghost" onClick={() => void onDeleteEntry(entry.id)}>
+                              删除
+                            </button>
+                          </>
                         )}
                       </div>
                     </li>
