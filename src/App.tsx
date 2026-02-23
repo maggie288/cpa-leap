@@ -5,6 +5,7 @@ import { useAppStore } from './lib/useAppStore'
 import { DashboardPage } from './pages/DashboardPage'
 import { LessonPage } from './pages/LessonPage'
 import { LoginPage } from './pages/LoginPage'
+import { KnowledgeEntryDetailPage } from './pages/KnowledgeEntryDetailPage'
 import { KnowledgeOpsPage } from './pages/KnowledgeOpsPage'
 import { ProfilePage } from './pages/ProfilePage'
 import { SourcesViewPage } from './pages/SourcesViewPage'
@@ -60,6 +61,14 @@ function ShellLayout() {
           element={
             <ProtectedRoute roles={['teacher', 'admin']}>
               <SourcesViewPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/sources/entry/:id"
+          element={
+            <ProtectedRoute roles={['teacher', 'admin']}>
+              <KnowledgeEntryDetailPage />
             </ProtectedRoute>
           }
         />

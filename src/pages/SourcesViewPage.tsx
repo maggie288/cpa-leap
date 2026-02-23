@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { CPA_UNITS } from '../data/cpaCatalog'
 import { knowledgeApi, materialsApi, policyScoutApi } from '../lib/api'
+import { useAppStore } from '../lib/useAppStore'
 import type { KnowledgeEntry } from '../types'
 
 const SUBJECTS = [
@@ -16,9 +18,12 @@ const SUBJECTS = [
 type TabId = 'knowledge' | 'materials' | 'policy' | 'courses'
 
 export function SourcesViewPage() {
+  const { currentUser } = useAppStore()
+  const canEdit = currentUser?.role === 'teacher' || currentUser?.role === 'admin'
   const [tab, setTab] = useState<TabId>('knowledge')
   const [subject, setSubject] = useState('')
   const [loading, setLoading] = useState(false)
+  const [message, setMessage] = useState('')
   const [knowledge, setKnowledge] = useState<{ total: number; entries: KnowledgeEntry[] }>({ total: 0, entries: [] })
   const [materials, setMaterials] = useState<{ total: number; materials: Array<{ id: string; originalName: string; subject: string; chapter: string; year: string; status: string; chunkCount: number; uploadedAt: string }> }>({ total: 0, materials: [] })
   const [policyItems, setPolicyItems] = useState<{ total: number; items: Array<{ id: string; title: string; url: string; subject: string; sourceName: string; publishedAt?: string; summary?: string; capturedAt?: string }> }>({ total: 0, items: [] })
@@ -30,11 +35,19 @@ export function SourcesViewPage() {
         const res = await knowledgeApi.list({ subject: subject || undefined, status: '', minQualityScore: 0 })
         setKnowledge(res)
       } else if (tab === 'materials') {
-        const res = await materialsApi.list({ subject: subject || undefined, status: undefined })
-        setMaterials(res)
+        const [matRes, kbRes] = await Promise.all([
+          materialsApi.list({ subject: subject || undefined, status: undefined }),
+          knowledgeApi.list({ subject: subject || undefined, status: '', minQualityScore: 0 }),
+        ])
+        setMaterials(matRes)
+        setKnowledge(kbRes)
       } else if (tab === 'policy') {
-        const res = await policyScoutApi.items({ limit: 200, subject: subject || undefined })
-        setPolicyItems(res)
+        const [policyRes, kbRes] = await Promise.all([
+          policyScoutApi.items({ limit: 200, subject: subject || undefined }),
+          knowledgeApi.list({ subject: subject || undefined, status: '', minQualityScore: 0 }),
+        ])
+        setPolicyItems(policyRes)
+        setKnowledge(kbRes)
       }
     } catch {
       setKnowledge({ total: 0, entries: [] })
@@ -56,6 +69,21 @@ export function SourcesViewPage() {
     return '知识库'
   }
 
+  const onDeleteEntry = useCallback(
+    async (id: string) => {
+      if (!canEdit) return
+      if (!window.confirm('确认删除该知识条目？删除后生成课程将不再引用此条。')) return
+      try {
+        await knowledgeApi.delete(id)
+        setMessage('已删除')
+        void load()
+      } catch (e) {
+        setMessage(e instanceof Error ? e.message : '删除失败')
+      }
+    },
+    [canEdit, load],
+  )
+
   return (
     <div className="page">
       <section className="card">
@@ -63,6 +91,16 @@ export function SourcesViewPage() {
         <p className="tip">
           用于对照生产课程内容：下方为已入库的知识条目、上传的 PDF 资料、政策抓取结果及课程结构，便于核对 AI 生成课程所引用的资料来源。
         </p>
+        <details style={{ marginBottom: 12, fontSize: 13 }}>
+          <summary>知识条目来源说明</summary>
+          <ul style={{ marginTop: 8, paddingLeft: 20 }}>
+            <li><strong>教材</strong>：上传 PDF 后点击「处理入库」时自动生成，每条资料对应一条（id 以 mat_ 开头）。</li>
+            <li><strong>政策</strong>：政策雷达抓取并开启「自动导入知识库」时生成，带官方链接。</li>
+            <li><strong>AI生成</strong>：学习页打开某课时，自动教研流水线生成的草稿（topic 含「AI生成知识条目」）；教研里「清理 AI生成知识条目」可批量删。</li>
+            <li><strong>知识库</strong>：种子脚本（kb:seed:phase2）或手动导入的条目；可在本页单条删除。</li>
+          </ul>
+        </details>
+        {message && <p className="tip">{message}</p>}
 
         <div className="ops-filters" style={{ marginBottom: 16 }}>
           <label>
@@ -107,20 +145,30 @@ export function SourcesViewPage() {
                 <p>共 {knowledge.total} 条（当前筛选：{subject || '全部'}）</p>
                 <ul className="ops-list" style={{ listStyle: 'none', padding: 0 }}>
                   {knowledge.entries.slice(0, 150).map((entry) => (
-                    <li key={entry.id} className="material-item" style={{ marginBottom: 12, padding: 12, border: '1px solid var(--border)', borderRadius: 8 }}>
-                      <strong>{entry.topic}</strong>
-                      <span style={{ marginLeft: 8, fontSize: 12, color: 'var(--muted)' }}>
-                        {entry.subject} · {entry.status} · {sourceLabel(entry)}
-                      </span>
-                      <div style={{ marginTop: 6, fontSize: 13, color: 'var(--text)' }}>
-                        {entry.concept?.slice(0, 200)}
-                        {(entry.concept?.length ?? 0) > 200 ? '…' : ''}
+                    <li key={entry.id} className="material-item" style={{ marginBottom: 12, padding: 12, border: '1px solid var(--border)', borderRadius: 8, display: 'flex', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <strong>{entry.topic}</strong>
+                        <span style={{ marginLeft: 8, fontSize: 12, color: 'var(--muted)' }}>
+                          {entry.subject} · {entry.status} · {sourceLabel(entry)}
+                        </span>
+                        <div style={{ marginTop: 6, fontSize: 13, color: 'var(--text)' }}>
+                          {entry.concept?.slice(0, 200)}
+                          {(entry.concept?.length ?? 0) > 200 ? '…' : ''}
+                        </div>
+                        {(entry.chapter || entry.syllabusCode) && (
+                          <small style={{ display: 'block', marginTop: 4 }}>
+                            章节/考纲：{entry.chapter || ''} {entry.syllabusCode || ''}
+                          </small>
+                        )}
                       </div>
-                      {(entry.chapter || entry.syllabusCode) && (
-                        <small style={{ display: 'block', marginTop: 4 }}>
-                          章节/考纲：{entry.chapter || ''} {entry.syllabusCode || ''}
-                        </small>
-                      )}
+                      <div style={{ flexShrink: 0, display: 'flex', gap: 8, alignItems: 'center' }}>
+                        <Link to={`/sources/entry/${entry.id}`} className="button ghost">查看详情</Link>
+                        {canEdit && (
+                          <button type="button" className="ghost" onClick={() => void onDeleteEntry(entry.id)}>
+                            删除
+                          </button>
+                        )}
+                      </div>
                     </li>
                   ))}
                 </ul>
@@ -133,21 +181,52 @@ export function SourcesViewPage() {
         {tab === 'materials' && (
           <div className="card" style={{ background: 'var(--bg-2)', padding: 16 }}>
             <h2>上传资料（PDF 教材/考纲/真题）</h2>
+            <p className="tip">每个资料处理入库后对应一条知识切片，可点「查看详情」核对条目内容是否正确。</p>
             {loading ? (
               <p>加载中…</p>
             ) : (
               <>
                 <p>共 {materials.total} 个资料</p>
                 <ul className="ops-list" style={{ listStyle: 'none', padding: 0 }}>
-                  {materials.materials.map((m) => (
-                    <li key={m.id} className="material-item" style={{ marginBottom: 10, padding: 10, border: '1px solid var(--border)', borderRadius: 8 }}>
-                      <strong>{m.originalName}</strong>
-                      <span style={{ marginLeft: 8, fontSize: 12 }}>
-                        {m.subject} · {m.status} · 切片 {m.chunkCount} · {m.year}
-                      </span>
-                      {m.chapter && <small style={{ display: 'block', marginTop: 4 }}>章节标签：{m.chapter}</small>}
-                    </li>
-                  ))}
+                  {materials.materials.map((m) => {
+                    const entryId = `mat_${m.id}_core`
+                    const entry = knowledge.entries.find((e) => e.id === entryId)
+                    return (
+                      <li key={m.id} className="material-item" style={{ marginBottom: 16, padding: 12, border: '1px solid var(--border)', borderRadius: 8 }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8, flexWrap: 'wrap' }}>
+                          <div>
+                            <strong>{m.originalName}</strong>
+                            <span style={{ marginLeft: 8, fontSize: 12 }}>
+                              {m.subject} · {m.status} · 切片 {m.chunkCount} · {m.year}
+                            </span>
+                            {m.chapter && <small style={{ display: 'block', marginTop: 4 }}>章节标签：{m.chapter}</small>}
+                          </div>
+                          {entry && (
+                            <Link to={`/sources/entry/${entry.id}`} className="button" style={{ flexShrink: 0 }}>
+                              查看详情
+                            </Link>
+                          )}
+                        </div>
+                        {entry ? (
+                          <div style={{ marginTop: 12, paddingTop: 12, borderTop: '1px solid var(--border)', fontSize: 13 }}>
+                            <div style={{ fontWeight: 600, marginBottom: 4 }}>对应知识切片</div>
+                            <div style={{ color: 'var(--muted)', marginBottom: 4 }}>{entry.topic} · {entry.status}</div>
+                            <div style={{ color: 'var(--text)' }}>
+                              {(entry.concept || '').slice(0, 280)}
+                              {(entry.concept?.length ?? 0) > 280 ? '…' : ''}
+                            </div>
+                            {(entry.chapter || entry.syllabusCode) && (
+                              <small style={{ display: 'block', marginTop: 4 }}>章节/考纲：{entry.chapter || ''} {entry.syllabusCode || ''}</small>
+                            )}
+                          </div>
+                        ) : (
+                          <div style={{ marginTop: 12, paddingTop: 12, borderTop: '1px solid var(--border)', fontSize: 13, color: 'var(--muted)' }}>
+                            未处理入库或暂无对应知识条目，请在教研页对该资料执行「处理入库」。
+                          </div>
+                        )}
+                      </li>
+                    )
+                  })}
                 </ul>
               </>
             )}
@@ -157,27 +236,57 @@ export function SourcesViewPage() {
         {tab === 'policy' && (
           <div className="card" style={{ background: 'var(--bg-2)', padding: 16 }}>
             <h2>政策抓取结果（已导入知识库的会参与课程生成）</h2>
+            <p className="tip">每条政策若已自动/手动导入知识库，会显示对应知识切片，可点「查看详情」核对条目。</p>
             {loading ? (
               <p>加载中…</p>
             ) : (
               <>
                 <p>共 {policyItems.total} 条</p>
                 <ul className="ops-list" style={{ listStyle: 'none', padding: 0 }}>
-                  {policyItems.items.map((item) => (
-                    <li key={item.id} style={{ marginBottom: 10, padding: 10, border: '1px solid var(--border)', borderRadius: 8 }}>
-                      <strong>{item.title}</strong>
-                      <span style={{ marginLeft: 8, fontSize: 12 }}>
-                        {item.subject} · {item.sourceName}
-                      </span>
-                      {item.publishedAt && <small style={{ display: 'block', marginTop: 4 }}>发布时间：{item.publishedAt}</small>}
-                      {item.summary && <div style={{ marginTop: 6, fontSize: 13, color: 'var(--text)' }}>{item.summary.slice(0, 180)}…</div>}
-                      {item.url && (
-                        <a href={item.url} target="_blank" rel="noreferrer" style={{ fontSize: 12, marginTop: 4, display: 'inline-block' }}>
-                          原文链接
-                        </a>
-                      )}
-                    </li>
-                  ))}
+                  {policyItems.items.map((item) => {
+                    const entry = knowledge.entries.find((e) => e.policyMeta?.sourceUrl === item.url)
+                    return (
+                      <li key={item.id} style={{ marginBottom: 16, padding: 12, border: '1px solid var(--border)', borderRadius: 8 }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8, flexWrap: 'wrap' }}>
+                          <div>
+                            <strong>{item.title}</strong>
+                            <span style={{ marginLeft: 8, fontSize: 12 }}>
+                              {item.subject} · {item.sourceName}
+                            </span>
+                            {item.publishedAt && <small style={{ display: 'block', marginTop: 4 }}>发布时间：{item.publishedAt}</small>}
+                            {item.summary && <div style={{ marginTop: 6, fontSize: 13, color: 'var(--text)' }}>{item.summary.slice(0, 180)}{item.summary.length > 180 ? '…' : ''}</div>}
+                            {item.url && (
+                              <a href={item.url} target="_blank" rel="noreferrer" style={{ fontSize: 12, marginTop: 4, display: 'inline-block' }}>
+                                原文链接
+                              </a>
+                            )}
+                          </div>
+                          {entry && (
+                            <Link to={`/sources/entry/${entry.id}`} className="button" style={{ flexShrink: 0 }}>
+                              查看详情
+                            </Link>
+                          )}
+                        </div>
+                        {entry ? (
+                          <div style={{ marginTop: 12, paddingTop: 12, borderTop: '1px solid var(--border)', fontSize: 13 }}>
+                            <div style={{ fontWeight: 600, marginBottom: 4 }}>对应知识切片</div>
+                            <div style={{ color: 'var(--muted)', marginBottom: 4 }}>{entry.topic} · {entry.status}</div>
+                            <div style={{ color: 'var(--text)' }}>
+                              {(entry.concept || '').slice(0, 280)}
+                              {(entry.concept?.length ?? 0) > 280 ? '…' : ''}
+                            </div>
+                            {(entry.chapter || entry.syllabusCode) && (
+                              <small style={{ display: 'block', marginTop: 4 }}>章节/考纲：{entry.chapter || ''} {entry.syllabusCode || ''}</small>
+                            )}
+                          </div>
+                        ) : (
+                          <div style={{ marginTop: 12, paddingTop: 12, borderTop: '1px solid var(--border)', fontSize: 13, color: 'var(--muted)' }}>
+                            尚未导入知识库；开启「自动导入知识库」后新抓取的政策会自动生成条目。
+                          </div>
+                        )}
+                      </li>
+                    )
+                  })}
                 </ul>
               </>
             )}

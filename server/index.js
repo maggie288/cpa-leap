@@ -39,6 +39,14 @@ import {
 const app = express()
 const PORT = Number(process.env.PORT || 8787)
 const VALID_SUBJECTS = ['accounting', 'audit', 'finance', 'tax', 'law', 'strategy']
+const SUBJECT_NAMES = {
+  accounting: '会计',
+  audit: '审计',
+  finance: '财管',
+  tax: '税法',
+  law: '经济法',
+  strategy: '战略',
+}
 const VALID_ROLES = ['student', 'teacher', 'admin']
 const DIST_DIR = resolve(process.cwd(), 'dist')
 const INDEX_PATH = resolve(DIST_DIR, 'index.html')
@@ -257,6 +265,54 @@ app.post('/api/subscription', authRequired, async (req, res) => {
   db.data.users[idx].plan = plan
   await db.write()
   return res.json({ user: sanitizeUser(db.data.users[idx]) })
+})
+
+/** 学习页课程目录：按已审核知识条目（教材/政策/知识库）生成 subject → chapter → entries */
+app.get('/api/course/outline', authRequired, (req, res) => {
+  const entries = listKnowledgeEntries({ status: 'approved', includeInactive: false })
+  const bySubject = {}
+  for (const entry of entries) {
+    const subject = String(entry.subject || '').trim()
+    if (!subject || !VALID_SUBJECTS.includes(subject)) continue
+    let source = 'knowledge'
+    if (entry.id.startsWith('mat_')) source = 'material'
+    else if (entry.policyMeta?.sourceUrl || (entry.topic || '').includes('政策')) source = 'policy'
+    const chapter = String(entry.chapter || '未分类').trim()
+    if (!bySubject[subject]) {
+      bySubject[subject] = { chapters: {} }
+    }
+    if (!bySubject[subject].chapters[chapter]) {
+      bySubject[subject].chapters[chapter] = []
+    }
+    bySubject[subject].chapters[chapter].push({
+      id: entry.id,
+      topic: entry.topic || '',
+      concept: (entry.concept || '').slice(0, 500),
+      chapter,
+      subject,
+      syllabusCode: entry.syllabusCode || '',
+      keywords: Array.isArray(entry.keywords) ? entry.keywords : [],
+      source,
+    })
+  }
+  const subjectOrder = [...VALID_SUBJECTS]
+  const units = subjectOrder
+    .filter((s) => bySubject[s] && Object.keys(bySubject[s].chapters).length > 0)
+    .map((subject) => {
+      const chapters = Object.entries(bySubject[subject].chapters)
+        .sort(([a], [b]) => a.localeCompare(b, 'zh-CN'))
+        .map(([chapterId, list]) => ({
+          chapterId,
+          chapterTitle: chapterId,
+          entries: list.sort((x, y) => (x.syllabusCode || x.id).localeCompare(y.syllabusCode || y.id, 'zh-CN')),
+        }))
+      return {
+        subject,
+        subjectName: SUBJECT_NAMES[subject] || subject,
+        chapters,
+      }
+    })
+  return res.json({ units, fromKnowledge: true })
 })
 
 app.post('/api/llm/generate-cpa-lesson', authRequired, async (req, res) => {
@@ -483,10 +539,32 @@ app.get('/api/knowledge', authRequired, requireRoles('teacher', 'admin'), (req, 
   return res.json({ total: entries.length, entries })
 })
 
-app.get('/api/knowledge/:id', authRequired, requireRoles('teacher', 'admin'), (req, res) => {
+app.get('/api/knowledge/:id', authRequired, (req, res) => {
   const entry = getKnowledgeEntryById(String(req.params.id))
   if (!entry) return res.status(404).json({ message: '知识条目不存在' })
+  if (entry.status !== 'approved' && req.userRole !== 'teacher' && req.userRole !== 'admin') {
+    return res.status(403).json({ message: '仅可访问已审核条目' })
+  }
   return res.json({ entry })
+})
+
+app.delete('/api/knowledge/:id', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
+  const id = String(req.params.id).trim()
+  if (!id) return res.status(400).json({ message: '缺少条目 id' })
+  const entry = getKnowledgeEntryById(id)
+  if (!entry) return res.status(404).json({ message: '知识条目不存在' })
+  const result = deleteKnowledgeEntriesById({ ids: [id], actor: req.userId })
+  void appendAuditLog({
+    actorUserId: req.userId,
+    actorRole: req.userRole,
+    tenantId: req.tenantId,
+    action: 'knowledge.delete',
+    resourceType: 'knowledgeEntry',
+    resourceId: id,
+    detail: { topic: entry.topic || '', subject: entry.subject || '' },
+    ip: requestIp(req),
+  })
+  return res.json(result)
 })
 
 app.post('/api/knowledge/import', authRequired, requireRoles('teacher', 'admin'), (req, res) => {

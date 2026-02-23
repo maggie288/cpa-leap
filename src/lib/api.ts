@@ -89,6 +89,33 @@ export const subscriptionApi = {
   },
 }
 
+export type CourseOutlineEntry = {
+  id: string
+  topic: string
+  concept: string
+  chapter: string
+  subject: string
+  syllabusCode: string
+  keywords: string[]
+  source: 'material' | 'policy' | 'knowledge'
+}
+
+export type CourseOutlineUnit = {
+  subject: string
+  subjectName: string
+  chapters: Array<{
+    chapterId: string
+    chapterTitle: string
+    entries: CourseOutlineEntry[]
+  }>
+}
+
+export const courseApi = {
+  async outline() {
+    return request<{ units: CourseOutlineUnit[]; fromKnowledge: boolean }>('/course/outline')
+  },
+}
+
 export const knowledgeApi = {
   async stats() {
     return request<{
@@ -125,6 +152,11 @@ export const knowledgeApi = {
   },
   async getById(id: string) {
     return request<{ entry: KnowledgeEntry }>(`/knowledge/${id}`)
+  },
+  async delete(id: string) {
+    return request<{ ok: boolean; deletedCount: number; deletedIds: string[] }>(`/knowledge/${id}`, {
+      method: 'DELETE',
+    })
   },
   async conflicts(limit = 100) {
     return request<{ total: number; entries: KnowledgeEntry[] }>(`/knowledge/conflicts?limit=${Math.max(1, limit)}`)
