@@ -145,10 +145,16 @@ export interface MaterialAsset {
   sourceType: 'textbook' | 'syllabus' | 'exam' | 'notes'
   size: number
   mimetype: string
-  status: 'uploaded' | 'processing' | 'ready' | 'failed'
+  status: 'uploading' | 'uploaded' | 'processing' | 'ready' | 'failed'
   chunkCount: number
   ocrUsed?: boolean
   uploadedAt: string
   processedAt?: string
   errorMessage?: string
+  tenantId?: string
+  storage?: {
+    provider: 'supabase'
+    bucket: string
+    path: string
+  }
 }

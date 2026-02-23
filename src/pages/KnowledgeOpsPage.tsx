@@ -392,8 +392,8 @@ export function KnowledgeOpsPage() {
 
   const onProcessMaterial = async (id: string) => {
     try {
-      const res = await materialsApi.process(id)
-      setMessage(`${res.message}：${res.material.originalName}，切片数 ${res.material.chunkCount}`)
+      const res = await materialsApi.processAsync(id)
+      setMessage(res.message)
       await load()
     } catch (error) {
       setMessage(error instanceof Error ? error.message : '处理失败')

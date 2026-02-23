@@ -1,8 +1,9 @@
-import { readFileSync } from 'node:fs'
+import { readFileSync, unlinkSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import dayjs from 'dayjs'
 import { PDFParse } from 'pdf-parse'
 import { canUseOcr, runPdfOcr } from './ocrProvider.js'
+import { downloadObjectAsBuffer } from '../storage/materialStorage.js'
 
 const EMBEDDING_DIM = 1536
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY || ''
@@ -80,23 +81,54 @@ const textDensity = (pages) => {
 }
 
 export const ingestPdfToChunks = async ({ material, uploadsDir }) => {
-  const absolutePath = resolve(uploadsDir, material.filename)
-  const fileBuffer = readFileSync(absolutePath)
-  const parser = new PDFParse({ data: fileBuffer })
-  const textResult = await parser.getText()
-  await parser.destroy()
-  let pages = (textResult.pages || []).map((page) => String(page.text || '').trim()).filter(Boolean)
-  let ocrUsed = false
+  let absolutePath = resolve(uploadsDir, material.filename)
+  let cleanupTempFile = null
+  let fileBuffer = null
 
-  // Scanned PDFs often have almost no extractable text. In that case, run OCR fallback.
-  if (pages.length === 0 || textDensity(pages) < 30) {
-    if (canUseOcr()) {
-      const ocr = await runPdfOcr({ absolutePath })
-      if (ocr.pages.length > 0) {
-        pages = ocr.pages
-        ocrUsed = true
+  // When using direct-to-storage uploads, the PDF isn't on local disk.
+  if (material?.storage?.provider === 'supabase' && material.storage.bucket && material.storage.path) {
+    const tmpName = `sup_${material.id}_${Date.now()}.pdf`
+    absolutePath = resolve(uploadsDir, tmpName)
+    fileBuffer = await downloadObjectAsBuffer({ bucket: material.storage.bucket, objectPath: material.storage.path })
+    // Keep a temp file for OCR fallback which requires a path.
+    writeFileSync(absolutePath, fileBuffer)
+    cleanupTempFile = () => {
+      try {
+        unlinkSync(absolutePath)
+      } catch {
+        // ignore
       }
     }
+  }
+
+  if (!fileBuffer) {
+    try {
+      fileBuffer = readFileSync(absolutePath)
+    } catch (error) {
+      if (cleanupTempFile) cleanupTempFile()
+      throw error
+    }
+  }
+  let pages = []
+  let ocrUsed = false
+  try {
+    const parser = new PDFParse({ data: fileBuffer })
+    const textResult = await parser.getText()
+    await parser.destroy()
+    pages = (textResult.pages || []).map((page) => String(page.text || '').trim()).filter(Boolean)
+
+    // Scanned PDFs often have almost no extractable text. In that case, run OCR fallback.
+    if (pages.length === 0 || textDensity(pages) < 30) {
+      if (canUseOcr()) {
+        const ocr = await runPdfOcr({ absolutePath })
+        if (ocr.pages.length > 0) {
+          pages = ocr.pages
+          ocrUsed = true
+        }
+      }
+    }
+  } finally {
+    if (cleanupTempFile) cleanupTempFile()
   }
 
   const chunks = []

@@ -24,6 +24,7 @@
 拿到两个值：
 - `SUPABASE_URL`
 - `SUPABASE_SERVICE_ROLE_KEY`
+- `SUPABASE_STORAGE_BUCKET`（可选，默认 `materials`，用于大文件PDF直传）
 
 ### 2) 在 SQL Editor 执行以下 SQL
 

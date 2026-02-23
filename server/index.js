@@ -12,6 +12,7 @@ import { canAttemptLogin, clearLoginFailures, markLoginFailure } from './securit
 import { replayPromptEvaluation, runAutonomousCoursePipeline, runPromptAutoPromote } from './ai/autonomousCourseEngine.js'
 import { ingestPdfToChunks } from './ingest/pdfPipeline.js'
 import { upsertMaterialChunksToVectorStore } from './ingest/vectorStore.js'
+import { createSignedUploadForObject, getStorageBucket, isSupabaseStorageEnabled } from './storage/materialStorage.js'
 import {
   getPolicyScoutSettings,
   getPolicyScoutStats,
@@ -549,6 +550,7 @@ app.post('/api/knowledge/apply-fix', authRequired, requireRoles('teacher', 'admi
 app.get('/api/materials', authRequired, requireRoles('teacher', 'admin'), (req, res) => {
   const { subject, status } = req.query
   const materials = (db.data.materials || []).filter((item) => {
+    if (String(item.tenantId || DEFAULT_TENANT_ID) !== String(req.tenantId || DEFAULT_TENANT_ID)) return false
     if (subject && item.subject !== String(subject)) return false
     if (status && item.status !== String(status)) return false
     return true
@@ -559,47 +561,97 @@ app.get('/api/materials', authRequired, requireRoles('teacher', 'admin'), (req, 
 app.get('/api/materials/stats', authRequired, requireRoles('teacher', 'admin'), (_req, res) => {
   const bySubject = {}
   const byStatus = {}
-  for (const row of db.data.materials || []) {
+  const scoped = (db.data.materials || []).filter(
+    (item) => String(item.tenantId || DEFAULT_TENANT_ID) === String(_req.tenantId || DEFAULT_TENANT_ID),
+  )
+  for (const row of scoped) {
     bySubject[row.subject] = (bySubject[row.subject] || 0) + 1
     byStatus[row.status] = (byStatus[row.status] || 0) + 1
   }
-  return res.json({ total: (db.data.materials || []).length, bySubject, byStatus })
+  return res.json({ total: scoped.length, bySubject, byStatus })
 })
 
-app.post('/api/materials/upload', authRequired, requireRoles('teacher', 'admin'), upload.single('file'), async (req, res) => {
-  const file = req.file
-  const { subject, chapter, year, sourceType } = req.body
-  if (!file) return res.status(400).json({ message: '请上传文件' })
+app.post('/api/materials/upload/initiate', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
+  if (!isSupabaseStorageEnabled()) {
+    return res.status(400).json({ message: '直传未启用：请在服务端配置 SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY' })
+  }
+
+  const { subject, chapter, year, sourceType, originalName, mimetype, size } = req.body || {}
   if (!subject || !VALID_SUBJECTS.includes(String(subject))) return res.status(400).json({ message: '科目非法' })
-  if (!(file.mimetype || '').toLowerCase().includes('pdf') && !file.originalname.toLowerCase().endsWith('.pdf')) {
+  if (!originalName) return res.status(400).json({ message: '缺少文件名 originalName' })
+
+  const safeOriginal = String(originalName).replace(/[^\w.\-]+/g, '_').slice(0, 120) || 'material.pdf'
+  const pdfName = safeOriginal.toLowerCase().endsWith('.pdf') ? safeOriginal : `${safeOriginal}.pdf`
+  const contentType = String(mimetype || 'application/pdf')
+  if (!contentType.toLowerCase().includes('pdf') && !pdfName.toLowerCase().endsWith('.pdf')) {
     return res.status(400).json({ message: '仅支持PDF文件' })
   }
 
+  const materialId = `m_${Date.now()}`
+  const tenantId = String(req.tenantId || DEFAULT_TENANT_ID)
+  const bucket = getStorageBucket()
+  const objectPath = `${tenantId}/${String(subject)}/${String(year || dayjs().year())}/${materialId}/${pdfName}`
+  const upload = await createSignedUploadForObject({ bucket, objectPath })
+
   const material = {
-    id: `m_${Date.now()}`,
-    filename: file.filename,
-    originalName: file.originalname,
+    id: materialId,
+    filename: pdfName,
+    originalName: String(originalName),
     subject: String(subject),
     chapter: String(chapter || '').trim(),
     year: String(year || dayjs().year()),
     sourceType: ['textbook', 'syllabus', 'exam', 'notes'].includes(String(sourceType)) ? String(sourceType) : 'textbook',
-    size: file.size,
-    mimetype: file.mimetype,
-    status: 'uploaded',
+    size: Number(size || 0),
+    mimetype: contentType,
+    status: 'uploading',
     chunkCount: 0,
     ocrUsed: false,
     uploadedAt: dayjs().toISOString(),
+    tenantId,
+    storage: {
+      provider: 'supabase',
+      bucket,
+      path: objectPath,
+    },
   }
 
   db.data.materials.push(material)
   await db.write()
-  return res.json({ message: '上传成功，等待处理', material })
+  return res.json({
+    material,
+    upload: {
+      bucket: upload.bucket,
+      path: upload.path,
+      token: upload.token,
+      signedUrl: upload.signedUrl,
+    },
+  })
 })
 
-app.post('/api/materials/:id/process', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
+app.post('/api/materials/:id/complete-upload', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
   const id = String(req.params.id)
-  const idx = (db.data.materials || []).findIndex((item) => item.id === id)
+  const idx = (db.data.materials || []).findIndex(
+    (item) => item.id === id && String(item.tenantId || DEFAULT_TENANT_ID) === String(req.tenantId || DEFAULT_TENANT_ID),
+  )
   if (idx < 0) return res.status(404).json({ message: '资料不存在' })
+
+  const cur = db.data.materials[idx]
+  if (cur.status === 'ready') return res.json({ ok: true, material: cur, message: '已就绪' })
+  if (cur.status !== 'uploading' && cur.status !== 'uploaded') {
+    // Allow idempotent calls; otherwise guide the operator.
+    return res.status(400).json({ message: `当前状态不可完成上传：${cur.status}` })
+  }
+
+  db.data.materials[idx].status = 'uploaded'
+  await db.write()
+  return res.json({ ok: true, material: db.data.materials[idx], message: '上传完成，等待处理' })
+})
+
+const processMaterialById = async ({ id, actorUserId, tenantId }) => {
+  const idx = (db.data.materials || []).findIndex((item) => item.id === id && String(item.tenantId || '') === String(tenantId))
+  if (idx < 0) return { ok: false, status: 404, message: '资料不存在' }
+
+  if (db.data.materials[idx].status === 'processing') return { ok: true, material: db.data.materials[idx], message: '已在处理中' }
 
   db.data.materials[idx].status = 'processing'
   await db.write()
@@ -629,15 +681,12 @@ app.post('/api/materials/:id/process', authRequired, requireRoles('teacher', 'ad
       topic: `${material.chapter || material.originalName}-教材核心要点`,
       keywords: [material.chapter, material.originalName, material.subject].filter(Boolean),
       concept: sample.slice(0, 220) || `${material.originalName}教材核心知识点`,
-      rules: [
-        '先基于教材原文识别概念定义，再判断适用边界。',
-        '做题时以教材术语口径为准，避免口语化替代。',
-      ],
+      rules: ['先基于教材原文识别概念定义，再判断适用边界。', '做题时以教材术语口径为准，避免口语化替代。'],
       pitfalls: ['只记结论不看教材定义', '忽视章节中的适用前提'],
       miniCase: `依据资料《${material.originalName}》提炼题干场景并进行规范作答。`,
       status: 'review',
     }
-    upsertKnowledgeEntries({ entries: [sourceEntry], actor: `material-ingest:${req.userId}` })
+    upsertKnowledgeEntries({ entries: [sourceEntry], actor: `material-ingest:${actorUserId}` })
 
     db.data.materials[idx].status = 'ready'
     db.data.materials[idx].chunkCount = parsed.chunks.length
@@ -645,17 +694,82 @@ app.post('/api/materials/:id/process', authRequired, requireRoles('teacher', 'ad
     db.data.materials[idx].processedAt = dayjs().toISOString()
     db.data.materials[idx].errorMessage = ''
     await db.write()
-    return res.json({
-      message: `处理完成，已提取 ${parsed.pageCount} 页，${parsed.chunks.length} 个切片并进入知识库流程${parsed.ocrUsed ? '（已启用OCR）' : ''}`,
-      vectorSync,
+    return {
+      ok: true,
       material: db.data.materials[idx],
-    })
+      vectorSync,
+      message: `处理完成，已提取 ${parsed.pageCount} 页，${parsed.chunks.length} 个切片并进入知识库流程${parsed.ocrUsed ? '（已启用OCR）' : ''}`,
+    }
   } catch (error) {
     db.data.materials[idx].status = 'failed'
     db.data.materials[idx].errorMessage = error instanceof Error ? error.message : '处理失败'
     await db.write()
-    return res.status(500).json({ message: '处理失败', material: db.data.materials[idx] })
+    return { ok: false, status: 500, material: db.data.materials[idx], message: '处理失败' }
   }
+}
+
+app.post('/api/materials/upload', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
+  return upload.single('file')(req, res, async (err) => {
+    if (err) {
+      // Multer errors are runtime errors; respond with JSON for frontend.
+      if (err instanceof multer.MulterError) {
+        if (err.code === 'LIMIT_FILE_SIZE') {
+          return res.status(413).json({ message: 'PDF过大，超过 50MB 限制，请压缩后重试' })
+        }
+        return res.status(400).json({ message: `上传失败：${err.code}` })
+      }
+      return res.status(500).json({ message: err instanceof Error ? err.message : '上传失败' })
+    }
+
+    const file = req.file
+    const { subject, chapter, year, sourceType } = req.body
+    if (!file) return res.status(400).json({ message: '请上传文件' })
+    if (!subject || !VALID_SUBJECTS.includes(String(subject))) return res.status(400).json({ message: '科目非法' })
+    if (!(file.mimetype || '').toLowerCase().includes('pdf') && !file.originalname.toLowerCase().endsWith('.pdf')) {
+      return res.status(400).json({ message: '仅支持PDF文件' })
+    }
+
+    const material = {
+      id: `m_${Date.now()}`,
+      filename: file.filename,
+      originalName: file.originalname,
+      subject: String(subject),
+      chapter: String(chapter || '').trim(),
+      year: String(year || dayjs().year()),
+      sourceType: ['textbook', 'syllabus', 'exam', 'notes'].includes(String(sourceType)) ? String(sourceType) : 'textbook',
+      size: file.size,
+      mimetype: file.mimetype,
+      status: 'uploaded',
+      chunkCount: 0,
+      ocrUsed: false,
+      uploadedAt: dayjs().toISOString(),
+      tenantId: String(req.tenantId || DEFAULT_TENANT_ID),
+    }
+
+    db.data.materials.push(material)
+    await db.write()
+    return res.json({ message: '上传成功，等待处理', material })
+  })
+})
+
+app.post('/api/materials/:id/process', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
+  const id = String(req.params.id)
+  const tenantId = String(req.tenantId || DEFAULT_TENANT_ID)
+  const result = await processMaterialById({ id, actorUserId: req.userId, tenantId })
+  if (!result.ok) return res.status(result.status || 500).json({ message: result.message, material: result.material })
+  return res.json({ message: result.message, vectorSync: result.vectorSync, material: result.material })
+})
+
+app.post('/api/materials/:id/process-async', authRequired, requireRoles('teacher', 'admin'), async (req, res) => {
+  const id = String(req.params.id)
+  const tenantId = String(req.tenantId || DEFAULT_TENANT_ID)
+
+  // Fire-and-forget. The UI can poll by reloading materials list.
+  setTimeout(() => {
+    void processMaterialById({ id, actorUserId: req.userId, tenantId })
+  }, 0)
+
+  return res.json({ ok: true, message: '已提交异步处理任务，请稍后刷新查看状态', id })
 })
 
 app.get('/api/policy-scout/stats', authRequired, requireRoles('teacher', 'admin'), (_req, res) => {

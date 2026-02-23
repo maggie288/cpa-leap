@@ -96,6 +96,10 @@ const ensureDefaults = (data) => {
   data.generationRuns ||= []
   data.modelFeedback ||= []
   data.materials ||= []
+  data.materials = (data.materials || []).map((mat) => ({
+    ...mat,
+    tenantId: String(mat.tenantId || 'default').trim() || 'default',
+  }))
   data.materialChunks ||= []
   data.automationSettings ||= cloneDefaultData().automationSettings
   data.promptTemplates ||= cloneDefaultData().promptTemplates

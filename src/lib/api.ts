@@ -1,6 +1,14 @@
 import type { KnowledgeEntry, MaterialAsset, SubscriptionPlan, UserProfile, UserProgress } from '../types'
 
-const API_BASE = import.meta.env.VITE_API_BASE || (import.meta.env.DEV ? 'http://localhost:8787/api' : '/api')
+const API_BASE = (() => {
+  const raw = (import.meta.env.VITE_API_BASE as string | undefined) || ''
+  if (raw) {
+    const base = raw.replace(/\/+$/, '')
+    // Backend routes are mounted under `/api` (e.g. `/api/auth/login`).
+    return base.endsWith('/api') ? base : `${base}/api`
+  }
+  return import.meta.env.DEV ? 'http://localhost:8787/api' : '/api'
+})()
 const TOKEN_KEY = 'cpa_leap_token'
 
 const readToken = () => localStorage.getItem(TOKEN_KEY)
@@ -17,11 +25,24 @@ const request = async <T>(path: string, init?: RequestInit): Promise<T> => {
       ...(init?.headers || {}),
     },
   })
-  const json = (await response.json()) as T & { message?: string }
-  if (!response.ok) {
-    throw new Error(json.message || '请求失败')
+  const text = await response.text()
+  let json: (T & { message?: string }) | null = null
+  if (text) {
+    try {
+      json = JSON.parse(text) as T & { message?: string }
+    } catch {
+      // Non-JSON error bodies (e.g. 502 HTML) should still surface a readable message.
+      json = { message: text.slice(0, 300) } as T & { message?: string }
+    }
+  } else {
+    json = {} as T & { message?: string }
   }
-  return json
+
+  if (!response.ok) {
+    const msg = json?.message || `请求失败 (${response.status})`
+    throw new Error(msg)
+  }
+  return json as T
 }
 
 export const authApi = {
@@ -293,19 +314,78 @@ export const materialsApi = {
     year: string
     sourceType: 'textbook' | 'syllabus' | 'exam' | 'notes'
   }) {
-    const form = new FormData()
-    form.append('file', input.file)
-    form.append('subject', input.subject)
-    form.append('chapter', input.chapter)
-    form.append('year', input.year)
-    form.append('sourceType', input.sourceType)
-    return request<{ material: MaterialAsset; message: string }>('/materials/upload', {
-      method: 'POST',
-      body: form,
-    })
+    const file = input.file
+    const shouldDirectUpload = file.size > 45 * 1024 * 1024
+
+    const directUpload = async () => {
+      const init = await request<{
+        material: MaterialAsset
+        upload: { bucket: string; path: string; token: string; signedUrl: string }
+      }>('/materials/upload/initiate', {
+        method: 'POST',
+        body: JSON.stringify({
+          subject: input.subject,
+          chapter: input.chapter,
+          year: input.year,
+          sourceType: input.sourceType,
+          originalName: file.name,
+          mimetype: file.type || 'application/pdf',
+          size: file.size,
+        }),
+      })
+
+      const putRes = await fetch(init.upload.signedUrl, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': file.type || 'application/pdf',
+          'x-upsert': 'true',
+        },
+        body: file,
+      })
+      if (!putRes.ok) {
+        throw new Error(`Storage 上传失败 (HTTP ${putRes.status})`)
+      }
+
+      const completed = await request<{ ok: boolean; material: MaterialAsset; message: string }>(
+        `/materials/${init.material.id}/complete-upload`,
+        { method: 'POST', body: JSON.stringify({}) },
+      )
+
+      // Async ingest to avoid request timeouts for large PDFs.
+      await request<{ ok: boolean; message: string; id: string }>(`/materials/${init.material.id}/process-async`, {
+        method: 'POST',
+        body: JSON.stringify({}),
+      })
+
+      return { material: completed.material, message: '上传成功，已提交异步入库处理' }
+    }
+
+    if (shouldDirectUpload) return directUpload()
+
+    // For small files: try direct upload first (if backend supports), otherwise fallback to multipart.
+    try {
+      return await directUpload()
+    } catch {
+      const form = new FormData()
+      form.append('file', file)
+      form.append('subject', input.subject)
+      form.append('chapter', input.chapter)
+      form.append('year', input.year)
+      form.append('sourceType', input.sourceType)
+      return request<{ material: MaterialAsset; message: string }>('/materials/upload', {
+        method: 'POST',
+        body: form,
+      })
+    }
   },
   async process(id: string) {
     return request<{ material: MaterialAsset; message: string }>(`/materials/${id}/process`, {
+      method: 'POST',
+      body: JSON.stringify({}),
+    })
+  },
+  async processAsync(id: string) {
+    return request<{ ok: boolean; message: string; id: string }>(`/materials/${id}/process-async`, {
       method: 'POST',
       body: JSON.stringify({}),
     })
