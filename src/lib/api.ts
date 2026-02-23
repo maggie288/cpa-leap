@@ -338,7 +338,6 @@ export const materialsApi = {
         method: 'PUT',
         headers: {
           'Content-Type': file.type || 'application/pdf',
-          'x-upsert': 'true',
         },
         body: file,
       })
